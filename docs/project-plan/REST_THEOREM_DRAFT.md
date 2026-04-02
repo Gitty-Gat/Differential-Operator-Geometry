@@ -1,13 +1,13 @@
 # REST_THEOREM_DRAFT
 
 ## Purpose
-This note gives a first rigorous theorem draft for the canonical Phase 2 REST setting:
+This note gives a first rigorous theorem draft for the canonical covariance-based REST setting:
 - streaming observations `x_t \in \mathbb{R}^d`,
 - a symmetric positive semidefinite local operator `L_t`,
 - a retained rank-`k` eigendecomposition,
-- a retained-coordinate REST output obtained by reciprocal flattening followed by exponential lifting.
+- a retained-coordinate REST output interpreted as a **geometric preconditioner**.
 
-The goal here is not to prove the full long-horizon behavior of REST. The goal is to state one precise, conservative single-step perturbation theorem in the canonical covariance-based setting.
+The goal here is not to prove the full long-horizon behavior of REST. The goal is to state one precise, conservative single-step perturbation theorem in the canonical covariance-based setting actually implemented in the repository.
 
 ---
 
@@ -134,7 +134,7 @@ so that
 z_t = T_t\tilde{x}_t.
 ```
 
-This note treats `z_t` and `T_t` as the primary formal outputs.
+This note treats `z_t` and `T_t` as the primary formal outputs. In Phase 5, the recommended interpretation is that `T_t` is a retained-coordinate preconditioning map rather than evidence that transform ordering is independently meaningful in the current diagonal setting.
 
 ---
 
@@ -245,7 +245,7 @@ This elementary diagonal bound is the spectral-weight part of the final theorem.
 ---
 
 ## 5. Single-step perturbation/stability theorem
-### Theorem 1 (single-step stability of the retained-coordinate REST transform)
+### Theorem 1 (single-step stability of the retained-coordinate geometric preconditioner)
 Let
 
 ```math
@@ -280,7 +280,7 @@ In particular, if the ridge scale is held fixed across one step, `r_t = r_{t-1}`
 L_\lambda\delta + C_{\mathrm{gap}}M_h\frac{\delta}{\gamma}.
 ```
 
-Therefore the retained-coordinate REST transform is single-step stable in operator norm: its change is controlled linearly by the one-step operator drift and inversely by the retained spectral gap.
+Therefore the retained-coordinate geometric preconditioner is single-step stable in operator norm: its change is controlled linearly by the one-step operator drift and inversely by the retained spectral gap.
 
 ### Corollary 1 (single-step output perturbation for a fixed centered input)
 Under the same assumptions, for any centered input vector `\tilde{x} \in \mathbb{R}^d`,
@@ -377,7 +377,7 @@ The corollary follows immediately by multiplying by `\|\tilde{x}\|_2`.
 
 ## 7. Remarks on interpretation
 ### 7.1 What this theorem does show
-This theorem shows that, in the canonical covariance-based retained-coordinate setting, the one-step REST map does not change arbitrarily fast when:
+This theorem shows that, in the canonical covariance-based retained-coordinate setting, the one-step geometric preconditioner induced by REST does not change arbitrarily fast when:
 - the local operator changes by a small amount in spectral norm,
 - the retained eigenspace remains separated by a nontrivial gap,
 - the reciprocal/exponential weights are clipped and Lipschitz-controlled.
@@ -397,7 +397,8 @@ This theorem is local in time and does not claim:
 - asymptotic convergence,
 - near-isometry,
 - robustness to vanishing spectral gaps,
-- superiority over PCA, whitening, or other baselines.
+- superiority over PCA, whitening, or other baselines,
+- or that reciprocal-then-exponential ordering is itself a distinct tested mechanism in the present diagonal formulation.
 
 Those may become later questions, but they are not established here.
 
@@ -410,6 +411,7 @@ The following are **not** proved by the present draft and should not be claimed 
 - near-isometry,
 - convergence under nonstationary drift,
 - optimality of the reciprocal-then-exponential ordering,
-- empirical benefit over baselines.
+- empirical benefit over baselines,
+- or the existence of a non-commuting ordering effect in the current retained-coordinate diagonal architecture.
 
 The current theorem is deliberately a first foothold, not the finished theory.

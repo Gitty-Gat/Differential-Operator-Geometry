@@ -18,7 +18,7 @@ This repository is currently focused on bootstrap-stage research organization:
 - and establish a clean structure for future theory and experimental work.
 
 ## Current stage
-**Stage:** Early research with Phase 1 complete, Phase 2 formalized at draft level, Phase 3 implemented, and Phase 4 evaluation completed
+**Stage:** Early research with Phase 1–4 completed and Phase 5 reframing completed
 
 What exists now:
 - primary conceptual draft material,
@@ -27,7 +27,8 @@ What exists now:
 - Phase 1 concept, literature-positioning, canonical-decision, idea-paper, and execution-plan documents,
 - Phase 2 formal method and theorem draft documents,
 - Phase 3 implementation code, tests, synthetic experiments, metrics, and evaluation note,
-- Phase 4 ablation, downstream-task, traceability, figure, threshold, and recommendation artifacts.
+- Phase 4 ablation, downstream-task, traceability, figure, threshold, and recommendation artifacts,
+- Phase 5 reframing, theory-alignment, and scope-decision documents.
 
 What does not yet exist:
 - completed proofs beyond draft level,
@@ -67,9 +68,21 @@ The original instructions referenced `Abstract.docx`, but the active source file
 
 This preserves traceability to the actual source material used during bootstrap.
 
+## Phase 4 summary
+Phase 4 strengthened the empirical and diagnostic picture and led to a clear recommendation:
+
+- REST remains computationally viable and empirically distinguishable from simple baselines.
+- The strongest current limitation is architectural: in the retained-coordinate diagonal formulation, the reciprocal and exponential maps commute, so the ordering hypothesis is not empirically distinguishable as a separate source of benefit.
+- The current recommendation is therefore **REFINE**, not scale blindly.
+
+Example Phase 4 artifact:
+
+![Phase 4 stability-vs-beta figure](experiments/results/figures/stability_vs_beta.svg)
+
 ## Planned next work
-With Phase 4 completed, the immediate next steps are:
-1. refine the novelty framing in light of the ordering-ablation result,
-2. decide whether REST should be positioned more explicitly as a geometric preconditioner,
-3. tighten the Phase 2 theorem draft so it matches the actual implementation regime and diagnostics,
-4. only after that, decide whether broader operator families or real-world datasets are warranted.
+With Phase 5 completed, the immediate next steps are:
+1. continue under the geometric-preconditioner framing,
+2. tighten proof details and constants for the one-step stability result,
+3. optionally run one bounded non-commuting-variant spike only if restoring an ordering-sensitive mechanism remains strategically important,
+4. otherwise prioritize narrow, defensible validation in domains where preconditioning is likely to matter,
+5. avoid broad real-world expansion until the scope decision is revisited with stronger evidence.

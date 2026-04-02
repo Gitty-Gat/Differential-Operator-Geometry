@@ -1,10 +1,14 @@
 # REST_METHOD_NOTE
 
 ## Purpose
-This note gives the first formal specification of **REST** (Reciprocal–Exponential Spectral Transforms) in the canonical Phase 2 setting adopted by the repository. The goal is intentionally narrow:
+This note gives the first formal specification of **REST** (Reciprocal–Exponential Spectral Transforms) in the canonical covariance-based setting adopted by the repository. After Phase 4, the most accurate framing of this object is:
+
+> REST is a **streaming geometric preconditioner** in retained spectral coordinates.
+
+The goal is intentionally narrow:
 
 1. fix one mathematical setting,
-2. define one retained-coordinate transform with consistent notation,
+2. define one retained-coordinate preconditioning transform with consistent notation,
 3. state one modest single-step stability theorem target,
 4. provide an algorithm description aligned with that theorem target.
 
@@ -13,7 +17,7 @@ This note does **not** claim that REST is already fully characterized, globally 
 ---
 
 ## Canonical setting
-Let `(x_t)_{t \ge 1}` be a stream of observations in `\mathbb{R}^d`. For each time `t`, choose a finite sliding window
+Let `(x_t)_{t \ge 1}` be a stream of observations in `\mathbb{R}^d`. In the current repository state, REST should be interpreted as a **retained-coordinate geometric preconditioner** applied to a local covariance-based representation. For each time `t`, choose a finite sliding window
 
 ```math
 W_t = \{x_{t-m+1}, \dots, x_t\}
@@ -180,8 +184,7 @@ T_t := W_tU_t^\top,
 z_t = T_t\tilde{x}_t.
 ```
 
-The order is part of the method definition:
-**reciprocal flattening is applied first, exponential lift second.**
+The canonical implementation is written in reciprocal-then-exponential order. However, in the current retained-coordinate diagonal formulation both weighting maps are diagonal in the same basis, so their product commutes algebraically. As a result, the current method note should treat the transform primarily as a **composite geometric preconditioner**, not as evidence that ordering itself is yet a distinct source of benefit.
 
 ---
 
@@ -366,18 +369,19 @@ The present note leaves several things unresolved:
 - repeated-update near-isometry,
 - behavior when the retained spectral gap collapses,
 - whether the exponential lift helps more than it harms empirically,
-- comparison to concrete baselines.
+- comparison to concrete baselines,
+- and whether a genuinely non-commuting ordering effect exists outside the present diagonal retained-coordinate architecture.
 
-That is acceptable for Phase 2. This note is meant to produce one coherent mathematical object, not a finished theory.
+That is acceptable for the current stage. This note is meant to produce one coherent preconditioning object, not a finished theory.
 
 ---
 
 ## What this note establishes
-Phase 2 now has a mathematically precise object to work with:
+The repository now has a mathematically precise preconditioning object to work with:
 - a covariance-based local operator,
 - a retained-basis coordinate representation,
 - explicit reciprocal and exponential diagonal maps,
-- a composite transform,
+- a composite geometric preconditioner,
 - and a narrow first theorem target.
 
-That is enough structure for a theorem draft, implementation planning, and baseline construction in the next phase.
+That is enough structure for theorem refinement, implementation analysis, and further architectural work.

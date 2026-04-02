@@ -18,7 +18,7 @@ This repository is currently focused on bootstrap-stage research organization:
 - and establish a clean structure for future theory and experimental work.
 
 ## Current stage
-**Stage:** Early research with Phase 1 completed and Phase 2 formalization drafted
+**Stage:** Early research with Phase 1 complete, Phase 2 formalized at draft level, and Phase 3 minimally implemented and validated
 
 What exists now:
 - primary conceptual draft material,
@@ -26,13 +26,13 @@ What exists now:
 - repository-level synthesis and evaluation documents,
 - Phase 1 concept, literature-positioning, canonical-decision, idea-paper, and execution-plan documents,
 - Phase 2 formal method and theorem draft documents,
-- a Phase 3 implementation plan.
+- Phase 3 implementation code, tests, synthetic experiments, metrics, and evaluation note.
 
 What does not yet exist:
 - completed proofs beyond draft level,
-- implementation code,
-- experimental benchmarks,
-- validated empirical claims.
+- large-scale or real-world experimental benchmarks,
+- validated downstream application claims,
+- broader operator-family implementations beyond the covariance case.
 
 ## High-level idea summary
 The repository's source materials support the following project summary:
@@ -67,9 +67,9 @@ The original instructions referenced `Abstract.docx`, but the active source file
 This preserves traceability to the actual source material used during bootstrap.
 
 ## Planned next work
-With Phase 1 completed and Phase 2 formalization drafted, the immediate next steps are:
+With Phase 3 now completed at the minimal implementation-and-validation level, the immediate next steps are:
 1. tighten and verify the Phase 2 proof details,
-2. implement the canonical covariance-based REST formulation,
-3. build baseline comparators,
-4. run minimal synthetic benchmarks,
-5. evaluate the method against baseline streaming approaches.
+2. deepen the empirical study with stronger diagnostics and broader parameter sweeps,
+3. test downstream task behavior on controlled benchmarks,
+4. decide whether the covariance-based REST formulation justifies broader validation or architectural refinement,
+5. only then expand to broader operator families or real-world datasets.

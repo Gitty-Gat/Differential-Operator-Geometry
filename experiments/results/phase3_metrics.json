@@ -1,0 +1,98 @@
+{
+  "experiments": [
+    {
+      "name": "drifting_low_rank",
+      "metrics": {
+        "stability": {
+          "rest": 2.774789561481109,
+          "raw": 2.532904231157417,
+          "pca_scaled": 3.8317258841922492,
+          "reciprocal_only": 1.6472836111798541,
+          "exponential_only": 4.400251455530992
+        },
+        "weight_sensitivity_mean": 0.025752768287063833,
+        "condition_proxy_mean": 1.3818058272141804,
+        "condition_proxy_max": 1.5792741848488336,
+        "runtime_ms_mean": 0.10168710212336662,
+        "samples_evaluated": 117,
+        "parameters": {
+          "dimension": 6,
+          "window_size": 24,
+          "rank": 2,
+          "ridge_scale": 0.5,
+          "beta": 0.7
+        }
+      }
+    },
+    {
+      "name": "rotating_anisotropic_gaussian",
+      "metrics": {
+        "stability": {
+          "rest": 3.1652137282381445,
+          "raw": 3.8474628317005566,
+          "pca_scaled": 10.320447790951027,
+          "reciprocal_only": 1.802511013154548,
+          "exponential_only": 7.180126713178023
+        },
+        "weight_sensitivity_mean": 0.03725158938491043,
+        "condition_proxy_mean": 1.971943759519552,
+        "condition_proxy_max": 2.454292451152656,
+        "runtime_ms_mean": 0.09755094875939764,
+        "samples_evaluated": 117,
+        "parameters": {
+          "dimension": 6,
+          "window_size": 24,
+          "rank": 2,
+          "ridge_scale": 0.5,
+          "beta": 0.7
+        }
+      }
+    },
+    {
+      "name": "deforming_manifold",
+      "metrics": {
+        "stability": {
+          "rest": 0.35714248735731574,
+          "raw": 0.26477971584028187,
+          "pca_scaled": 0.24070791295172878,
+          "reciprocal_only": 0.25841129314746997,
+          "exponential_only": 0.39456428571492336
+        },
+        "weight_sensitivity_mean": 0.019768801172187975,
+        "condition_proxy_mean": 1.096244733909364,
+        "condition_proxy_max": 1.2407530250842873,
+        "runtime_ms_mean": 0.096885607086329,
+        "samples_evaluated": 117,
+        "parameters": {
+          "dimension": 6,
+          "window_size": 24,
+          "rank": 2,
+          "ridge_scale": 0.5,
+          "beta": 0.7
+        }
+      }
+    }
+  ],
+  "parameter_sensitivity": {
+    "0.0": {
+      "rest_stability": 1.8173528027111985,
+      "condition_proxy_mean": 2.3973894275449585,
+      "weight_sensitivity_mean": 0.03711222588546517
+    },
+    "0.4": {
+      "rest_stability": 2.5075131447375676,
+      "condition_proxy_mean": 2.170911271712839,
+      "weight_sensitivity_mean": 0.03834258045578986
+    },
+    "0.8": {
+      "rest_stability": 3.474925726704404,
+      "condition_proxy_mean": 1.9670896399757671,
+      "weight_sensitivity_mean": 0.03731550618202009
+    },
+    "1.2": {
+      "rest_stability": 4.836565629798457,
+      "condition_proxy_mean": 1.7835337828248952,
+      "weight_sensitivity_mean": 0.034301254707680424
+    }
+  }
+}

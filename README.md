@@ -18,12 +18,14 @@ This repository is currently focused on bootstrap-stage research organization:
 - and establish a clean structure for future theory and experimental work.
 
 ## Current stage
-**Stage:** Early research / bootstrap
+**Stage:** Early research / bootstrap with Phase 1 planning completed
 
 What exists now:
 - primary conceptual draft material,
 - secondary critique and research-planning notes,
-- repository-level synthesis and evaluation documents.
+- repository-level synthesis and evaluation documents,
+- Phase 1 concept, literature-positioning, canonical-decision, and idea-paper planning documents,
+- a Phase 2 formalization plan.
 
 What does not yet exist:
 - formal proofs,
@@ -64,8 +66,9 @@ The original instructions referenced `Abstract.docx`, but the active source file
 This preserves traceability to the actual source material used during bootstrap.
 
 ## Planned next work
-Based on the current source set, the immediate next steps are:
-1. unify notation and choose the canonical operator formulation,
-2. prove one rigorous stability/distortion result,
-3. implement minimal synthetic benchmarks,
-4. evaluate the method against baseline streaming approaches.
+With Phase 1 now completed at the documentation level, the immediate next steps are:
+1. formalize the canonical covariance-based REST formulation,
+2. standardize notation and write the method note,
+3. prove one rigorous single-step stability/distortion result,
+4. implement minimal synthetic benchmarks,
+5. evaluate the method against baseline streaming approaches.

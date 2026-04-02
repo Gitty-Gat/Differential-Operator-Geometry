@@ -158,4 +158,3 @@ Each task builds logically on the previous one—moving from clarification and f
 18. **Optional: Draft short publication-style appendix.**
 
     * Include proofs, assumptions, and toy examples for submission to *NeurIPS/ICLR Geometry & Topology* workshops or *JMLR* “Learning Theory” track.
-

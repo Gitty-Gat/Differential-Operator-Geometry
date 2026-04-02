@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="420">
+<rect width="100%" height="100%" fill="white"/>
+<text x="410.0" y="24" text-anchor="middle" font-size="18" font-family="Arial">REST stability vs beta on rotating anisotropic Gaussian</text>
+<line x1="50" y1="370" x2="770" y2="370" stroke="black"/>
+<line x1="50" y1="50" x2="50" y2="370" stroke="black"/>
+<polyline fill="none" stroke="#1f77b4" stroke-width="2" points="50.00,370.00 170.00,336.22 290.00,296.37 530.00,193.74 770.00,50.00"/>
+<text x="640" y="40" fill="#1f77b4" font-size="12" font-family="Arial">REST</text>
+<line x1="50.00" y1="370" x2="50.00" y2="375" stroke="black"/>
+<text x="50.00" y="390" text-anchor="middle" font-size="11" font-family="Arial">0.00</text>
+<line x1="45" y1="370.00" x2="50" y2="370.00" stroke="black"/>
+<text x="42" y="374.00" text-anchor="end" font-size="11" font-family="Arial">1.83</text>
+<line x1="230.00" y1="370" x2="230.00" y2="375" stroke="black"/>
+<text x="230.00" y="390" text-anchor="middle" font-size="11" font-family="Arial">0.30</text>
+<line x1="45" y1="290.00" x2="50" y2="290.00" stroke="black"/>
+<text x="42" y="294.00" text-anchor="end" font-size="11" font-family="Arial">2.57</text>
+<line x1="410.00" y1="370" x2="410.00" y2="375" stroke="black"/>
+<text x="410.00" y="390" text-anchor="middle" font-size="11" font-family="Arial">0.60</text>
+<line x1="45" y1="210.00" x2="50" y2="210.00" stroke="black"/>
+<text x="42" y="214.00" text-anchor="end" font-size="11" font-family="Arial">3.30</text>
+<line x1="590.00" y1="370" x2="590.00" y2="375" stroke="black"/>
+<text x="590.00" y="390" text-anchor="middle" font-size="11" font-family="Arial">0.90</text>
+<line x1="45" y1="130.00" x2="50" y2="130.00" stroke="black"/>
+<text x="42" y="134.00" text-anchor="end" font-size="11" font-family="Arial">4.04</text>
+<line x1="770.00" y1="370" x2="770.00" y2="375" stroke="black"/>
+<text x="770.00" y="390" text-anchor="middle" font-size="11" font-family="Arial">1.20</text>
+<line x1="45" y1="50.00" x2="50" y2="50.00" stroke="black"/>
+<text x="42" y="54.00" text-anchor="end" font-size="11" font-family="Arial">4.77</text>
+</svg>

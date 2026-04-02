@@ -15,6 +15,7 @@ from rest.core import (
 )
 from baselines.covariance import (
     exponential_only_coordinates,
+    exponential_then_reciprocal_coordinates,
     raw_retained_coordinates,
     reciprocal_only_coordinates,
 )
@@ -90,10 +91,12 @@ class TestRestStep(unittest.TestCase):
         raw = raw_retained_coordinates(x, mean, basis)
         reciprocal_only = reciprocal_only_coordinates(x, mean, basis, evals, ridge_scale=0.4)
         exponential_only = exponential_only_coordinates(x, mean, basis, evals, ridge_scale=0.4, beta=0.9)
+        reversed_order = exponential_then_reciprocal_coordinates(x, mean, basis, evals, ridge_scale=0.4, beta=0.9)
 
         self.assertFalse(np.allclose(result.rest_coordinates, raw))
         self.assertFalse(np.allclose(result.rest_coordinates, reciprocal_only))
         self.assertFalse(np.allclose(result.rest_coordinates, exponential_only))
+        self.assertTrue(np.allclose(result.rest_coordinates, reversed_order))
 
 
 if __name__ == "__main__":

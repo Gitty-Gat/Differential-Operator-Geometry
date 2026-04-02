@@ -88,3 +88,61 @@ def deforming_manifold_stream(
             point[3] = amp * np.cos(3.0 * u)
         point += rng.normal(scale=noise_scale, size=dimension)
         yield point
+
+
+def sparse_high_noise_stream(
+    *,
+    steps: int,
+    dimension: int = 10,
+    signal_dims: int = 2,
+    signal_scale: float = 0.5,
+    noise_scale: float = 1.2,
+    sparsity_prob: float = 0.15,
+    seed: int = 29,
+) -> Iterator[Array]:
+    if dimension < signal_dims:
+        raise ValueError("dimension must be at least signal_dims")
+    rng = np.random.default_rng(seed)
+
+    for t in range(steps):
+        point = rng.normal(scale=noise_scale, size=dimension)
+        mask = rng.random(signal_dims) < sparsity_prob
+        signal = np.zeros(signal_dims, dtype=float)
+        if np.any(mask):
+            signal[mask] = signal_scale * rng.normal(size=int(np.sum(mask)))
+        point[:signal_dims] += signal
+        if t % 17 == 0:
+            point[:signal_dims] += 0.25 * np.array([1.0, -1.0])[:signal_dims]
+        yield point
+
+
+def regime_switch_stream(
+    *,
+    steps: int,
+    dimension: int = 6,
+    change_fraction: float = 0.5,
+    pre_major_scale: float = 2.5,
+    post_major_scale: float = 0.9,
+    pre_minor_scale: float = 0.4,
+    post_minor_scale: float = 2.2,
+    noise_scale: float = 0.03,
+    seed: int = 37,
+) -> Iterator[Array]:
+    if dimension < 2:
+        raise ValueError("dimension must be at least 2")
+    rng = np.random.default_rng(seed)
+    change_index = max(1, min(steps - 1, int(change_fraction * steps)))
+
+    for t in range(steps):
+        if t < change_index:
+            scales = np.array([pre_major_scale, pre_minor_scale], dtype=float)
+            theta = 0.02 * t
+        else:
+            scales = np.array([post_major_scale, post_minor_scale], dtype=float)
+            theta = 0.8 + 0.06 * (t - change_index)
+        rot = _rotation_matrix(theta)
+        sample2 = rot @ (scales * rng.normal(size=2))
+        point = np.zeros(dimension, dtype=float)
+        point[:2] = sample2
+        point += rng.normal(scale=noise_scale, size=dimension)
+        yield point

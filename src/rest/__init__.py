@@ -13,6 +13,8 @@ from .synthetic import (
     drifting_low_rank_stream,
     rotating_anisotropic_gaussian_stream,
     deforming_manifold_stream,
+    sparse_high_noise_stream,
+    regime_switch_stream,
 )
 
 __all__ = [
@@ -28,4 +30,6 @@ __all__ = [
     "drifting_low_rank_stream",
     "rotating_anisotropic_gaussian_stream",
     "deforming_manifold_stream",
+    "sparse_high_noise_stream",
+    "regime_switch_stream",
 ]

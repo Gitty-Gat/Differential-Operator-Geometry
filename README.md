@@ -18,7 +18,7 @@ This repository is currently focused on bootstrap-stage research organization:
 - and establish a clean structure for future theory and experimental work.
 
 ## Current stage
-**Stage:** Early research with Phase 1 complete, Phase 2 formalized at draft level, and Phase 3 minimally implemented and validated
+**Stage:** Early research with Phase 1 complete, Phase 2 formalized at draft level, Phase 3 implemented, and Phase 4 evaluation completed
 
 What exists now:
 - primary conceptual draft material,
@@ -26,12 +26,13 @@ What exists now:
 - repository-level synthesis and evaluation documents,
 - Phase 1 concept, literature-positioning, canonical-decision, idea-paper, and execution-plan documents,
 - Phase 2 formal method and theorem draft documents,
-- Phase 3 implementation code, tests, synthetic experiments, metrics, and evaluation note.
+- Phase 3 implementation code, tests, synthetic experiments, metrics, and evaluation note,
+- Phase 4 ablation, downstream-task, traceability, figure, threshold, and recommendation artifacts.
 
 What does not yet exist:
 - completed proofs beyond draft level,
 - large-scale or real-world experimental benchmarks,
-- validated downstream application claims,
+- validated downstream application claims beyond controlled synthetic tasks,
 - broader operator-family implementations beyond the covariance case.
 
 ## High-level idea summary
@@ -67,9 +68,8 @@ The original instructions referenced `Abstract.docx`, but the active source file
 This preserves traceability to the actual source material used during bootstrap.
 
 ## Planned next work
-With Phase 3 now completed at the minimal implementation-and-validation level, the immediate next steps are:
-1. tighten and verify the Phase 2 proof details,
-2. deepen the empirical study with stronger diagnostics and broader parameter sweeps,
-3. test downstream task behavior on controlled benchmarks,
-4. decide whether the covariance-based REST formulation justifies broader validation or architectural refinement,
-5. only then expand to broader operator families or real-world datasets.
+With Phase 4 completed, the immediate next steps are:
+1. refine the novelty framing in light of the ordering-ablation result,
+2. decide whether REST should be positioned more explicitly as a geometric preconditioner,
+3. tighten the Phase 2 theorem draft so it matches the actual implementation regime and diagnostics,
+4. only after that, decide whether broader operator families or real-world datasets are warranted.

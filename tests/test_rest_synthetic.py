@@ -7,7 +7,9 @@ import numpy as np
 from rest.synthetic import (
     deforming_manifold_stream,
     drifting_low_rank_stream,
+    regime_switch_stream,
     rotating_anisotropic_gaussian_stream,
+    sparse_high_noise_stream,
 )
 
 
@@ -27,6 +29,17 @@ class TestSyntheticStreams(unittest.TestCase):
         self.assertEqual(len(xs), 5)
         self.assertTrue(all(x.shape == (6,) for x in xs))
         self.assertFalse(np.allclose(xs[0], xs[-1]))
+
+    def test_sparse_high_noise_stream_shapes(self) -> None:
+        xs = list(sparse_high_noise_stream(steps=5, dimension=10, seed=4))
+        self.assertEqual(len(xs), 5)
+        self.assertTrue(all(x.shape == (10,) for x in xs))
+
+    def test_regime_switch_stream_shapes(self) -> None:
+        xs = list(regime_switch_stream(steps=8, dimension=6, seed=5))
+        self.assertEqual(len(xs), 8)
+        self.assertTrue(all(x.shape == (6,) for x in xs))
+        self.assertFalse(np.allclose(xs[2], xs[-2]))
 
 
 if __name__ == "__main__":

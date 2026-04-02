@@ -3,6 +3,7 @@ from .covariance import (
     pca_energy_scaled_coordinates,
     reciprocal_only_coordinates,
     exponential_only_coordinates,
+    exponential_then_reciprocal_coordinates,
 )
 
 __all__ = [
@@ -10,4 +11,5 @@ __all__ = [
     "pca_energy_scaled_coordinates",
     "reciprocal_only_coordinates",
     "exponential_only_coordinates",
+    "exponential_then_reciprocal_coordinates",
 ]

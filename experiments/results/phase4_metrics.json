@@ -1,0 +1,254 @@
+{
+  "primary_results": [
+    {
+      "name": "drifting_low_rank",
+      "metrics": {
+        "stability": {
+          "rest": 2.920838401626933,
+          "raw": 2.732742979580228,
+          "pca_scaled": 4.300155126623259,
+          "reciprocal_only": 1.709087841198532,
+          "exponential_only": 4.795530097857395,
+          "exp_then_reciprocal": 2.920838401626933
+        },
+        "condition_proxy_mean": 1.3534533511380766,
+        "condition_proxy_max": 1.5792741848488336,
+        "weight_sensitivity_mean": 0.026708187163286146,
+        "spectral_gap_mean": 0.9740009039095199,
+        "spectral_gap_min": 0.20567692470332322,
+        "drift_mean": 0.2387253544892485,
+        "drift_max": 1.266937048051759,
+        "basis_motion_mean": 0.007023219722837637,
+        "basis_motion_max": 0.02481936848336214,
+        "reciprocal_clip_rate": 0.0,
+        "exponential_clip_rate": 0.0,
+        "runtime_ms_mean": 0.11596014639948476,
+        "samples_evaluated": 157,
+        "parameters": {
+          "dimension": 6,
+          "window_size": 24,
+          "rank": 2,
+          "ridge_scale": 0.5,
+          "beta": 0.7
+        }
+      }
+    },
+    {
+      "name": "rotating_anisotropic_gaussian",
+      "metrics": {
+        "stability": {
+          "rest": 3.2365068706195297,
+          "raw": 3.9081216133025882,
+          "pca_scaled": 10.40499175491778,
+          "reciprocal_only": 1.8388151245470175,
+          "exponential_only": 7.2904332625170305,
+          "exp_then_reciprocal": 3.2365068706195297
+        },
+        "condition_proxy_mean": 1.9609297825156164,
+        "condition_proxy_max": 2.454292451152656,
+        "weight_sensitivity_mean": 0.03951421943643612,
+        "spectral_gap_mean": 1.3140743617031019,
+        "spectral_gap_min": 0.40527142200794886,
+        "drift_mean": 0.7101204624103353,
+        "drift_max": 2.969270550455523,
+        "basis_motion_mean": 0.0031268514960454065,
+        "basis_motion_max": 0.010088511138446074,
+        "reciprocal_clip_rate": 0.0,
+        "exponential_clip_rate": 0.0,
+        "runtime_ms_mean": 0.10695327999282356,
+        "samples_evaluated": 157,
+        "parameters": {
+          "dimension": 6,
+          "window_size": 24,
+          "rank": 2,
+          "ridge_scale": 0.5,
+          "beta": 0.7
+        }
+      }
+    },
+    {
+      "name": "deforming_manifold",
+      "metrics": {
+        "stability": {
+          "rest": 0.23575962668260922,
+          "raw": 0.16994618334328146,
+          "pca_scaled": 0.12229717308092547,
+          "reciprocal_only": 0.18141059559138922,
+          "exponential_only": 0.23536845451152907,
+          "exp_then_reciprocal": 0.23575962668260922
+        },
+        "condition_proxy_mean": 1.0380082868285918,
+        "condition_proxy_max": 1.1271443929630132,
+        "weight_sensitivity_mean": 0.009614592077180835,
+        "spectral_gap_mean": 0.029409217857060823,
+        "spectral_gap_min": 0.0006569363331920741,
+        "drift_mean": 0.06078356490260976,
+        "drift_max": 0.11200813359678029,
+        "basis_motion_mean": 0.08973855923314929,
+        "basis_motion_max": 0.9950172075065205,
+        "reciprocal_clip_rate": 0.0,
+        "exponential_clip_rate": 0.0,
+        "runtime_ms_mean": 0.10758394906171272,
+        "samples_evaluated": 157,
+        "parameters": {
+          "dimension": 6,
+          "window_size": 24,
+          "rank": 2,
+          "ridge_scale": 0.5,
+          "beta": 0.7
+        }
+      }
+    }
+  ],
+  "failure_result": {
+    "name": "sparse_high_noise_failure_probe",
+    "metrics": {
+      "stability": {
+        "rest": 3.0195218940128057,
+        "raw": 3.161998635271874,
+        "pca_scaled": 5.672735902396865,
+        "reciprocal_only": 1.6529956165777315,
+        "exponential_only": 5.784956115259454,
+        "exp_then_reciprocal": 3.0195218940128057
+      },
+      "condition_proxy_mean": 1.0860700816127615,
+      "condition_proxy_max": 1.2397191210603806,
+      "weight_sensitivity_mean": 0.02221620204367926,
+      "spectral_gap_mean": 0.6020017394297352,
+      "spectral_gap_min": 0.043980749909074746,
+      "drift_mean": 0.7388049989508144,
+      "drift_max": 1.4129809721933628,
+      "basis_motion_mean": 0.3122724121459741,
+      "basis_motion_max": 0.9992395778460976,
+      "reciprocal_clip_rate": 0.0,
+      "exponential_clip_rate": 0.0,
+      "runtime_ms_mean": 0.11443366907584439,
+      "samples_evaluated": 157,
+      "parameters": {
+        "dimension": 10,
+        "window_size": 24,
+        "rank": 2,
+        "ridge_scale": 0.5,
+        "beta": 0.7
+      }
+    }
+  },
+  "beta_sweep": {
+    "0.0": {
+      "rest_stability": 1.8331345643407508,
+      "condition_proxy_mean": 2.336997406579054,
+      "spectral_gap_mean": 1.240987687783375
+    },
+    "0.2": {
+      "rest_stability": 2.143305575165411,
+      "condition_proxy_mean": 2.218588776780481,
+      "spectral_gap_mean": 1.240987687783375
+    },
+    "0.4": {
+      "rest_stability": 2.5090736845034005,
+      "condition_proxy_mean": 2.106771048981309,
+      "spectral_gap_mean": 1.240987687783375
+    },
+    "0.8": {
+      "rest_stability": 3.451367016149667,
+      "condition_proxy_mean": 1.9013365025465847,
+      "spectral_gap_mean": 1.240987687783375
+    },
+    "1.2": {
+      "rest_stability": 4.770986481865762,
+      "condition_proxy_mean": 1.7178007059051943,
+      "spectral_gap_mean": 1.240987687783375
+    }
+  },
+  "heatmap": {
+    "0.0": {
+      "0.2": 2.4468411388416533,
+      "0.5": 2.2423230283874807,
+      "1.0": 2.0157206704797512,
+      "2.0": 1.7550649676702856
+    },
+    "0.4": {
+      "0.2": 2.319768481759069,
+      "0.5": 2.0258152922382116,
+      "1.0": 1.7468111594312348,
+      "2.0": 1.4773262570798034
+    },
+    "0.8": {
+      "0.2": 2.199837304342032,
+      "0.5": 1.8312482397417686,
+      "1.0": 1.5147414204685687,
+      "2.0": 1.2440660283768026
+    },
+    "1.2": {
+      "0.2": 2.086614792170039,
+      "0.5": 1.6562931638141805,
+      "1.0": 1.314334565704792,
+      "2.0": 1.0663399249648549
+    }
+  },
+  "downstream": {
+    "change_detection": {
+      "rest": 0.757038695843855,
+      "raw": 0.6070502538796024,
+      "reciprocal_only": 0.8839124250916625,
+      "exponential_only": 0.5357667469928012,
+      "exp_then_reciprocal": 0.757038695843855
+    },
+    "clustering": {
+      "rest": 0.05746137655040952,
+      "raw": 0.04428542383705672,
+      "reciprocal_only": 0.10277842002707219,
+      "exponential_only": 0.022380855679441272,
+      "exp_then_reciprocal": 0.05746137655040952
+    },
+    "forecast_mse": {
+      "rest": 5.034452787986847,
+      "raw": 4.951409847054398,
+      "reciprocal_only": 1.6578588977427182,
+      "exponential_only": 16.015731103079116
+    }
+  },
+  "thresholds": {
+    "threshold_1": {
+      "description": "REST stability within 10% of best ablation on at least 2 of 3 primary drift families",
+      "value": 0,
+      "passes": false,
+      "details": {
+        "drifting_low_rank": {
+          "rest": 2.920838401626933,
+          "best_ablation": 1.709087841198532,
+          "within_10_percent": false
+        },
+        "rotating_anisotropic_gaussian": {
+          "rest": 3.2365068706195297,
+          "best_ablation": 1.8388151245470175,
+          "within_10_percent": false
+        },
+        "deforming_manifold": {
+          "rest": 0.23575962668260922,
+          "best_ablation": 0.12229717308092547,
+          "within_10_percent": false
+        }
+      }
+    },
+    "threshold_2": {
+      "description": "There exists a beta regime with mean condition proxy < 2.0 and REST stability < 3.5 on rotating anisotropic Gaussian",
+      "passes": true
+    },
+    "threshold_3": {
+      "description": "Failure-mode probe documents at least one regime where REST underperforms reciprocal-only",
+      "passes": true,
+      "rest_failure_stability": 3.0195218940128057,
+      "reciprocal_only_failure_stability": 1.6529956165777315
+    },
+    "threshold_4": {
+      "description": "REST places at least second-best on one controlled downstream benchmark family",
+      "passes": true
+    }
+  },
+  "recommendation": {
+    "overall": "REFINE",
+    "rationale": "In the current retained-coordinate diagonal formulation, reciprocal and exponential weighting commute, so the ordering hypothesis is not empirically testable as a distinct source of benefit. The method still shows viability, but the novelty claim should be reframed or the architecture refined.",
+    "ordering_identity_detected": "True"
+  }
+}

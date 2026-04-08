@@ -55,7 +55,7 @@ Current operating rule:
 ## Highest-priority open work
 1. Tighten `docs/project-plan/REST_THEOREM_DRAFT.md` around the preconditioner framing.
 2. Tighten `docs/project-plan/REST_METHOD_NOTE.md` so assumptions, notation, and claims match implementation reality.
-3. Add `docs/project-plan/NEXT_ACTIONS.md` as the short operational queue.
+3. Use `docs/project-plan/NEXT_ACTIONS.md` as the short operational queue for the next slices.
 4. Run narrow follow-up validation focused on where geometric preconditioning helps versus where simpler transforms still win.
 5. Revisit the non-commuting variant only if the bounded spike triggers in `DECISIONS.md` are met.
 
@@ -69,6 +69,7 @@ Current operating rule:
 - `README.md` — current repo-level framing.
 - `SETUP.md` — exact environment and execution path for tests and synthetic experiments.
 - `DECISIONS.md` — compressed record of the active scope, framing, and defer decisions.
+- `docs/project-plan/NEXT_ACTIONS.md` — short operational queue for the next slices.
 - `docs/project-plan/PHASE5_COMPLETION_REPORT.md` — what Phase 5 changed.
 - `docs/project-plan/PHASE5_SCOPE_DECISION.md` — current strategic scope decision.
 - `docs/project-plan/PHASE5_THEORY_ALIGNMENT_NOTE.md` — strongest honest theorem framing.
@@ -81,6 +82,6 @@ If someone asks what this repo currently is, the best short answer is:
 
 ## Repo operations blocker
 - 2026-04-08: `git push origin main` failed again with `git@github.com: Permission denied (publickey).`
-- Latest local slice: `docs: add compressed decision log` (committed locally only).
-- `main` remains ahead of `origin/main`; this work is committed locally, but it has **not** been pushed.
-- Local follow-up needed: fix GitHub SSH credentials or switch the remote/auth method before the next push attempt.
+- Latest local slice: `docs: add next actions queue` (committed locally only).
+- `main` is now ahead of `origin/main` by 5 commits; the repo includes new local control-doc updates, but they have **not** been pushed.
+- Local follow-up needed: fix GitHub SSH credentials or switch the remote/auth method before claiming remote sync or attempting another push.

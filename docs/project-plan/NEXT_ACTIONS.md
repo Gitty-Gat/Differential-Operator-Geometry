@@ -1,0 +1,82 @@
+# NEXT_ACTIONS
+
+_Last updated: 2026-04-08_
+
+This file is the short operational queue for the repo. It exists to turn the current framing into the next few resumable slices without re-reading the entire project history.
+
+## Active objective
+Tighten the repo around the strongest honest contribution:
+
+> REST as a covariance-based streaming geometric preconditioner in retained spectral coordinates, with bounded one-step stability language and controlled synthetic support.
+
+## Current execution rule
+Prefer small slices that do one of the following:
+1. tighten theorem or method text,
+2. run a narrow validation tied to a concrete question,
+3. reduce project friction only when it directly improves iteration.
+
+Do **not** spend the next slices broadening scope, reviving universal-geometry claims, or exploring the non-commuting variant unless the trigger conditions in `DECISIONS.md` are met.
+
+## Priority queue
+
+### 1) Tighten `docs/project-plan/REST_THEOREM_DRAFT.md`
+**Why first:** this is the highest-value alignment task between what the code supports and what the repo currently claims.
+
+**Target outcome:** a theorem draft that reads as a one-step preconditioner stability statement rather than an ordering-novelty claim.
+
+**Definition of done:**
+- theorem statement explicitly names the covariance / retained-coordinate setting,
+- assumptions are listed in implementation-compatible form,
+- dependence on spectral gap and bounded weights is stated plainly,
+- non-claims are made explicit where needed,
+- proof sketch no longer implies a distinct non-commuting mechanism.
+
+### 2) Tighten `docs/project-plan/REST_METHOD_NOTE.md`
+**Why second:** the method note should match both the theorem framing and the active implementation path.
+
+**Target outcome:** one canonical method note that a reader can trust as the current description of the code.
+
+**Definition of done:**
+- notation matches `src/rest/`,
+- covariance construction and retained spectral coordinates are the default path,
+- commuting diagonal-weight behavior is acknowledged,
+- ordering-sensitive language is removed or explicitly bounded,
+- the note states where REST helps conceptually and where simpler transforms may still win.
+
+### 3) Design one narrow follow-up validation slice
+**Why third:** after text alignment, the next best work is a focused check that tests the preconditioner framing in a regime where it might actually matter.
+
+**Candidate questions:**
+- Does REST help more when spectral gaps are cleaner?
+- Does benefit persist under controlled drift, or collapse relative to reciprocal-only weighting?
+- Which downstream synthetic metric best captures preconditioning benefit rather than generic transform behavior?
+
+**Definition of done:**
+- choose one question,
+- name the exact script or small code change needed,
+- define expected artifact(s),
+- state in advance what result would count as useful, neutral, or negative.
+
+### 4) Reassess repo friction only if it blocks execution
+**Why fourth:** environment and push issues matter, but they should not dominate theory/method alignment work.
+
+**Definition of done:**
+- auth/path issues are documented when they block a slice,
+- setup instructions stay accurate,
+- no speculative tooling work is added unless it removes repeated friction.
+
+## Stop / continue signals
+Continue the narrow program if:
+- theorem and method notes become materially cleaner,
+- focused validation reveals interpretable help-cases,
+- the repo story gets simpler and more defensible.
+
+Pause or reconsider if:
+- theory tightening keeps collapsing into weaker claims,
+- validation keeps showing no meaningful edge over simpler baselines,
+- progress starts depending on reviving an ordering-sensitive story the current architecture does not support.
+
+## One-sentence guidance for the next stand-up
+If there is only one slice to do next, do this:
+
+> rewrite `REST_THEOREM_DRAFT.md` so it cleanly states a bounded one-step stability result for the retained-coordinate covariance preconditioner and nothing broader.

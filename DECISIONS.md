@@ -64,6 +64,7 @@ This file is the compressed decision record for the repo. It is meant to answer:
 
 **Implications:**
 - Update these files when scope, blockers, or execution norms materially change.
+- Maintain `docs/project-plan/NEXT_ACTIONS.md` as the rolling short queue derived from those decisions.
 - Use them to keep future stand-up slices small and resumable.
 
 ## What would justify reopening these decisions

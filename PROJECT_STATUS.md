@@ -63,7 +63,7 @@ Current operating rule:
 - **Contribution-framing risk:** the original ordering-sensitive novelty story is weakened by commutativity in the active architecture.
 - **Theory risk:** proof language can still drift beyond what the current assumptions justify.
 - **Evaluation risk:** current evidence is controlled and synthetic; external validity is still unproven.
-- **Project-friction risk:** setup/path/push friction has already slowed iteration and should be reduced via explicit control docs.
+- **Project-friction risk:** progress stalls when the control layer is missing, so the repo now explicitly depends on `ROADMAP.md`, `WORKLOG.md`, and the positioning note to keep future slices narrow.
 
 ## Read-first map
 - `README.md` — current repo-level framing.
@@ -80,8 +80,13 @@ If someone asks what this repo currently is, the best short answer is:
 
 > a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, with narrower claims than originally envisioned and a clear need for theory tightening plus targeted validation.
 
-## Repo operations blocker
-- 2026-04-08: the latest `git push origin main` attempt failed with `git@github.com: Permission denied (publickey).`
-- The local theorem-alignment commit `419e146` (`docs: tighten REST theorem framing`) is therefore committed locally but **not** present on `origin/main`.
-- The repo may contain additional local theory/control-doc updates until GitHub SSH credentials or the remote auth method are fixed.
-- Do **not** claim remote sync until a push succeeds.
+## Repo operations status
+- 2026-04-08: the repo is currently synchronized with `origin/main`.
+- The earlier SSH/push blocker is no longer the active story and should not be treated as a standing blocker unless it recurs.
+- If remote auth fails again in a future slice, record it as a fresh operational blocker rather than preserving stale failure text.
+
+## Control docs to read first
+- `ROADMAP.md`
+- `WORKLOG.md`
+- `docs/project-plan/PRECONDITIONER_POSITIONING_NOTE.md`
+- `docs/project-plan/NEXT_ACTIONS.md`

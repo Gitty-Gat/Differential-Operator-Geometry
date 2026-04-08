@@ -83,6 +83,15 @@ Example Phase 4 artifact:
 With Phase 5 completed, the immediate next steps are:
 1. continue under the geometric-preconditioner framing,
 2. tighten proof details and constants for the one-step stability result,
-3. optionally run one bounded non-commuting-variant spike only if restoring an ordering-sensitive mechanism remains strategically important,
-4. otherwise prioritize narrow, defensible validation in domains where preconditioning is likely to matter,
+3. run one narrow validation slice before broadening claims,
+4. revisit the non-commuting variant only if the trigger conditions in `DECISIONS.md` are met,
 5. avoid broad real-world expansion until the scope decision is revisited with stronger evidence.
+
+## Project control
+- Status: [`PROJECT_STATUS.md`](PROJECT_STATUS.md)
+- Setup: [`SETUP.md`](SETUP.md)
+- Decisions: [`DECISIONS.md`](DECISIONS.md)
+- Roadmap: [`ROADMAP.md`](ROADMAP.md)
+- Worklog: [`WORKLOG.md`](WORKLOG.md)
+- Short queue: [`docs/project-plan/NEXT_ACTIONS.md`](docs/project-plan/NEXT_ACTIONS.md)
+- Positioning note: [`docs/project-plan/PRECONDITIONER_POSITIONING_NOTE.md`](docs/project-plan/PRECONDITIONER_POSITIONING_NOTE.md)

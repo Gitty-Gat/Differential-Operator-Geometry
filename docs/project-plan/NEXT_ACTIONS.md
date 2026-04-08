@@ -9,6 +9,13 @@ Tighten the repo around the strongest honest contribution:
 
 > REST as a covariance-based streaming geometric preconditioner in retained spectral coordinates, with bounded one-step stability language and controlled synthetic support.
 
+## Control docs for this phase
+Use these before reopening old phase reports:
+- `ROADMAP.md`
+- `WORKLOG.md`
+- `docs/project-plan/PRECONDITIONER_POSITIONING_NOTE.md`
+- `DECISIONS.md`
+
 ## Current execution rule
 Prefer small slices that do one of the following:
 1. tighten theorem or method text,

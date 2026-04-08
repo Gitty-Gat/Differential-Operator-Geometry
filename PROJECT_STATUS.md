@@ -81,6 +81,7 @@ If someone asks what this repo currently is, the best short answer is:
 > a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, with narrower claims than originally envisioned and a clear need for theory tightening plus targeted validation.
 
 ## Repo operations blocker
-- 2026-04-08: `git push origin main` has repeatedly failed with `git@github.com: Permission denied (publickey).`
-- The repo includes newer local theory/control-doc updates that may remain committed locally until auth is fixed.
-- Do **not** claim remote sync until GitHub SSH credentials or the remote auth method are fixed and a push succeeds.
+- 2026-04-08: the latest `git push origin main` attempt failed with `git@github.com: Permission denied (publickey).`
+- The local theorem-alignment commit `419e146` (`docs: tighten REST theorem framing`) is therefore committed locally but **not** present on `origin/main`.
+- The repo may contain additional local theory/control-doc updates until GitHub SSH credentials or the remote auth method are fixed.
+- Do **not** claim remote sync until a push succeeds.

@@ -1,307 +1,355 @@
 # REST_THEOREM_DRAFT
 
 ## Purpose
-This note gives a first rigorous theorem draft for the canonical covariance-based REST setting:
-- streaming observations `x_t \in \mathbb{R}^d`,
-- a symmetric positive semidefinite local operator `L_t`,
-- a retained rank-`k` eigendecomposition,
-- a retained-coordinate REST output interpreted as a **geometric preconditioner**.
+This note gives a tighter theorem draft for the **canonical covariance-based REST implementation actually present in this repository**. The goal is deliberately narrow:
 
-The goal here is not to prove the full long-horizon behavior of REST. The goal is to state one precise, conservative single-step perturbation theorem in the canonical covariance-based setting actually implemented in the repository.
+- work in the sliding-covariance PSD setting used by the code,
+- state the retained-coordinate transform exactly as `src/rest/core.py` computes it,
+- prove only a **single-step stability / perturbation statement**,
+- and avoid implying a non-commuting ordering mechanism that the current diagonal architecture does not support.
 
----
-
-## 1. Symbol table
-
-### Data and operator objects
-- `x_t \in \mathbb{R}^d`: observation at time `t`
-- `\mu_t \in \mathbb{R}^d`: windowed mean
-- `\tilde{x}_t := x_t - \mu_t`: centered observation
-- `L_t \in \mathbb{R}^{d\times d}`: symmetric positive semidefinite local operator at time `t`
-- `k \in \{1,\dots,d\}`: retained rank
-
-### Spectral objects
-- `\lambda_{t,1} \ge \cdots \ge \lambda_{t,d} \ge 0`: eigenvalues of `L_t`
-- `\Lambda_t := \operatorname{diag}(\lambda_{t,1},\dots,\lambda_{t,k}) \in \mathbb{R}^{k\times k}`: retained eigenvalue matrix
-- `U_t = [u_{t,1},\dots,u_{t,k}] \in \mathbb{R}^{d\times k}`: retained orthonormal eigenbasis
-- `P_t := U_tU_t^\top`: orthogonal projector onto the retained eigenspace
-
-### Coordinates and transforms
-- `c_t := U_t^\top\tilde{x}_t \in \mathbb{R}^k`: retained spectral coordinates
-- `D_{\mathrm{inv}}(\Lambda_t, r_t) \in \mathbb{R}^{k\times k}`: reciprocal flattening diagonal map
-- `D_{\exp}(\Lambda_t, r_t, \beta) \in \mathbb{R}^{k\times k}`: exponential lift diagonal map
-- `W_t := D_{\exp}(\Lambda_t, r_t, \beta)D_{\mathrm{inv}}(\Lambda_t, r_t) \in \mathbb{R}^{k\times k}`: composite diagonal weight matrix
-- `z_t := W_t c_t \in \mathbb{R}^k`: REST retained-coordinate output
-- `T_t := W_tU_t^\top \in \mathbb{R}^{k\times d}`: retained-coordinate transform, so `z_t = T_t\tilde{x}_t`
-
-### Parameters
-- `r_t > 0`: reciprocal damping / ridge scale
-- `\beta \ge 0`: exponential lift gain
-- `\phi(\lambda; r)`: shaping function used in the exponential lift
-- `a_{\min}, a_{\max}` with `0 < a_{\min} \le a_{\max} < \infty`: clipping bounds for reciprocal weights
-- `b_{\min}, b_{\max}` with `0 < b_{\min} \le b_{\max} < \infty`: clipping bounds for exponential weights
-- `\delta`: one-step operator drift bound
-- `\gamma > 0`: retained spectral gap lower bound
+The point of this draft is not to finish the full theory. The point is to make the theorem language match the strongest honest claim the repo can presently defend.
 
 ---
 
-## 2. Canonical retained-coordinate REST definition
-For each time `t`, let
+## 1. Implementation anchor
+The active code path in `src/rest/core.py` does the following at a single time step:
+
+1. build or receive a symmetric PSD covariance operator,
+2. compute a top-`k` eigendecomposition,
+3. project the centered sample into retained spectral coordinates,
+4. apply a clipped reciprocal weight law,
+5. apply a clipped exponential weight law,
+6. multiply those diagonal weights coordinatewise.
+
+In code notation:
+
+- `basis_t = U_t`,
+- `eigenvalues_t = (\lambda_{t,1},\dots,\lambda_{t,k})`,
+- `coordinates = U_t^\top \tilde x_t`,
+- `inv_weights = reciprocal_weights(eigenvalues_t, r_t, ...)`,
+- `exp_weights = exponential_weights(eigenvalues_t, r_t, \beta, ...)`,
+- `composite = inv_weights * exp_weights`,
+- `rest_coordinates = composite * coordinates`.
+
+So the implemented retained-coordinate map is
 
 ```math
-L_t = U_t\Lambda_tU_t^\top + U_{t,\perp}\Lambda_{t,\perp}U_{t,\perp}^\top
+T_t := W_t U_t^\top,
+\qquad
+z_t := T_t \tilde x_t,
 ```
 
-with eigenvalues ordered nonincreasingly. Define the retained coordinates
+where `W_t` is diagonal.
+
+Two details matter for interpretation:
+
+- the default shaping law is `\phi(\lambda; r) = \lambda / (\lambda + r)`,
+- and because both weight stages are diagonal spectral functions of the same retained eigenvalues, they **commute in the current architecture**.
+
+That means this theorem draft is about the stability of the **composite retained-coordinate preconditioner**, not about proving that reciprocal-then-exponential ordering has an independently meaningful non-commuting effect.
+
+---
+
+## 2. Canonical retained-coordinate definition
+Let `L_t \in \mathbb{R}^{d\times d}` be the local symmetric PSD operator at time `t`, interpreted in the active implementation as a sliding-window covariance matrix.
+
+Write the ordered eigendecomposition as
 
 ```math
-c_t := U_t^\top\tilde{x}_t.
+L_t = U_t \Lambda_t U_t^\top + U_{t,\perp}\Lambda_{t,\perp}U_{t,\perp}^\top,
 ```
 
-REST then applies two diagonal maps in the retained basis.
-
-### 2.1 Reciprocal flattening operator
-Define the unclipped reciprocal weight
+with
 
 ```math
-\widetilde{a}(\lambda; r_t) := (\lambda + r_t)^{-1/2}.
+\lambda_{t,1} \ge \cdots \ge \lambda_{t,d} \ge 0,
+\qquad
+\Lambda_t := \operatorname{diag}(\lambda_{t,1},\dots,\lambda_{t,k}),
+\qquad
+U_t \in \mathbb{R}^{d\times k}.
 ```
 
-Define the clipped reciprocal weight
+For a centered sample `\tilde x_t := x_t - \mu_t`, define the retained coordinates
+
+```math
+c_t := U_t^\top \tilde x_t \in \mathbb{R}^k.
+```
+
+### 2.1 Reciprocal weights
+With ridge scale `r_t > 0`, define
 
 ```math
 a(\lambda; r_t)
-:= \operatorname{clip}(\widetilde{a}(\lambda; r_t), a_{\min}, a_{\max}),
+:= \operatorname{clip}((\lambda + r_t)^{-1/2}, a_{\min}, a_{\max}).
 ```
 
-where
-
-```math
-\operatorname{clip}(y,\ell,u) := \min\{u,\max\{\ell,y\}\}.
-```
-
-Then
+The corresponding diagonal map is
 
 ```math
 D_{\mathrm{inv}}(\Lambda_t, r_t)
-:= \operatorname{diag}(a(\lambda_{t,1};r_t),\dots,a(\lambda_{t,k};r_t)).
+:= \operatorname{diag}(a(\lambda_{t,1}; r_t),\dots,a(\lambda_{t,k}; r_t)).
 ```
 
-### 2.2 Exponential lift operator
-Let `\phi(\lambda; r_t)` be a prescribed scalar shaping function. Define the unclipped exponential weight
+### 2.2 Exponential weights
+Let `\phi(\lambda; r)` be the scalar shaping law. In the default implementation,
 
 ```math
-\widetilde{b}(\lambda; r_t, \beta) := \exp(\beta\,\phi(\lambda; r_t)).
+\phi(\lambda; r) = \frac{\lambda}{\lambda + r}.
 ```
 
-Define the clipped exponential weight
+Define
 
 ```math
 b(\lambda; r_t, \beta)
-:= \operatorname{clip}(\widetilde{b}(\lambda; r_t, \beta), b_{\min}, b_{\max}).
+:= \operatorname{clip}(\exp(\beta\,\phi(\lambda; r_t)), b_{\min}, b_{\max}).
 ```
 
-Then
+The corresponding diagonal map is
 
 ```math
 D_{\exp}(\Lambda_t, r_t, \beta)
-:= \operatorname{diag}(b(\lambda_{t,1};r_t,\beta),\dots,b(\lambda_{t,k};r_t,\beta)).
+:= \operatorname{diag}(b(\lambda_{t,1}; r_t, \beta),\dots,b(\lambda_{t,k}; r_t, \beta)).
 ```
 
-### 2.3 Composite retained-coordinate transform
-The composite diagonal weight matrix is
+### 2.3 Composite weight law
+Define the composite scalar weight law
 
 ```math
-W_t := D_{\exp}(\Lambda_t, r_t, \beta)D_{\mathrm{inv}}(\Lambda_t, r_t).
+h(\lambda, r_t)
+:= a(\lambda; r_t)\,b(\lambda; r_t, \beta),
 ```
 
-The REST output is
+and the diagonal composite matrix
 
 ```math
-z_t := W_t c_t
-     = D_{\exp}(\Lambda_t, r_t, \beta)D_{\mathrm{inv}}(\Lambda_t, r_t)U_t^\top\tilde{x}_t.
+W_t
+:= D_{\exp}(\Lambda_t, r_t, \beta)D_{\mathrm{inv}}(\Lambda_t, r_t)
+= \operatorname{diag}(h(\lambda_{t,1}, r_t),\dots,h(\lambda_{t,k}, r_t)).
 ```
 
-Equivalently, define the ambient-to-retained transform
+Because both factors are diagonal in the same retained eigenbasis, this product is the only object that matters for the current theorem.
+
+### 2.4 Implemented transform
+The implemented retained-coordinate REST map is
 
 ```math
-T_t := W_tU_t^\top,
+T_t := W_t U_t^\top,
+\qquad
+z_t := T_t \tilde x_t = W_t U_t^\top \tilde x_t.
 ```
 
-so that
-
-```math
-z_t = T_t\tilde{x}_t.
-```
-
-This note treats `z_t` and `T_t` as the primary formal outputs. In Phase 5, the recommended interpretation is that `T_t` is a retained-coordinate preconditioning map rather than evidence that transform ordering is independently meaningful in the current diagonal setting.
+This note interprets `T_t` as a **retained-coordinate geometric preconditioner**.
 
 ---
 
-## 3. Assumptions for the first theorem
-We impose the following assumptions for a single-step perturbation result.
+## 3. Assumptions
+We separate assumptions needed for three different things:
 
-### Assumption A1: PSD operator
-For each `t`,
+- stability of eigenvalues,
+- stability of the retained subspace,
+- stability of the **ordered coordinate map** actually used by the code.
+
+### Assumption A1: PSD covariance operator
+For each relevant time `s`,
 
 ```math
-L_t = L_t^\top \succeq 0.
+L_s = L_s^\top \succeq 0.
 ```
 
-### Assumption A2: One-step bounded drift
+### Assumption A2: One-step operator drift bound
 For consecutive times `t-1` and `t`,
 
 ```math
 \|L_t - L_{t-1}\|_2 \le \delta.
 ```
 
-### Assumption A3: Retained spectral gap
-For both `s \in \{t-1,t\}`, the retained eigenspace is separated by a uniform gap:
+### Assumption A3: Retained rank is separated from the tail
+For both `s \in \{t-1,t\}`,
 
 ```math
-\lambda_{s,k} - \lambda_{s,k+1} \ge \gamma > 0,
+\lambda_{s,k} - \lambda_{s,k+1} \ge \gamma_{\mathrm{tail}} > 0.
 ```
 
-with the convention `\lambda_{s,d+1}:=0` if needed when `k=d`.
+This is the usual condition needed to keep the retained `k`-dimensional eigenspace well defined.
 
-### Assumption A4: Controlled ridge scale
+### Assumption A4: Ordered retained eigenvectors are identifiable
+To control the exact coordinate map `T_s = W_s U_s^\top` rather than only the projector `P_s = U_s U_s^\top`, assume the retained eigenpairs are not internally ambiguous. A convenient sufficient condition is:
+
+```math
+\lambda_{s,i} - \lambda_{s,i+1} \ge \gamma_{\mathrm{vec}} > 0
+\qquad (i = 1,\dots,k),
+```
+
+for both `s \in \{t-1,t\}` with the convention that the `i = k` case is already included in A3.
+
+Interpretation:
+- A3 prevents the retained subspace from colliding with the discarded tail.
+- A4 prevents uncontrolled rotations **inside** the retained subspace.
+
+Without A4, a subspace theorem is still reasonable, but an ordered-coordinate theorem for `U_t^\top` is generally too strong.
+
+### Assumption A5: Bounded ridge scale
 There exist constants
 
 ```math
 0 < r_{\min} \le r_s \le r_{\max} < \infty
-\qquad\text{for } s\in\{t-1,t\}.
+\qquad (s \in \{t-1,t\}).
 ```
 
-If a bound depending on `|r_t-r_{t-1}|` is needed, assume additionally
+When needed, also assume
 
 ```math
-|r_t-r_{t-1}| \le \delta_r.
+|r_t - r_{t-1}| \le \delta_r.
 ```
 
-### Assumption A5: Bounded and Lipschitz scalar weights
-For `r \in [r_{\min}, r_{\max}]`, define
+### Assumption A6: Bounded and Lipschitz composite weight law
+Assume that over the spectral/ridge domain visited by the implementation there exist finite constants `M_h`, `L_\lambda`, and `L_r` such that
 
 ```math
-f(\lambda,r) := a(\lambda;r),
-g(\lambda,r) := b(\lambda;r,\beta),
-h(\lambda,r) := g(\lambda,r)f(\lambda,r).
-```
-
-Assume there exist finite constants `M_h, L_\lambda, L_r` such that over the spectral range of interest,
-
-```math
-|h(\lambda,r)| \le M_h,
+|h(\lambda, r)| \le M_h,
 ```
 
 and
 
 ```math
-|h(\lambda,r)-h(\lambda',r')|
-\le L_\lambda|\lambda-\lambda'| + L_r|r-r'|.
+|h(\lambda, r) - h(\lambda', r')|
+\le L_\lambda |\lambda - \lambda'| + L_r |r-r'|.
 ```
 
-This is automatic for many practical choices once clipping is imposed and the spectral/ridge domain is restricted.
+This is natural for the clipped implementation used in the repo.
 
-### Assumption A6: Bounded input norm for coordinate-output comparison
-When bounding output vectors rather than operators, assume
+### Assumption A7: Bounded centered input norm (only for output-vector bounds)
+When passing from operator stability to a bound on output vectors, assume
 
 ```math
-\|\tilde{x}\|_2 \le R
+\|\tilde x\|_2 \le R.
 ```
-
-for the input vector under consideration.
 
 ---
 
-## 4. Basic diagonal bounds
-Since
+## 4. Immediate consequences of the implementation form
+Because `W_t` is diagonal with entries `h(\lambda_{t,i}, r_t)`,
 
 ```math
-W_t = \operatorname{diag}(h(\lambda_{t,1},r_t),\dots,h(\lambda_{t,k},r_t)),
+\|W_t\|_2 \le M_h.
 ```
 
-we have
+Also, by Weyl's inequality and A2,
 
 ```math
-\|W_t\|_2 = \max_{1\le i\le k}|h(\lambda_{t,i},r_t)| \le M_h.
+|\lambda_{t,i} - \lambda_{t-1,i}| \le \delta
+\qquad (1 \le i \le k).
 ```
 
-Also, by Weyl's inequality,
-
-```math
-|\lambda_{t,i} - \lambda_{t-1,i}| \le \|L_t-L_{t-1}\|_2 \le \delta
-\qquad (1\le i\le k).
-```
-
-Hence
+Therefore,
 
 ```math
 \|W_t - W_{t-1}\|_2
-\le L_\lambda\delta + L_r|r_t-r_{t-1}|.
+\le L_\lambda \delta + L_r |r_t-r_{t-1}|.
 ```
 
-This elementary diagonal bound is the spectral-weight part of the final theorem.
+This is the weight-variation part of the theorem and is the cleanest part of the current analysis because it follows directly from the clipped scalar laws used in code.
 
 ---
 
-## 5. Single-step perturbation/stability theorem
-### Theorem 1 (single-step stability of the retained-coordinate geometric preconditioner)
+## 5. Main theorem target
+### Theorem 1 (single-step stability of the implemented retained-coordinate preconditioner)
 Let
 
 ```math
-T_s := D_{\exp}(\Lambda_s,r_s,\beta)D_{\mathrm{inv}}(\Lambda_s,r_s)U_s^\top
-= W_sU_s^\top
-\qquad\text{for } s\in\{t-1,t\}.
+T_s := W_s U_s^\top
+\qquad (s \in \{t-1,t\})
 ```
 
-Under Assumptions A1–A5, there exists an absolute constant `C_{\mathrm{gap}} > 0` such that whenever
-
-```math
-\|L_t-L_{t-1}\|_2 \le \delta,
-\qquad
-\lambda_{s,k}-\lambda_{s,k+1} \ge \gamma > 0 \quad (s=t-1,t),
-```
-
-one has
+be the retained-coordinate transform defined above. Under Assumptions A1-A6, there exists a constant `C_{\mathrm{basis}} > 0` depending only on the chosen eigenvector perturbation estimate and the retained dimension `k` such that
 
 ```math
 \|T_t - T_{t-1}\|_2
 \le
-L_\lambda\delta + L_r|r_t-r_{t-1}|
-+
-C_{\mathrm{gap}}M_h\frac{\delta}{\gamma}.
+L_\lambda \delta + L_r |r_t-r_{t-1}|
++ C_{\mathrm{basis}} M_h \frac{\delta}{\gamma_*},
 ```
 
-In particular, if the ridge scale is held fixed across one step, `r_t = r_{t-1}`, then
+where
+
+```math
+\gamma_* := \min\{\gamma_{\mathrm{tail}}, \gamma_{\mathrm{vec}}\}.
+```
+
+In the common case where the ridge scale is held fixed across one step,
+
+```math
+r_t = r_{t-1},
+```
+
+this simplifies to
 
 ```math
 \|T_t - T_{t-1}\|_2
 \le
-L_\lambda\delta + C_{\mathrm{gap}}M_h\frac{\delta}{\gamma}.
+L_\lambda \delta
++ C_{\mathrm{basis}} M_h \frac{\delta}{\gamma_*}.
 ```
-
-Therefore the retained-coordinate geometric preconditioner is single-step stable in operator norm: its change is controlled linearly by the one-step operator drift and inversely by the retained spectral gap.
 
 ### Corollary 1 (single-step output perturbation for a fixed centered input)
-Under the same assumptions, for any centered input vector `\tilde{x} \in \mathbb{R}^d`,
+Under the same assumptions, for any centered input vector `\tilde x \in \mathbb{R}^d`,
 
 ```math
-\|T_t\tilde{x} - T_{t-1}\tilde{x}\|_2
-\le \|T_t-T_{t-1}\|_2\,\|\tilde{x}\|_2.
+\|T_t \tilde x - T_{t-1} \tilde x\|_2
+\le \|T_t - T_{t-1}\|_2 \, \|\tilde x\|_2.
 ```
 
-If Assumption A6 holds, then
+If A7 also holds, then
 
 ```math
-\|T_t\tilde{x} - T_{t-1}\tilde{x}\|_2
+\|T_t \tilde x - T_{t-1} \tilde x\|_2
 \le
-R\Big(L_\lambda\delta + L_r|r_t-r_{t-1}| + C_{\mathrm{gap}}M_h\frac{\delta}{\gamma}\Big).
+R\left(
+L_\lambda \delta + L_r |r_t-r_{t-1}| + C_{\mathrm{basis}} M_h \frac{\delta}{\gamma_*}
+\right).
 ```
+
+### What this theorem is claiming
+The claim is local and modest:
+
+- if the covariance operator moves by only `\delta` in one step,
+- if the retained eigenspace stays separated from the tail,
+- if the retained ordered eigenvectors remain identifiable,
+- and if the clipped composite weight law stays bounded and Lipschitz,
+
+then the implemented retained-coordinate map `T_t` changes by a controlled amount.
+
+This is exactly a **single-step stability statement for a geometric preconditioner**.
 
 ---
 
-## 6. Proof outline
-This is a proof outline, not yet a fully expanded line-by-line proof.
+## 6. Why Assumption A4 is doing real work
+A4 is not a cosmetic addition. It is the piece that prevents the theorem from quietly overclaiming.
+
+If only A3 holds, then one still has a standard projector-level bound of the form
+
+```math
+\|P_t - P_{t-1}\|_2 \lesssim \frac{\delta}{\gamma_{\mathrm{tail}}},
+\qquad
+P_s := U_s U_s^\top.
+```
+
+That controls the retained **subspace**.
+
+But the implemented object `T_s = W_s U_s^\top` depends on an **ordered basis**, not just on the subspace. If eigenvalues inside the retained block are repeated or nearly repeated, the basis can rotate within that block while the subspace stays stable. In that situation a bound on `P_t - P_{t-1}` does **not** automatically imply a clean bound on `T_t - T_{t-1}`.
+
+So the right honest split is:
+
+- with A3 alone: projector/subspace stability is justified,
+- with A3 + A4: ordered-coordinate transform stability is justified.
+
+That distinction matches the implementation more faithfully than the older draft.
+
+---
+
+## 7. Proof outline
+This remains a proof outline rather than a finished line-by-line proof.
 
 ### Step 1: Split the transform difference
 Write
@@ -309,36 +357,29 @@ Write
 ```math
 T_t - T_{t-1}
 =
-W_tU_t^\top - W_{t-1}U_{t-1}^\top
+W_t U_t^\top - W_{t-1} U_{t-1}^\top
 =
-(W_t-W_{t-1})U_t^\top + W_{t-1}(U_t^\top-U_{t-1}^\top).
+(W_t - W_{t-1}) U_t^\top + W_{t-1}(U_t^\top - U_{t-1}^\top).
 ```
 
 Hence
 
 ```math
-\|T_t-T_{t-1}\|_2
+\|T_t - T_{t-1}\|_2
 \le
-\|W_t-W_{t-1}\|_2\,\|U_t^\top\|_2
+\|W_t - W_{t-1}\|_2
 +
-\|W_{t-1}\|_2\,\|U_t-U_{t-1}\|_2.
+\|W_{t-1}\|_2 \, \|U_t - U_{t-1}\|_2,
 ```
 
-Since `U_t` has orthonormal columns, `\|U_t^\top\|_2 = 1`, so
+because `\|U_t^\top\|_2 = 1`.
+
+### Step 2: Control the diagonal weight variation
+By the Lipschitz property in A6 and Weyl's inequality,
 
 ```math
-\|T_t-T_{t-1}\|_2
-\le \|W_t-W_{t-1}\|_2 + \|W_{t-1}\|_2\,\|U_t-U_{t-1}\|_2.
-```
-
-### Step 2: Control the diagonal part
-By the Lipschitz assumption on `h` and Weyl's inequality,
-
-```math
-\|W_t-W_{t-1}\|_2
-=
-\max_{1\le i\le k}|h(\lambda_{t,i},r_t)-h(\lambda_{t-1,i},r_{t-1})|
-\le L_\lambda\delta + L_r|r_t-r_{t-1}|.
+\|W_t - W_{t-1}\|_2
+\le L_\lambda \delta + L_r |r_t-r_{t-1}|.
 ```
 
 Also,
@@ -347,71 +388,55 @@ Also,
 \|W_{t-1}\|_2 \le M_h.
 ```
 
-### Step 3: Control the eigenspace motion
-Under the spectral-gap assumption and bounded operator perturbation, a standard eigenspace perturbation result gives
+### Step 3: Control ordered eigenvector motion
+Under A2-A4, standard eigenvector perturbation results for simple ordered eigenpairs give
 
 ```math
-\|P_t - P_{t-1}\|_2 \le C\frac{\delta}{\gamma}
+\|U_t - U_{t-1}\|_2
+\le C_{\mathrm{basis}} \frac{\delta}{\gamma_*}.
 ```
 
-for an absolute constant `C`. Passing from projector distance to a bound on orthonormal bases requires a basis-alignment step; after alignment one obtains
-
-```math
-\|U_t - U_{t-1}\|_2 \le C_{\mathrm{gap}}\frac{\delta}{\gamma}.
-```
+At this level of generality, the theorem does not need the sharpest possible constant. It only needs the dependence on operator drift and eigengap scale to be stated honestly.
 
 ### Step 4: Combine the estimates
-Substituting the previous bounds into the splitting inequality yields
+Substituting the previous two bounds into the splitting inequality yields
 
 ```math
-\|T_t-T_{t-1}\|_2
+\|T_t - T_{t-1}\|_2
 \le
-L_\lambda\delta + L_r|r_t-r_{t-1}| + M_hC_{\mathrm{gap}}\frac{\delta}{\gamma},
+L_\lambda \delta + L_r |r_t-r_{t-1}|
++ C_{\mathrm{basis}} M_h \frac{\delta}{\gamma_*}.
 ```
 
-which is the stated claim.
-
-The corollary follows immediately by multiplying by `\|\tilde{x}\|_2`.
+The output-vector corollary follows immediately by multiplying by `\|\tilde x\|_2`.
 
 ---
 
-## 7. Remarks on interpretation
-### 7.1 What this theorem does show
-This theorem shows that, in the canonical covariance-based retained-coordinate setting, the one-step geometric preconditioner induced by REST does not change arbitrarily fast when:
-- the local operator changes by a small amount in spectral norm,
-- the retained eigenspace remains separated by a nontrivial gap,
-- the reciprocal/exponential weights are clipped and Lipschitz-controlled.
+## 8. Interpretation and non-claims
+### 8.1 What the theorem does support
+This theorem draft supports the following repo-level statement:
 
-So the theorem supports a narrow but useful statement: REST is not just a heuristic reweighting; under standard perturbation assumptions, its one-step transform varies continuously and quantitatively.
+> In the covariance-based retained-coordinate setting implemented here, REST defines a clipped spectral preconditioner whose one-step transform varies continuously under bounded operator drift, with explicit dependence on eigengap scale and weight-law bounds.
 
-### 7.2 Why clipping matters
-Without clipping, either the reciprocal part or the exponential part can become poorly controlled:
-- reciprocal weights can blow up when `\lambda` is small and `r` is too small,
-- exponential weights can grow rapidly if `\beta\phi(\lambda;r)` is large.
+That is a real and useful theorem target.
 
-Clipping is therefore not a cosmetic implementation detail. In this first theorem, it is one of the mechanisms that makes a finite perturbation bound straightforward.
+### 8.2 What it does not support
+This draft does **not** justify claims about:
 
-### 7.3 Why the theorem is intentionally modest
-This theorem is local in time and does not claim:
-- long-horizon accumulation control,
-- asymptotic convergence,
+- long-horizon stability under many updates,
 - near-isometry,
-- robustness to vanishing spectral gaps,
-- superiority over PCA, whitening, or other baselines,
-- or that reciprocal-then-exponential ordering is itself a distinct tested mechanism in the present diagonal formulation.
-
-Those may become later questions, but they are not established here.
-
----
-
-## 8. What is still unproved
-The following are **not** proved by the present draft and should not be claimed as consequences of Theorem 1:
-- repeated-update stability over long horizons,
 - angle preservation,
-- near-isometry,
-- convergence under nonstationary drift,
-- optimality of the reciprocal-then-exponential ordering,
-- empirical benefit over baselines,
-- or the existence of a non-commuting ordering effect in the current retained-coordinate diagonal architecture.
+- asymptotic convergence,
+- broad operator-family generalization,
+- empirical superiority over simpler baselines,
+- or a distinct non-commuting ordering mechanism in the current retained-coordinate diagonal architecture.
 
-The current theorem is deliberately a first foothold, not the finished theory.
+### 8.3 Why the commuting point matters
+Because the reciprocal and exponential stages are both diagonal spectral functions of the same retained eigenvalues, the current architecture is algebraically commuting at the retained-coordinate level. So the theorem should be read as a theorem about the **composite preconditioner** `W_t`, not as evidence that “reciprocal then exponential” is already a separately validated mechanism.
+
+### 8.4 Strongest honest takeaway
+The strongest honest short summary remains:
+
+> REST is presently best understood as a covariance-based streaming geometric preconditioner in retained spectral coordinates, with a plausible and partially formalized one-step stability theory.
+
+That is narrower than the early framing, but it matches the code and the existing empirical picture much better.

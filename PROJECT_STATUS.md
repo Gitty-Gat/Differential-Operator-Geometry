@@ -53,8 +53,8 @@ Current operating rule:
 5. treat the non-commuting variant only as a bounded optional spike.
 
 ## Highest-priority open work
-1. Tighten `docs/project-plan/REST_THEOREM_DRAFT.md` around the preconditioner framing.
-2. Tighten `docs/project-plan/REST_METHOD_NOTE.md` so assumptions, notation, and claims match implementation reality.
+1. Tighten `docs/project-plan/REST_METHOD_NOTE.md` so assumptions, notation, and claims match the revised theorem framing and implementation reality.
+2. Review `docs/project-plan/REST_THEOREM_DRAFT.md` only for proof-detail sharpening or constant cleanup; keep the framing narrow.
 3. Use `docs/project-plan/NEXT_ACTIONS.md` as the short operational queue for the next slices.
 4. Run narrow follow-up validation focused on where geometric preconditioning helps versus where simpler transforms still win.
 5. Revisit the non-commuting variant only if the bounded spike triggers in `DECISIONS.md` are met.
@@ -81,7 +81,6 @@ If someone asks what this repo currently is, the best short answer is:
 > a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, with narrower claims than originally envisioned and a clear need for theory tightening plus targeted validation.
 
 ## Repo operations blocker
-- 2026-04-08: `git push origin main` failed again with `git@github.com: Permission denied (publickey).`
-- Latest local slice: `docs: add next actions queue` (committed locally only).
-- `main` is now ahead of `origin/main` by 5 commits; the repo includes new local control-doc updates, but they have **not** been pushed.
-- Local follow-up needed: fix GitHub SSH credentials or switch the remote/auth method before claiming remote sync or attempting another push.
+- 2026-04-08: `git push origin main` has repeatedly failed with `git@github.com: Permission denied (publickey).`
+- The repo includes newer local theory/control-doc updates that may remain committed locally until auth is fixed.
+- Do **not** claim remote sync until GitHub SSH credentials or the remote auth method are fixed and a push succeeds.

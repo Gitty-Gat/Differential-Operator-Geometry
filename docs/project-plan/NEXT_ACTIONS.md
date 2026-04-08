@@ -19,20 +19,8 @@ Do **not** spend the next slices broadening scope, reviving universal-geometry c
 
 ## Priority queue
 
-### 1) Tighten `docs/project-plan/REST_THEOREM_DRAFT.md`
-**Why first:** this is the highest-value alignment task between what the code supports and what the repo currently claims.
-
-**Target outcome:** a theorem draft that reads as a one-step preconditioner stability statement rather than an ordering-novelty claim.
-
-**Definition of done:**
-- theorem statement explicitly names the covariance / retained-coordinate setting,
-- assumptions are listed in implementation-compatible form,
-- dependence on spectral gap and bounded weights is stated plainly,
-- non-claims are made explicit where needed,
-- proof sketch no longer implies a distinct non-commuting mechanism.
-
-### 2) Tighten `docs/project-plan/REST_METHOD_NOTE.md`
-**Why second:** the method note should match both the theorem framing and the active implementation path.
+### 1) Tighten `docs/project-plan/REST_METHOD_NOTE.md`
+**Why first now:** the theorem draft has been materially narrowed; the method note is now the most important place to synchronize claims with that framing.
 
 **Target outcome:** one canonical method note that a reader can trust as the current description of the code.
 
@@ -42,6 +30,14 @@ Do **not** spend the next slices broadening scope, reviving universal-geometry c
 - commuting diagonal-weight behavior is acknowledged,
 - ordering-sensitive language is removed or explicitly bounded,
 - the note states where REST helps conceptually and where simpler transforms may still win.
+
+### 2) Review `docs/project-plan/REST_THEOREM_DRAFT.md` only for proof-detail sharpening
+**Why second:** the theorem framing is now narrower and more honest, but the proof sketch and constants can still be tightened without broadening the claim.
+
+**Definition of done:**
+- eigenvector-identifiability assumptions remain explicit,
+- projector-vs-coordinate-map distinctions stay clear,
+- any constant/gap cleanup preserves the current modest scope.
 
 ### 3) Design one narrow follow-up validation slice
 **Why third:** after text alignment, the next best work is a focused check that tests the preconditioner framing in a regime where it might actually matter.
@@ -65,6 +61,9 @@ Do **not** spend the next slices broadening scope, reviving universal-geometry c
 - setup instructions stay accurate,
 - no speculative tooling work is added unless it removes repeated friction.
 
+## Recent slice note
+- 2026-04-08 AM: `REST_THEOREM_DRAFT.md` was rewritten around the implemented retained-coordinate preconditioner, explicit commuting-weight interpretation, and a separate eigenvector-identifiability assumption for ordered-coordinate stability.
+
 ## Stop / continue signals
 Continue the narrow program if:
 - theorem and method notes become materially cleaner,
@@ -79,4 +78,4 @@ Pause or reconsider if:
 ## One-sentence guidance for the next stand-up
 If there is only one slice to do next, do this:
 
-> rewrite `REST_THEOREM_DRAFT.md` so it cleanly states a bounded one-step stability result for the retained-coordinate covariance preconditioner and nothing broader.
+> rewrite `REST_METHOD_NOTE.md` so it matches the revised theorem framing: covariance-based retained-coordinate preconditioning, commuting diagonal weights, and explicit scope limits.

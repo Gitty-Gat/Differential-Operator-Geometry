@@ -55,10 +55,9 @@ Current operating rule:
 ## Highest-priority open work
 1. Tighten `docs/project-plan/REST_THEOREM_DRAFT.md` around the preconditioner framing.
 2. Tighten `docs/project-plan/REST_METHOD_NOTE.md` so assumptions, notation, and claims match implementation reality.
-3. Add `SETUP.md` for reproducible execution without path/env improvisation.
-4. Add `DECISIONS.md` as a compressed record of the key scope and framing decisions.
-5. Add `docs/project-plan/NEXT_ACTIONS.md` as the short operational queue.
-6. Run narrow follow-up validation focused on where geometric preconditioning helps versus where simpler transforms still win.
+3. Add `DECISIONS.md` as a compressed record of the key scope and framing decisions.
+4. Add `docs/project-plan/NEXT_ACTIONS.md` as the short operational queue.
+5. Run narrow follow-up validation focused on where geometric preconditioning helps versus where simpler transforms still win.
 
 ## Current blockers / risks
 - **Contribution-framing risk:** the original ordering-sensitive novelty story is weakened by commutativity in the active architecture.
@@ -68,6 +67,7 @@ Current operating rule:
 
 ## Read-first map
 - `README.md` — current repo-level framing.
+- `SETUP.md` — exact environment and execution path for tests and synthetic experiments.
 - `docs/project-plan/PHASE5_COMPLETION_REPORT.md` — what Phase 5 changed.
 - `docs/project-plan/PHASE5_SCOPE_DECISION.md` — current strategic scope decision.
 - `docs/project-plan/PHASE5_THEORY_ALIGNMENT_NOTE.md` — strongest honest theorem framing.

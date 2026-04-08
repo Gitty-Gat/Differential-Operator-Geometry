@@ -55,9 +55,9 @@ Current operating rule:
 ## Highest-priority open work
 1. Tighten `docs/project-plan/REST_THEOREM_DRAFT.md` around the preconditioner framing.
 2. Tighten `docs/project-plan/REST_METHOD_NOTE.md` so assumptions, notation, and claims match implementation reality.
-3. Add `DECISIONS.md` as a compressed record of the key scope and framing decisions.
-4. Add `docs/project-plan/NEXT_ACTIONS.md` as the short operational queue.
-5. Run narrow follow-up validation focused on where geometric preconditioning helps versus where simpler transforms still win.
+3. Add `docs/project-plan/NEXT_ACTIONS.md` as the short operational queue.
+4. Run narrow follow-up validation focused on where geometric preconditioning helps versus where simpler transforms still win.
+5. Revisit the non-commuting variant only if the bounded spike triggers in `DECISIONS.md` are met.
 
 ## Current blockers / risks
 - **Contribution-framing risk:** the original ordering-sensitive novelty story is weakened by commutativity in the active architecture.
@@ -68,6 +68,7 @@ Current operating rule:
 ## Read-first map
 - `README.md` — current repo-level framing.
 - `SETUP.md` — exact environment and execution path for tests and synthetic experiments.
+- `DECISIONS.md` — compressed record of the active scope, framing, and defer decisions.
 - `docs/project-plan/PHASE5_COMPLETION_REPORT.md` — what Phase 5 changed.
 - `docs/project-plan/PHASE5_SCOPE_DECISION.md` — current strategic scope decision.
 - `docs/project-plan/PHASE5_THEORY_ALIGNMENT_NOTE.md` — strongest honest theorem framing.
@@ -79,6 +80,7 @@ If someone asks what this repo currently is, the best short answer is:
 > a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, with narrower claims than originally envisioned and a clear need for theory tightening plus targeted validation.
 
 ## Repo operations blocker
-- 2026-04-08: `git push origin main` failed with `git@github.com: Permission denied (publickey).`
-- This slice is committed locally, but it has **not** been pushed to `origin/main`.
+- 2026-04-08: `git push origin main` failed again with `git@github.com: Permission denied (publickey).`
+- Latest local slice: `docs: add compressed decision log` (committed locally only).
+- `main` remains ahead of `origin/main`; this work is committed locally, but it has **not** been pushed.
 - Local follow-up needed: fix GitHub SSH credentials or switch the remote/auth method before the next push attempt.

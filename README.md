@@ -1,45 +1,42 @@
 # Differential Operator Geometry
 
 ## Project overview
-Differential Operator Geometry (DOG) is an early-stage research repository investigating whether **evolving local geometry** can serve as the mechanism of computation for streaming data analysis.
+Differential Operator Geometry (DOG) is a research repository centered on the current, narrower REST line:
 
-The current working method inside that broader concept is **REST** (Reciprocal–Exponential Spectral Transforms). REST applies a two-stage local spectral pipeline:
-1. reciprocal flattening to damp curvature-driven or anisotropic distortion,
-2. exponential lifting to restore controlled structure in a stable working representation.
+> **REST as a covariance-based streaming geometric preconditioner in retained spectral coordinates, with partial one-step stability formalization and controlled synthetic support.**
 
-The proposed outcome is a Euclidean analysis space that updates with the stream rather than assuming a fixed geometry from the start.
+The broader "geometry as the mechanism of computation" motivation remains part of the project history, but it is **not** the main claim presently supported by the repository.
+
+In the active implementation, REST should be understood primarily as a retained-coordinate spectral preconditioning pipeline built from streaming covariance structure. In that setting, the reciprocal and exponential components act as commuting diagonal reweightings, so the repo does **not** currently claim that stage ordering is independently established as the key source of benefit.
 
 ## Purpose
-This repository is currently focused on bootstrap-stage research organization:
-- archive and normalize early source materials,
-- extract the core mathematical idea,
-- document the current synthesis of the project,
-- record critical risks and open questions,
-- and establish a clean structure for future theory and experimental work.
+This repository is currently focused on a disciplined narrowed research program:
+- maintain the covariance-based REST implementation as the canonical path,
+- document the strongest honest contribution and its limits,
+- tighten method/theorem language so it matches the implemented operator,
+- preserve synthetic evaluation artifacts and compact empirical lessons,
+- and support a few targeted follow-up validation slices before any broader expansion.
 
 ## Current stage
-**Stage:** Early research with Phase 1–4 completed and Phase 5 reframing completed
+**Stage:** Active narrowed research program after Phase 5 reframing
 
 What exists now:
-- primary conceptual draft material,
-- secondary critique and research-planning notes,
-- repository-level synthesis and evaluation documents,
-- Phase 1 concept, literature-positioning, canonical-decision, idea-paper, and execution-plan documents,
-- Phase 2 formal method and theorem draft documents,
-- Phase 3 implementation code, tests, synthetic experiments, metrics, and evaluation note,
-- Phase 4 ablation, downstream-task, traceability, figure, threshold, and recommendation artifacts,
-- Phase 5 reframing, theory-alignment, and scope-decision documents.
+- a covariance-based REST implementation under `src/rest/`,
+- tests, synthetic experiments, metrics, and generated figures,
+- Phase 4 empirical notes showing mixed-but-real viability under controlled drift,
+- Phase 5 reframing documents that narrow the contribution to the retained-coordinate preconditioner view,
+- repo control docs (`PROJECT_STATUS.md`, `ROADMAP.md`, `WORKLOG.md`, `NEXT_ACTIONS.md`) that keep future slices honest and small.
 
 What does not yet exist:
-- completed proofs beyond draft level,
-- large-scale or real-world experimental benchmarks,
-- validated downstream application claims beyond controlled synthetic tasks,
-- broader operator-family implementations beyond the covariance case.
+- a completed proof beyond draft level,
+- support for a strong ordering-sensitive novelty claim in the active architecture,
+- large-scale or real-world benchmark validation,
+- broad operator-family generalization beyond the covariance case.
 
 ## High-level idea summary
-The repository's source materials support the following project summary:
+The current repo-level summary is:
 
-> DOG is a research program in which data is treated as living in a changing local geometry rather than a fixed vector space. REST is the current candidate operator pipeline for that idea: it builds a local spectral model from streaming data, applies reciprocal flattening to suppress distortion, then applies exponential lifting to restore controlled geometric structure. The goal is a stable, geometry-aware Euclidean working representation for downstream computation.
+> DOG studies REST as a covariance-based streaming geometric preconditioner built in retained spectral coordinates. The main question is whether that preconditioning view yields useful behavior in some controlled streaming regimes, together with a modest one-step stability story, rather than whether it proves a universal geometry-first mechanism of computation.
 
 ## Repository structure
 
@@ -81,11 +78,11 @@ Example Phase 4 artifact:
 
 ## Planned next work
 With Phase 5 completed, the immediate next steps are:
-1. continue under the geometric-preconditioner framing,
-2. tighten proof details and constants for the one-step stability result,
-3. run one narrow validation slice before broadening claims,
+1. tighten `docs/project-plan/REST_METHOD_NOTE.md` so it matches the implemented retained-coordinate covariance path,
+2. review `docs/project-plan/REST_THEOREM_DRAFT.md` only for bounded proof-detail or constant cleanup,
+3. run one narrow validation slice tied to a concrete preconditioning question,
 4. revisit the non-commuting variant only if the trigger conditions in `DECISIONS.md` are met,
-5. avoid broad real-world expansion until the scope decision is revisited with stronger evidence.
+5. avoid broad real-world expansion until the narrowed contribution is better supported.
 
 ## Project control
 - Status: [`PROJECT_STATUS.md`](PROJECT_STATUS.md)

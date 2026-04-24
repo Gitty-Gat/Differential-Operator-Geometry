@@ -29,12 +29,23 @@ A one-paragraph decision memo naming:
 - core metric(s),
 - and what result counts as continue / refine / pivot.
 
+### Status update
+**Resolved.** The authoritative decision is now recorded in `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`.
+
+Locked choice:
+- target regime: moderate-drift synthetic streams with clean-to-messy spectral-gap variation,
+- primary question: Question 2 from this plan,
+- downstream task: short-horizon online regression plus stability scorecard,
+- baselines: REST, reciprocal-only, covariance-whitening, no-transform,
+- metrics: stability, downstream error, variance across seeds, runtime cost,
+- interpretation rule: continue / refine / pivot exactly as stated in the memo.
+
 ### Why this is first
 Without this, the repo can keep producing clean but strategically weak work.
 
 ### Owner assumption
-- **Requires Sean specifically:** yes, for final priority choice if multiple plausible targets exist.
-- **Can be prepared autonomously:** yes, candidate menu and recommendation can be drafted autonomously.
+- **Requires Sean specifically:** complete — memo received.
+- **Can be prepared autonomously:** no longer needed for target selection; downstream execution can proceed autonomously.
 
 ---
 
@@ -146,14 +157,13 @@ One short control note or addition to `DECISIONS.md` with entry/exit conditions.
 # 2) Near-term execution sequence
 
 ## Sequence for the next cycle
-1. Draft candidate target use-cases and recommend one.
-2. Get Sean's selection or approval.
-3. Implement the narrow benchmark harness.
-4. Add the regime scorecard.
-5. Run the decisive validation slice.
-6. Write the resulting evaluation note.
-7. Decide: continue mainline / refine / bounded variant spike / demote scope.
-8. Only then update theorem/method docs to match the surviving claim.
+1. Use `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md` as the fixed target.
+2. Implement the narrow benchmark harness.
+3. Add the regime scorecard.
+4. Run the decisive validation slice.
+5. Write the resulting evaluation note.
+6. Decide: continue mainline / refine / bounded variant spike / demote scope.
+7. Only then update theorem/method docs to match the surviving claim.
 
 ---
 
@@ -162,20 +172,20 @@ One short control note or addition to `DECISIONS.md` with entry/exit conditions.
 ## Today / Short Term
 
 ### Objective
-Stop narrative drift and set up a forced decision.
+Stop narrative drift and cash the forced decision now that the target is fixed.
 
 ### Actions
-- choose the first target use-case,
-- implement the benchmark harness skeleton,
+- implement the benchmark harness for the locked moderate-drift / spectral-gap slice,
 - define metrics and scorecard,
+- run the first decisive validation,
 - ensure repo operations remain stable enough to iterate.
 
 ### Expected output
-A runnable, narrow validation lane.
+A runnable, narrow validation lane with a continue / refine / pivot answer.
 
 ### Risks
 - overengineering the harness,
-- picking too many targets,
+- diluting the locked target into too many side regimes,
 - slipping back into documentation-first progress.
 
 ## One Month / Mid Term
@@ -222,20 +232,18 @@ Either:
 # 4) Owner assumptions
 
 ## What requires Sean specifically
-1. Final choice of initial target use-case if multiple candidates remain plausible.
-2. Approval to spend meaningful time on a bounded non-commuting or architecture-changing spike.
-3. Acquisition/selection of harder public or partner-provided datasets if the work moves beyond current synthetic regimes.
-4. Any capital, cloud budget, paid services, or partnership outreach.
-5. Final decision on long-term posture: research artifact, publication push, patent angle, or product exploration.
+1. Approval to spend meaningful time on a bounded non-commuting or architecture-changing spike.
+2. Acquisition/selection of harder public or partner-provided datasets if the work moves beyond current synthetic regimes.
+3. Any capital, cloud budget, paid services, or partnership outreach.
+4. Final decision on long-term posture: research artifact, publication push, patent angle, or product exploration.
 
 ## What can be done autonomously
-1. Drafting the candidate use-case menu and recommendation.
-2. Building the benchmark harness.
-3. Implementing baselines and evaluation scripts.
-4. Running narrow validations and summarizing results.
-5. Updating docs to reflect validated outcomes.
-6. Maintaining a scorecard and explicit continue/refine/pivot logic.
-7. Preparing the bounded-variant trigger note.
+1. Building the benchmark harness.
+2. Implementing baselines and evaluation scripts.
+3. Running narrow validations and summarizing results.
+4. Updating docs to reflect validated outcomes.
+5. Maintaining a scorecard and explicit continue/refine/pivot logic.
+6. Preparing the bounded-variant trigger note.
 
 ---
 
@@ -297,8 +305,8 @@ Either:
 # 7) Concrete next actions
 
 ## Next 3 actions
-1. Create a short candidate-target memo with 2-3 use-case options and a recommended first choice.
-2. Implement the narrow benchmark harness around that choice.
+1. Implement the narrow benchmark harness around the locked moderate-drift / spectral-gap decision target.
+2. Add the short-horizon online regression plus stability scorecard.
 3. Run the first decisive validation and summarize it with the scorecard.
 
 ## Stop conditions

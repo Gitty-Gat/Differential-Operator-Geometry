@@ -1,6 +1,6 @@
 # DECISIONS
 
-_Last updated: 2026-04-08_
+_Last updated: 2026-04-13_
 
 This file is the compressed decision record for the repo. It is meant to answer: what has already been decided, what remains intentionally deferred, and what should guide the next slices.
 
@@ -67,6 +67,21 @@ This file is the compressed decision record for the repo. It is meant to answer:
 - Maintain `docs/project-plan/NEXT_ACTIONS.md` as the rolling short queue derived from those decisions.
 - Use them to keep future stand-up slices small and resumable.
 
+### D7 — Lock the first decisive validation slice
+**Decision:** The next cycle will execute the authoritative target defined in `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`.
+
+**Locked target:**
+- moderate-drift synthetic streams with clean-to-messy spectral-gap variation,
+- primary question: whether REST keeps an edge once reciprocal-only is treated as a serious baseline,
+- downstream task: short-horizon online regression plus stability scorecard,
+- baselines: REST, reciprocal-only, covariance-whitening, and no-transform,
+- metrics: stability, downstream error, variance across seeds, runtime cost.
+
+**Implications:**
+- The earlier human-choice blocker for the first decisive slice is cleared.
+- The next autonomous work is benchmark-harness implementation, scorecard definition, and one evaluation run.
+- Interpret results using the locked continue / refine / pivot rule from the memo rather than ad hoc narrative judgment.
+
 ## What would justify reopening these decisions
 Revisit the current decisions only if one of the following happens:
 - theorem tightening materially changes what can be honestly claimed,
@@ -77,7 +92,8 @@ Revisit the current decisions only if one of the following happens:
 ## Present operating rule
 Until new evidence arrives, the repo should behave as follows:
 1. keep the covariance-based preconditioner implementation as the main line,
-2. tighten theorem and method notes to match that line exactly,
-3. run only narrow validation that clarifies where REST helps,
-4. defer broad expansion and architecture branching,
-5. keep the control docs current and honest.
+2. execute the locked decision slice from `CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`,
+3. run only the narrow validation needed to produce a continue / refine / pivot decision,
+4. tighten theorem and method notes only after that evidence is in hand,
+5. defer broad expansion and architecture branching,
+6. keep the control docs current and honest.

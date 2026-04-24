@@ -1,88 +1,79 @@
 # NEXT_ACTIONS
 
-_Last updated: 2026-04-08_
+_Last updated: 2026-04-13_
 
 This file is the short operational queue for the repo. It exists to turn the current framing into the next few resumable slices without re-reading the entire project history.
 
 ## Active objective
-Tighten the repo around the strongest honest contribution:
+Force a clear answer to the locked strategic question:
 
-> REST as a covariance-based streaming geometric preconditioner in retained spectral coordinates, with bounded one-step stability language and controlled synthetic support.
+> Does REST retain a defendable edge in moderate-drift synthetic streams with clean-to-messy spectral-gap variation once reciprocal-only is treated as a serious baseline?
 
 ## Control docs for this phase
 Use these before reopening old phase reports:
 - `ROADMAP.md`
 - `WORKLOG.md`
-- `docs/project-plan/PRECONDITIONER_POSITIONING_NOTE.md`
 - `DECISIONS.md`
+- `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`
+
+## Locked decision target
+The next decisive slice is fixed as:
+- **Target regime:** moderate-drift synthetic streams with clean-to-messy spectral-gap variation
+- **Primary question:** question 2 from the chairman creativity plan
+- **Downstream task:** short-horizon online regression plus stability scorecard
+- **Baselines:** REST, reciprocal-only, covariance-whitening, no-transform
+- **Primary metrics:** stability, downstream error, variance across seeds, runtime cost
 
 ## Current execution rule
-Prefer small slices that do one of the following:
-1. tighten theorem or method text,
-2. run a narrow validation tied to a concrete question,
-3. reduce project friction only when it directly improves iteration.
+Prefer small slices that do one of the following, in order:
+1. implement the benchmark harness for the locked decision target,
+2. define the regime-by-regime scorecard and output schema,
+3. run the decisive slice and force a continue / refine / pivot interpretation,
+4. update theorem or method prose only after the evidence lands.
 
-Do **not** spend the next slices broadening scope, reviving universal-geometry claims, or exploring the non-commuting variant unless the trigger conditions in `DECISIONS.md` are met.
+Do **not** spend the next slices broadening scope, reviving universal-geometry claims, or exploring the non-commuting variant unless the locked scorecard points there.
 
 ## Priority queue
 
-### 1) Tighten `docs/project-plan/REST_METHOD_NOTE.md`
-**Why first now:** the theorem draft has been materially narrowed; the method note is now the most important place to synchronize claims with that framing.
-
-**Target outcome:** one canonical method note that a reader can trust as the current description of the code.
+### 1) Build the narrow benchmark harness
+**Why first now:** the human decision memo is in hand, so the previous target-selection blocker is gone.
 
 **Definition of done:**
-- notation matches `src/rest/`,
-- covariance construction and retained spectral coordinates are the default path,
-- commuting diagonal-weight behavior is acknowledged,
-- ordering-sensitive language is removed or explicitly bounded,
-- the note states where REST helps conceptually and where simpler transforms may still win.
+- a runnable script or small command set covers moderate-drift synthetic streams with spectral-gap variation,
+- the baseline set includes REST, reciprocal-only, covariance-whitening, and no-transform,
+- results are written in a machine-readable schema,
+- one compact table or plot can be regenerated from the run.
 
-### 2) Review `docs/project-plan/REST_THEOREM_DRAFT.md` only for proof-detail sharpening
-**Why second:** the theorem framing is now narrower and more honest, but the proof sketch and constants can still be tightened without broadening the claim.
-
-**Definition of done:**
-- eigenvector-identifiability assumptions remain explicit,
-- projector-vs-coordinate-map distinctions stay clear,
-- any constant/gap cleanup preserves the current modest scope.
-
-### 3) Design one narrow follow-up validation slice
-**Why third:** after text alignment, the next best work is a focused check that tests the preconditioner framing in a regime where it might actually matter.
-
-**Candidate questions:**
-- Does REST help more when spectral gaps are cleaner?
-- Does benefit persist under controlled drift, or collapse relative to reciprocal-only weighting?
-- Which downstream synthetic metric best captures preconditioning benefit rather than generic transform behavior?
+### 2) Define the regime-by-regime scorecard
+**Why second:** the repo needs forced interpretations, not another round of generic artifacts.
 
 **Definition of done:**
-- choose one question,
-- name the exact script or small code change needed,
-- define expected artifact(s),
-- state in advance what result would count as useful, neutral, or negative.
+- each regime records stability, downstream error, variance across seeds, and runtime cost,
+- each regime gets a useful / neutral / negative interpretation,
+- the scorecard supports the memo's continue / refine / pivot rule directly.
 
-### 4) Reassess repo friction only if it blocks execution
-**Why fourth:** environment and push issues matter, but they should not dominate theory/method alignment work.
+### 3) Run the decisive validation slice
+**Why third:** once the harness and scorecard exist, the repo should cash the decision immediately.
 
 **Definition of done:**
-- auth/path issues are documented when they block a slice,
-- setup instructions stay accurate,
-- no speculative tooling work is added unless it removes repeated friction.
+- exact regimes tested are listed,
+- win/loss summary versus reciprocal-only is explicit,
+- continue / refine / pivot recommendation is stated without hedging,
+- artifact paths are recorded in the resulting evaluation note.
 
-## Recent slice note
-- 2026-04-08 AM: `REST_THEOREM_DRAFT.md` was rewritten around the implemented retained-coordinate preconditioner, explicit commuting-weight interpretation, and a separate eigenvector-identifiability assumption for ordered-coordinate stability.
+### 4) Tighten method / theorem docs only after the result is known
+**Why fourth:** theory alignment should mirror the surviving empirical claim rather than substitute for it.
+
+**Definition of done:**
+- any edits to `REST_METHOD_NOTE.md` or `REST_THEOREM_DRAFT.md` are directly justified by the decisive slice,
+- no new broad framing is introduced.
 
 ## Stop / continue signals
-Continue the narrow program if:
-- theorem and method notes become materially cleaner,
-- focused validation reveals interpretable help-cases,
-- the repo story gets simpler and more defensible.
-
-Pause or reconsider if:
-- theory tightening keeps collapsing into weaker claims,
-- validation keeps showing no meaningful edge over simpler baselines,
-- progress starts depending on reviving an ordering-sensitive story the current architecture does not support.
+- **Continue:** REST wins clearly on at least one meaningful regime without losing badly on runtime.
+- **Refine:** results are mixed but show a narrow interpretable niche.
+- **Pivot:** reciprocal-only matches or beats REST across the board.
 
 ## One-sentence guidance for the next stand-up
 If there is only one slice to do next, do this:
 
-> rewrite `REST_METHOD_NOTE.md` so it matches the revised theorem framing: covariance-based retained-coordinate preconditioning, commuting diagonal weights, and explicit scope limits.
+> implement and run the locked moderate-drift spectral-gap benchmark slice so the repo gets a real continue / refine / pivot answer instead of another narrative cleanup pass.

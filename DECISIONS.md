@@ -1,6 +1,6 @@
 # DECISIONS
 
-_Last updated: 2026-04-13_
+_Last updated: 2026-04-28_
 
 This file is the compressed decision record for the repo. It is meant to answer: what has already been decided, what remains intentionally deferred, and what should guide the next slices.
 
@@ -68,7 +68,7 @@ This file is the compressed decision record for the repo. It is meant to answer:
 - Use them to keep future stand-up slices small and resumable.
 
 ### D7 — Lock the first decisive validation slice
-**Decision:** The next cycle will execute the authoritative target defined in `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`.
+**Decision:** Execute the authoritative target defined in `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`.
 
 **Locked target:**
 - moderate-drift synthetic streams with clean-to-messy spectral-gap variation,
@@ -77,10 +77,16 @@ This file is the compressed decision record for the repo. It is meant to answer:
 - baselines: REST, reciprocal-only, covariance-whitening, and no-transform,
 - metrics: stability, downstream error, variance across seeds, runtime cost.
 
+**Result:** complete. See `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md` and `experiments/results/decision_slice_metrics.json`.
+
+### D8 — Treat the locked decision slice as a PIVOT signal
+**Decision:** Do not continue the current REST architecture as-is into broader validation. The locked slice produced **PIVOT**: reciprocal-only matched or beat REST across the tested regimes on stability/downstream error and was faster.
+
 **Implications:**
-- The earlier human-choice blocker for the first decisive slice is cleared.
-- The next autonomous work is benchmark-harness implementation, scorecard definition, and one evaluation run.
-- Interpret results using the locked continue / refine / pivot rule from the memo rather than ad hoc narrative judgment.
+- Mainline expansion is not justified by the first decisive scorecard.
+- Theory or method prose should not be polished to rationalize the failed slice.
+- The next strategic choice is whether Sean authorizes one bounded architecture-change spike.
+- Any variant must be judged against the same REST / reciprocal-only / covariance-whitening / no-transform benchmark standard.
 
 ## What would justify reopening these decisions
 Revisit the current decisions only if one of the following happens:
@@ -90,10 +96,10 @@ Revisit the current decisions only if one of the following happens:
 - or the repo is repackaged for a different audience (for example, a paper-first or benchmark-first push).
 
 ## Present operating rule
-Until new evidence arrives, the repo should behave as follows:
-1. keep the covariance-based preconditioner implementation as the main line,
-2. execute the locked decision slice from `CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`,
-3. run only the narrow validation needed to produce a continue / refine / pivot decision,
-4. tighten theorem and method notes only after that evidence is in hand,
-5. defer broad expansion and architecture branching,
+Until Sean decides the pivot follow-up, the repo should behave as follows:
+1. preserve the PIVOT evidence from the locked decision slice,
+2. do not broaden the current REST line as-is,
+3. ask whether one bounded architecture-change spike is authorized,
+4. if authorized, test one minimal variant against the same harness,
+5. tighten theorem and method notes only after variant evidence exists,
 6. keep the control docs current and honest.

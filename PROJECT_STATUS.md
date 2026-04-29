@@ -1,9 +1,9 @@
 # PROJECT_STATUS
 
-_Last updated: 2026-04-13_
+_Last updated: 2026-04-28_
 
 ## Current status
-**Active, narrowed research program with the next decision slice now locked.**
+**Active, narrowed research program with the locked decision slice completed and a PIVOT result recorded.**
 
 The repository is no longer in idea-only mode. Phases 1–5 produced:
 - a covariance-based REST implementation,
@@ -16,16 +16,16 @@ The strongest current statement remains:
 
 > REST is presently best understood as a **covariance-based streaming geometric preconditioner in retained spectral coordinates**, with partial one-step stability formalization and controlled synthetic empirical support.
 
-## Current decisive validation target
-The prior human-selection blocker is now cleared by `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`.
+## Current decisive validation result
+The prior human-selection blocker was cleared by `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`, and the locked slice was executed on 2026-04-28.
 
-The next cycle is fixed to:
-- **target regime:** moderate-drift synthetic streams with clean-to-messy spectral-gap variation,
-- **primary question:** whether REST keeps an edge once reciprocal-only is treated as a serious baseline,
-- **downstream task:** short-horizon online regression plus a stability scorecard,
-- **baselines:** REST, reciprocal-only, covariance-whitening, and no-transform,
-- **primary metrics:** stability, downstream error, variance across seeds, runtime cost,
-- **decision rule:** continue / refine / pivot exactly as defined in the memo.
+Artifacts:
+- `experiments/synthetic/run_decision_slice.py`
+- `experiments/results/decision_slice_metrics.json`
+- `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md`
+
+Result:
+- **PIVOT** — reciprocal-only matched or beat REST across the locked moderate-drift clean-to-messy spectral-gap regimes on stability and downstream error, while also running faster.
 
 ## What is currently supported
 
@@ -54,33 +54,34 @@ The next cycle is fixed to:
 - Strong claims of general superiority across downstream tasks.
 
 ## Canonical project direction
-**Decision:** keep the covariance-based main line, but make the next cycle decision-led rather than wording-led.
+**Decision:** do not continue the current REST architecture as-is without revision; the locked scorecard fired the pivot condition.
 
 Current operating rule:
-1. keep the covariance-based implementation as the main line,
-2. execute the locked decisive validation slice,
-3. benchmark against reciprocal-only, covariance-whitening, and no-transform,
-4. judge the result by stability, downstream error, variance across seeds, and runtime cost,
-5. only then tighten theorem and method prose to match the surviving claim.
+1. preserve the decision-slice evidence as the canonical benchmark result,
+2. do not broaden validation or polish theory as a substitute for the failed scorecard,
+3. ask Sean whether to authorize a bounded architecture-change spike,
+4. if approved, test exactly one minimal variant against the same harness,
+5. update method/theorem prose only after new evidence exists.
 
 ## Highest-priority open work
-1. Build the narrow benchmark harness for moderate-drift synthetic streams with controlled spectral-gap variation.
-2. Add the regime-by-regime scorecard covering stability, downstream error, variance across seeds, and runtime cost.
-3. Run the decisive validation slice and write a compact continue / refine / pivot note.
-4. Update `docs/project-plan/REST_METHOD_NOTE.md` and `docs/project-plan/REST_THEOREM_DRAFT.md` only after the new evidence is in hand.
-5. Revisit the non-commuting variant only if the locked scorecard triggers a refine/pivot discussion.
+1. Treat `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md` as the canonical decision note.
+2. Decide whether Sean wants a bounded architecture-change spike after the PIVOT.
+3. If approved, evaluate one minimal variant against `experiments/synthetic/run_decision_slice.py` or an equivalent paired harness.
+4. Keep REST / reciprocal-only / covariance-whitening / no-transform as the comparison standard.
+5. Avoid broad expansion until a variant or repositioning earns evidence.
 
 ## Current blockers / risks
 - **Contribution-framing risk:** the original ordering-sensitive novelty story is weakened by commutativity in the active architecture.
 - **Theory risk:** proof language can still drift beyond what the current assumptions justify.
 - **Evaluation risk:** the current evidence is still controlled and synthetic; external validity is unproven.
-- **Execution risk:** the target-selection blocker is cleared, so the remaining risk is failure to implement and interpret the locked benchmark slice cleanly.
+- **Execution risk:** the benchmark has now produced a PIVOT; the remaining risk is ignoring that evidence and drifting back into broad framing or theorem polish.
 
 ## Read-first map
 - `README.md` — repo-level framing.
 - `SETUP.md` — exact environment and execution path for tests and synthetic experiments.
 - `DECISIONS.md` — compressed record of active scope and locked next-slice rules.
-- `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md` — authoritative decision target for the next cycle.
+- `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md` — authoritative decision target for the completed slice.
+- `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md` — canonical PIVOT result from the locked benchmark.
 - `docs/project-plan/NEXT_ACTIONS.md` — short operational queue for the next slices.
 - `docs/project-plan/PHASE5_COMPLETION_REPORT.md` — what Phase 5 changed.
 - `docs/project-plan/PHASE5_SCOPE_DECISION.md` — current strategic scope decision.
@@ -89,7 +90,7 @@ Current operating rule:
 ## Practical interpretation
 If someone asks what this repo currently is, the best short answer is:
 
-> a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, now pointed at one fixed decisive validation slice instead of another round of open-ended framing work.
+> a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, now holding a locked PIVOT result showing that the current REST architecture did not beat reciprocal-only on the first decisive validation slice.
 
 ## Repo operations status
 - 2026-04-08: the repo is currently synchronized with `origin/main`.

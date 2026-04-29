@@ -1,22 +1,22 @@
 # ROADMAP
 
-_Last updated: 2026-04-13_
+_Last updated: 2026-04-28_
 
 This roadmap keeps the DOG repo pointed at the narrow honest contribution instead of drifting back into broad geometry-for-everything claims.
 
 ## Current phase
-**Execute the first decisive validation slice for the retained-coordinate preconditioner line.**
+**Respond to the PIVOT result from the first decisive validation slice.**
 
 ## Now
-1. Use `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md` as the fixed target for the next cycle.
-2. Implement the narrow benchmark harness for moderate-drift synthetic streams with clean-to-messy spectral-gap variation.
-3. Add the scorecard for stability, downstream error, variance across seeds, and runtime cost.
-4. Run the first decisive slice against REST, reciprocal-only, covariance-whitening, and no-transform.
+1. Treat `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md` as the canonical locked-slice result.
+2. Preserve `experiments/results/decision_slice_metrics.json` as the machine-readable scorecard evidence.
+3. Do not broaden the current REST architecture as-is.
+4. Ask whether Sean authorizes one bounded architecture-change spike.
 
 ## Next
-1. Record a compact continue / refine / pivot recommendation from the locked scorecard.
-2. Tighten `docs/project-plan/REST_METHOD_NOTE.md` and `docs/project-plan/REST_THEOREM_DRAFT.md` only in ways supported by the new slice.
-3. Revisit the non-commuting variant only if the decisive slice leaves a narrow but unresolved niche or if reciprocal-only forces a pivot discussion.
+1. If authorized, test one minimal variant against the same moderate-drift / spectral-gap harness.
+2. Keep reciprocal-only, covariance-whitening, and no-transform in the comparison set.
+3. Tighten `docs/project-plan/REST_METHOD_NOTE.md` and `docs/project-plan/REST_THEOREM_DRAFT.md` only after new evidence exists.
 
 ## Not now
 - Broad real-world benchmark expansion.

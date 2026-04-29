@@ -1,0 +1,680 @@
+{
+  "schema_version": "decision-slice-v1",
+  "locked_target": {
+    "target_regime": "moderate-drift synthetic streams with clean-to-messy spectral-gap variation",
+    "primary_question": "Does REST retain an edge once reciprocal-only is included seriously?",
+    "downstream_task": "short-horizon online regression plus stability scorecard",
+    "baselines": [
+      "rest",
+      "reciprocal_only",
+      "covariance_whitening",
+      "no_transform"
+    ],
+    "primary_metrics": [
+      "stability",
+      "downstream_error",
+      "seed_variance",
+      "runtime"
+    ]
+  },
+  "config": {
+    "steps": 220,
+    "dimension": 6,
+    "window_size": 28,
+    "rank": 2,
+    "ridge_scale": 0.5,
+    "beta": 0.7,
+    "rotation_speed": 0.035,
+    "latent_persistence": 0.82,
+    "latent_noise": 0.55,
+    "observation_noise": 0.05
+  },
+  "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "regimes": [
+    {
+      "name": "clean_gap",
+      "description": "moderate drift with a clear dominant spectral direction",
+      "seeds": [
+        101,
+        202,
+        303,
+        404,
+        505
+      ],
+      "samples_evaluated_per_seed": [
+        193,
+        193,
+        193,
+        193,
+        193
+      ],
+      "spectral_gap_mean": 0.5614524913430154,
+      "spectral_gap_min": 0.0982235163730812,
+      "condition_proxy_mean": 1.7735658080484673,
+      "methods": {
+        "rest": {
+          "stability_mean": 1.469670695427915,
+          "stability_seed_variance": 0.004862822550793127,
+          "downstream_error_mean": 1.3339377178731453,
+          "downstream_error_seed_variance": 0.14534446136583382,
+          "runtime_ms_mean": 0.02370826738313205,
+          "runtime_ms_seed_variance": 6.330340250857915e-08
+        },
+        "reciprocal_only": {
+          "stability_mean": 0.9025317908617628,
+          "stability_seed_variance": 0.0018175525866420468,
+          "downstream_error_mean": 1.3434322640248346,
+          "downstream_error_seed_variance": 0.163614923729688,
+          "runtime_ms_mean": 0.007364989645218771,
+          "runtime_ms_seed_variance": 4.0958383459697157e-08
+        },
+        "covariance_whitening": {
+          "stability_mean": 1.171654223056581,
+          "stability_seed_variance": 0.00487372235040243,
+          "downstream_error_mean": 1.3448493171194247,
+          "downstream_error_seed_variance": 0.1688658993000618,
+          "runtime_ms_mean": 0.00403625392039859,
+          "runtime_ms_seed_variance": 1.312224680243154e-08
+        },
+        "no_transform": {
+          "stability_mean": 1.52135465972461,
+          "stability_seed_variance": 0.010913543761410498,
+          "downstream_error_mean": 1.2958384043301034,
+          "downstream_error_seed_variance": 0.08028523880323815,
+          "runtime_ms_mean": 0.0017746207176875368,
+          "runtime_ms_seed_variance": 1.0143883352831184e-08
+        }
+      },
+      "scorecard": {
+        "rest_vs_reciprocal_downstream_error_ratio": 0.9929326201209101,
+        "rest_vs_reciprocal_stability_ratio": 1.6283866233948745,
+        "runtime_ok_vs_reciprocal": false,
+        "interpretation": "neutral"
+      }
+    },
+    {
+      "name": "medium_gap",
+      "description": "moderate drift with a present but less dominant spectral gap",
+      "seeds": [
+        101,
+        202,
+        303,
+        404,
+        505
+      ],
+      "samples_evaluated_per_seed": [
+        193,
+        193,
+        193,
+        193,
+        193
+      ],
+      "spectral_gap_mean": 0.6066451768435313,
+      "spectral_gap_min": 0.09277557562408767,
+      "condition_proxy_mean": 1.3834367077787488,
+      "methods": {
+        "rest": {
+          "stability_mean": 1.393296710987834,
+          "stability_seed_variance": 0.004109676552864516,
+          "downstream_error_mean": 1.1386911837037945,
+          "downstream_error_seed_variance": 0.1490262829834285,
+          "runtime_ms_mean": 0.025002924284558147,
+          "runtime_ms_seed_variance": 6.044643579235045e-06
+        },
+        "reciprocal_only": {
+          "stability_mean": 0.8711113780778916,
+          "stability_seed_variance": 0.0020635286972961004,
+          "downstream_error_mean": 1.1385382833858941,
+          "downstream_error_seed_variance": 0.16903689174624673,
+          "runtime_ms_mean": 0.007599574090596866,
+          "runtime_ms_seed_variance": 5.158472208851506e-07
+        },
+        "covariance_whitening": {
+          "stability_mean": 1.1200481304816117,
+          "stability_seed_variance": 0.004780364735073243,
+          "downstream_error_mean": 1.133116230589677,
+          "downstream_error_seed_variance": 0.18854876574848206,
+          "runtime_ms_mean": 0.0042381865333420725,
+          "runtime_ms_seed_variance": 2.1170246483866814e-07
+        },
+        "no_transform": {
+          "stability_mean": 1.2154072172546992,
+          "stability_seed_variance": 0.004964675737136899,
+          "downstream_error_mean": 1.123633691496425,
+          "downstream_error_seed_variance": 0.1091697920724691,
+          "runtime_ms_mean": 0.00185006217599166,
+          "runtime_ms_seed_variance": 6.769900567122313e-08
+        }
+      },
+      "scorecard": {
+        "rest_vs_reciprocal_downstream_error_ratio": 1.0001342952803007,
+        "rest_vs_reciprocal_stability_ratio": 1.5994472647827709,
+        "runtime_ok_vs_reciprocal": false,
+        "interpretation": "neutral"
+      }
+    },
+    {
+      "name": "messy_gap",
+      "description": "moderate drift with weak / messy top-two separation",
+      "seeds": [
+        101,
+        202,
+        303,
+        404,
+        505
+      ],
+      "samples_evaluated_per_seed": [
+        193,
+        193,
+        193,
+        193,
+        193
+      ],
+      "spectral_gap_mean": 0.6000254612848683,
+      "spectral_gap_min": 0.12280967352659014,
+      "condition_proxy_mean": 1.1834947323161717,
+      "methods": {
+        "rest": {
+          "stability_mean": 1.318603228144264,
+          "stability_seed_variance": 0.0027058211763926515,
+          "downstream_error_mean": 1.084879221787494,
+          "downstream_error_seed_variance": 0.2144399270357357,
+          "runtime_ms_mean": 0.023591394799413433,
+          "runtime_ms_seed_variance": 1.6270426254221927e-07
+        },
+        "reciprocal_only": {
+          "stability_mean": 0.8488437036303186,
+          "stability_seed_variance": 0.0017251845073197353,
+          "downstream_error_mean": 1.0863861252211346,
+          "downstream_error_seed_variance": 0.21976197348494564,
+          "runtime_ms_mean": 0.007135768856722355,
+          "runtime_ms_seed_variance": 2.01323734691555e-08
+        },
+        "covariance_whitening": {
+          "stability_mean": 1.1051958426649358,
+          "stability_seed_variance": 0.0059851366388871405,
+          "downstream_error_mean": 1.0866336010463633,
+          "downstream_error_seed_variance": 0.22351131198982896,
+          "runtime_ms_mean": 0.0040848093392952325,
+          "runtime_ms_seed_variance": 5.098028103087383e-08
+        },
+        "no_transform": {
+          "stability_mean": 1.040896479539397,
+          "stability_seed_variance": 0.0039622171462532175,
+          "downstream_error_mean": 1.0792972303005073,
+          "downstream_error_seed_variance": 0.20552988832206176,
+          "runtime_ms_mean": 0.0017119274967635975,
+          "runtime_ms_seed_variance": 8.582086271663273e-09
+        }
+      },
+      "scorecard": {
+        "rest_vs_reciprocal_downstream_error_ratio": 0.9986129209507956,
+        "rest_vs_reciprocal_stability_ratio": 1.553411096182827,
+        "runtime_ok_vs_reciprocal": false,
+        "interpretation": "neutral"
+      }
+    }
+  ],
+  "raw_runs": [
+    {
+      "regime": "clean_gap",
+      "seed": 101,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.5574855197918216,
+      "spectral_gap_min": 0.13229726222466803,
+      "condition_proxy_mean": 1.5176403601408022,
+      "methods": {
+        "rest": {
+          "stability": 1.6005922813078832,
+          "downstream_error": 0.9243074227779347,
+          "runtime_ms_mean": 0.023544176166196754
+        },
+        "reciprocal_only": {
+          "stability": 0.9839459745272213,
+          "downstream_error": 0.9287415048884127,
+          "runtime_ms_mean": 0.007482419725627533
+        },
+        "covariance_whitening": {
+          "stability": 1.2771272090625543,
+          "downstream_error": 0.9439599693477837,
+          "runtime_ms_mean": 0.004144362799782268
+        },
+        "no_transform": {
+          "stability": 1.5334211561353503,
+          "downstream_error": 0.9513368501555693,
+          "runtime_ms_mean": 0.0016761968504043943
+        }
+      }
+    },
+    {
+      "regime": "clean_gap",
+      "seed": 202,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.6471456210980667,
+      "spectral_gap_min": 0.2123034623452294,
+      "condition_proxy_mean": 1.8614173668387854,
+      "methods": {
+        "rest": {
+          "stability": 1.472482345116595,
+          "downstream_error": 1.2984130615154523,
+          "runtime_ms_mean": 0.02362945078527724
+        },
+        "reciprocal_only": {
+          "stability": 0.8959854466191759,
+          "downstream_error": 1.284665981278568,
+          "runtime_ms_mean": 0.007513088084892442
+        },
+        "covariance_whitening": {
+          "stability": 1.128915277775404,
+          "downstream_error": 1.2591754042969163,
+          "runtime_ms_mean": 0.0038334818089735536
+        },
+        "no_transform": {
+          "stability": 1.5634976062397687,
+          "downstream_error": 1.341858132392789,
+          "runtime_ms_mean": 0.001680875705842199
+        }
+      }
+    },
+    {
+      "regime": "clean_gap",
+      "seed": 303,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.35203456940194183,
+      "spectral_gap_min": 0.0982235163730812,
+      "condition_proxy_mean": 1.642997312743708,
+      "methods": {
+        "rest": {
+          "stability": 1.397372639872193,
+          "downstream_error": 0.9471705049399578,
+          "runtime_ms_mean": 0.024058378231892642
+        },
+        "reciprocal_only": {
+          "stability": 0.8850998683601393,
+          "downstream_error": 0.9357053661179136,
+          "runtime_ms_mean": 0.007187036354890349
+        },
+        "covariance_whitening": {
+          "stability": 1.2240091826314978,
+          "downstream_error": 0.9313482578072165,
+          "runtime_ms_mean": 0.004145440433193674
+        },
+        "no_transform": {
+          "stability": 1.3427876045692162,
+          "downstream_error": 0.9868279702511246,
+          "runtime_ms_mean": 0.0019279429386701637
+        }
+      }
+    },
+    {
+      "regime": "clean_gap",
+      "seed": 404,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.5018960626146881,
+      "spectral_gap_min": 0.1747667105815174,
+      "condition_proxy_mean": 1.800721028753536,
+      "methods": {
+        "rest": {
+          "stability": 1.4440322895055033,
+          "downstream_error": 1.5737920055329828,
+          "runtime_ms_mean": 0.02337622810173249
+        },
+        "reciprocal_only": {
+          "stability": 0.8890342924789404,
+          "downstream_error": 1.5740612302748154,
+          "runtime_ms_mean": 0.007062777126638624
+        },
+        "covariance_whitening": {
+          "stability": 1.1461539325565484,
+          "downstream_error": 1.5710107644183433,
+          "runtime_ms_mean": 0.004048740920741014
+        },
+        "no_transform": {
+          "stability": 1.502825692100198,
+          "downstream_error": 1.582031951268061,
+          "runtime_ms_mean": 0.0018572176052945053
+        }
+      }
+    },
+    {
+      "regime": "clean_gap",
+      "seed": 505,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.748700683808559,
+      "spectral_gap_min": 0.11581466036119689,
+      "condition_proxy_mean": 2.045052971765505,
+      "methods": {
+        "rest": {
+          "stability": 1.4338739213374012,
+          "downstream_error": 1.9260055945993986,
+          "runtime_ms_mean": 0.023933103630561114
+        },
+        "reciprocal_only": {
+          "stability": 0.8585933723233371,
+          "downstream_error": 1.9939872375644643,
+          "runtime_ms_mean": 0.007579626934044907
+        },
+        "covariance_whitening": {
+          "stability": 1.0820655132569013,
+          "downstream_error": 2.018752189726864,
+          "runtime_ms_mean": 0.00400924363930244
+        },
+        "no_transform": {
+          "stability": 1.6642412395785158,
+          "downstream_error": 1.6171371175829734,
+          "runtime_ms_mean": 0.0017308704882264233
+        }
+      }
+    },
+    {
+      "regime": "medium_gap",
+      "seed": 101,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.5510945467124387,
+      "spectral_gap_min": 0.20220246781720488,
+      "condition_proxy_mean": 1.229973740477658,
+      "methods": {
+        "rest": {
+          "stability": 1.5136266944401928,
+          "downstream_error": 0.9090933861157505,
+          "runtime_ms_mean": 0.022915606112508924
+        },
+        "reciprocal_only": {
+          "stability": 0.9546926686613245,
+          "downstream_error": 0.9029692445141846,
+          "runtime_ms_mean": 0.006927098348885147
+        },
+        "covariance_whitening": {
+          "stability": 1.2270316557338303,
+          "downstream_error": 0.8997535954918485,
+          "runtime_ms_mean": 0.00393796895227728
+        },
+        "no_transform": {
+          "stability": 1.2420522576624438,
+          "downstream_error": 0.9270434433758934,
+          "runtime_ms_mean": 0.001663316115197108
+        }
+      }
+    },
+    {
+      "regime": "medium_gap",
+      "seed": 202,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.7045434752329655,
+      "spectral_gap_min": 0.2365667613772322,
+      "condition_proxy_mean": 1.4327925076437056,
+      "methods": {
+        "rest": {
+          "stability": 1.4044303911730154,
+          "downstream_error": 1.1750891084908113,
+          "runtime_ms_mean": 0.02340851286399043
+        },
+        "reciprocal_only": {
+          "stability": 0.8721138385646506,
+          "downstream_error": 1.137914214471384,
+          "runtime_ms_mean": 0.007286870485600542
+        },
+        "covariance_whitening": {
+          "stability": 1.1010170019113525,
+          "downstream_error": 1.0935844620248296,
+          "runtime_ms_mean": 0.003848051782148538
+        },
+        "no_transform": {
+          "stability": 1.2477656373293706,
+          "downstream_error": 1.2330229965693462,
+          "runtime_ms_mean": 0.001719999915381551
+        }
+      }
+    },
+    {
+      "regime": "medium_gap",
+      "seed": 303,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.4548601010687196,
+      "spectral_gap_min": 0.16412373757365706,
+      "condition_proxy_mean": 1.3035079659813433,
+      "methods": {
+        "rest": {
+          "stability": 1.3400023487216697,
+          "downstream_error": 0.623524933755961,
+          "runtime_ms_mean": 0.02521372010526935
+        },
+        "reciprocal_only": {
+          "stability": 0.8626872644096434,
+          "downstream_error": 0.6134612063453242,
+          "runtime_ms_mean": 0.007679984537861069
+        },
+        "covariance_whitening": {
+          "stability": 1.1522432700770489,
+          "downstream_error": 0.5937762548879162,
+          "runtime_ms_mean": 0.00417867359579203
+        },
+        "no_transform": {
+          "stability": 1.0977129398093866,
+          "downstream_error": 0.6248836250540432,
+          "runtime_ms_mean": 0.0018296735535389044
+        }
+      }
+    },
+    {
+      "regime": "medium_gap",
+      "seed": 404,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.5404793113607419,
+      "spectral_gap_min": 0.09277557562408767,
+      "condition_proxy_mean": 1.3916986404216043,
+      "methods": {
+        "rest": {
+          "stability": 1.3492315922312648,
+          "downstream_error": 1.197236028404011,
+          "runtime_ms_mean": 0.029675740950862717
+        },
+        "reciprocal_only": {
+          "stability": 0.8464422929170244,
+          "downstream_error": 1.184345649044389,
+          "runtime_ms_mean": 0.008950139957385432
+        },
+        "covariance_whitening": {
+          "stability": 1.103791727022813,
+          "downstream_error": 1.174560281930172,
+          "runtime_ms_mean": 0.005128621764241602
+        },
+        "no_transform": {
+          "stability": 1.1835476250566082,
+          "downstream_error": 1.2231999240949343,
+          "runtime_ms_mean": 0.0023573626999512866
+        }
+      }
+    },
+    {
+      "regime": "medium_gap",
+      "seed": 505,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.7822484498427904,
+      "spectral_gap_min": 0.11755125030770469,
+      "condition_proxy_mean": 1.5592106843694324,
+      "methods": {
+        "rest": {
+          "stability": 1.3591925283730282,
+          "downstream_error": 1.7885124617524395,
+          "runtime_ms_mean": 0.023801041390159327
+        },
+        "reciprocal_only": {
+          "stability": 0.8196208258368148,
+          "downstream_error": 1.854001102554188,
+          "runtime_ms_mean": 0.007153777123252147
+        },
+        "covariance_whitening": {
+          "stability": 1.0161569976630143,
+          "downstream_error": 1.9039065586136175,
+          "runtime_ms_mean": 0.004097616572250912
+        },
+        "no_transform": {
+          "stability": 1.3059576264156874,
+          "downstream_error": 1.6100184683879062,
+          "runtime_ms_mean": 0.0016799585958894516
+        }
+      }
+    },
+    {
+      "regime": "messy_gap",
+      "seed": 101,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.5083161592511499,
+      "spectral_gap_min": 0.18829152329023408,
+      "condition_proxy_mean": 1.0983761787437645,
+      "methods": {
+        "rest": {
+          "stability": 1.3692071996060928,
+          "downstream_error": 0.7543905955021822,
+          "runtime_ms_mean": 0.024112497370115872
+        },
+        "reciprocal_only": {
+          "stability": 0.903512045815123,
+          "downstream_error": 0.7560586664642004,
+          "runtime_ms_mean": 0.0073118082271349605
+        },
+        "covariance_whitening": {
+          "stability": 1.1989502387554989,
+          "downstream_error": 0.7575422468561551,
+          "runtime_ms_mean": 0.0037825181838239594
+        },
+        "no_transform": {
+          "stability": 1.0269016811231424,
+          "downstream_error": 0.7457294453449744,
+          "runtime_ms_mean": 0.0015848135088426857
+        }
+      }
+    },
+    {
+      "regime": "messy_gap",
+      "seed": 202,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.7134942183375652,
+      "spectral_gap_min": 0.24212113377012412,
+      "condition_proxy_mean": 1.2030580824979655,
+      "methods": {
+        "rest": {
+          "stability": 1.3323914212954415,
+          "downstream_error": 1.0399720080390489,
+          "runtime_ms_mean": 0.02342251290914354
+        },
+        "reciprocal_only": {
+          "stability": 0.8427554054141703,
+          "downstream_error": 1.0026682206196829,
+          "runtime_ms_mean": 0.007203233107780299
+        },
+        "covariance_whitening": {
+          "stability": 1.0677575520975717,
+          "downstream_error": 0.9642160832055369,
+          "runtime_ms_mean": 0.003887031056874171
+        },
+        "no_transform": {
+          "stability": 1.0704328937802792,
+          "downstream_error": 1.099867195436845,
+          "runtime_ms_mean": 0.0017230414635854064
+        }
+      }
+    },
+    {
+      "regime": "messy_gap",
+      "seed": 303,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.4733490327716344,
+      "spectral_gap_min": 0.2151641777826221,
+      "condition_proxy_mean": 1.1491276560481731,
+      "methods": {
+        "rest": {
+          "stability": 1.328851280505991,
+          "downstream_error": 0.49218141837117574,
+          "runtime_ms_mean": 0.02313026417551352
+        },
+        "reciprocal_only": {
+          "stability": 0.8846592890113948,
+          "downstream_error": 0.4924692519675517,
+          "runtime_ms_mean": 0.0069015490970425935
+        },
+        "covariance_whitening": {
+          "stability": 1.197787569076526,
+          "downstream_error": 0.49372412831539236,
+          "runtime_ms_mean": 0.0043872434635636995
+        },
+        "no_transform": {
+          "stability": 1.003785499321369,
+          "downstream_error": 0.4919898287206201,
+          "runtime_ms_mean": 0.0016319948989581897
+        }
+      }
+    },
+    {
+      "regime": "messy_gap",
+      "seed": 404,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.5493183102311316,
+      "spectral_gap_min": 0.15662936956243384,
+      "condition_proxy_mean": 1.1782560988528583,
+      "methods": {
+        "rest": {
+          "stability": 1.2184833341809373,
+          "downstream_error": 1.3033446926901064,
+          "runtime_ms_mean": 0.024029829061256572
+        },
+        "reciprocal_only": {
+          "stability": 0.787201606488141,
+          "downstream_error": 1.343432269989709,
+          "runtime_ms_mean": 0.007059647588356678
+        },
+        "covariance_whitening": {
+          "stability": 1.0368317461482537,
+          "downstream_error": 1.3882493583168185,
+          "runtime_ms_mean": 0.004101746121163292
+        },
+        "no_transform": {
+          "stability": 0.9591258053556175,
+          "downstream_error": 1.2415660786976968,
+          "runtime_ms_mean": 0.0017870363193971872
+        }
+      }
+    },
+    {
+      "regime": "messy_gap",
+      "seed": 505,
+      "samples_evaluated": 193,
+      "spectral_gap_mean": 0.7556495858328601,
+      "spectral_gap_min": 0.12280967352659014,
+      "condition_proxy_mean": 1.288655645438097,
+      "methods": {
+        "rest": {
+          "stability": 1.3440829051328567,
+          "downstream_error": 1.8345073943349568,
+          "runtime_ms_mean": 0.023261870481037665
+        },
+        "reciprocal_only": {
+          "stability": 0.8260901714227638,
+          "downstream_error": 1.837302217064529,
+          "runtime_ms_mean": 0.007202606263297244
+        },
+        "covariance_whitening": {
+          "stability": 1.0246521072468282,
+          "downstream_error": 1.8294361885379138,
+          "runtime_ms_mean": 0.004265507871051044
+        },
+        "no_transform": {
+          "stability": 1.144236518116576,
+          "downstream_error": 1.8173336033024001,
+          "runtime_ms_mean": 0.0018327512930345195
+        }
+      }
+    }
+  ],
+  "overall_decision": {
+    "decision": "PIVOT",
+    "rationale": "Reciprocal-only matches or beats REST across the locked regimes on both downstream error and stability, so the current architecture does not earn mainline continuation from this slice."
+  }
+}

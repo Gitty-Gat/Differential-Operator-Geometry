@@ -1,0 +1,82 @@
+{
+  "schema_version": "dog-prism-contract-mock-v1",
+  "mode": "paper_mock_only",
+  "authority_boundary": "No live credentials, no live/write calls, no widened PRISM authority.",
+  "prism_gate_artifacts_referenced": [
+    "docs/project-plan/THEOREM_TO_CONTRACT_GATE.md",
+    "docs/project-plan/STATUS_BOARD.md",
+    "docs/project-plan/VERIFICATION_MATRIX.md",
+    "docs/project-plan/DOG_PRISM_ARCHITECTURE_SPIKE_PLAN_2026-04-28.md"
+  ],
+  "dog_context_artifacts_referenced": [
+    "docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md",
+    "experiments/results/decision_slice_metrics.json"
+  ],
+  "feature_names": [
+    "posterior_confidence",
+    "calibration_score",
+    "freshness_age",
+    "provenance_present",
+    "contradiction_score",
+    "decision_trade",
+    "decision_artifact_present",
+    "approval_token_present",
+    "live_write_requested",
+    "risk_utilization",
+    "heartbeat_age",
+    "reconciliation_ok",
+    "lineage_integrity",
+    "runtime_authorized"
+  ],
+  "config": {
+    "repeats_per_case": 12,
+    "window_size": 16,
+    "rank": 4,
+    "ridge_scale": 0.5,
+    "beta": 0.7,
+    "noise_scale": 0.025,
+    "seed": 717
+  },
+  "trace_case_count": 25,
+  "samples_evaluated": 285,
+  "methods": {
+    "rest": {
+      "contract_classification_error": 0.13953488372093023,
+      "false_pass_rate": 0.0,
+      "false_block_rate": 0.13953488372093023,
+      "stability": 0.43055603232438694,
+      "runtime_ms_mean": 0.027091684195942146,
+      "auditability_reconstruction_error": 0.008306209005653018
+    },
+    "reciprocal_only": {
+      "contract_classification_error": 0.13953488372093023,
+      "false_pass_rate": 0.0,
+      "false_block_rate": 0.13953488372093023,
+      "stability": 0.3679951808968226,
+      "runtime_ms_mean": 0.008234249151172933,
+      "auditability_reconstruction_error": 0.008306209005653018
+    },
+    "covariance_whitening": {
+      "contract_classification_error": 0.13953488372093023,
+      "false_pass_rate": 0.0,
+      "false_block_rate": 0.13953488372093023,
+      "stability": 2.5569584224796653,
+      "runtime_ms_mean": 0.004587171950557253,
+      "auditability_reconstruction_error": 0.008306209005653018
+    },
+    "no_transform": {
+      "contract_classification_error": 0.7906976744186046,
+      "false_pass_rate": 0.7906976744186046,
+      "false_block_rate": 0.0,
+      "stability": 0.168270181509502,
+      "runtime_ms_mean": 0.0007251193062729088,
+      "auditability_reconstruction_error": 0.0
+    }
+  },
+  "scorecard": {
+    "reciprocal_only_remains_enough": true,
+    "transforms_obscure_contract_fields": false,
+    "decision": "STOP_OR_REFINE",
+    "rationale": "Paper/mock trace evidence does not justify promoting current REST: reciprocal-only matches REST on contract classification and false-pass risk while running faster and producing a more stable representation."
+  }
+}

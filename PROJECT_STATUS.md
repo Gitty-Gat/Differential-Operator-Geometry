@@ -27,6 +27,16 @@ Artifacts:
 Result:
 - **PIVOT** — reciprocal-only matched or beat REST across the locked moderate-drift clean-to-messy spectral-gap regimes on stability and downstream error, while also running faster.
 
+## DOG×PRISM paper/mock follow-on result
+Approved bounded follow-on artifacts:
+- `docs/project-plan/DOG_PRISM_ARCHITECTURE_SPIKE_PLAN_2026-04-28.md`
+- `experiments/synthetic/run_prism_contract_mock.py`
+- `experiments/results/prism_contract_mock_metrics.json`
+- `docs/project-plan/DOG_PRISM_CONTRACT_MOCK_EVALUATION_2026-04-28.md`
+
+Result:
+- **STOP_OR_REFINE** — in simulated PRISM theorem-to-contract traces, reciprocal-only matched REST on contract classification and false-pass risk while running faster and producing a more stable representation. No live/write authority was used or widened.
+
 ## What is currently supported
 
 ### Implementation
@@ -65,8 +75,8 @@ Current operating rule:
 
 ## Highest-priority open work
 1. Treat `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md` as the canonical decision note.
-2. Decide whether Sean wants a bounded architecture-change spike after the PIVOT.
-3. If approved, evaluate one minimal variant against `experiments/synthetic/run_decision_slice.py` or an equivalent paired harness.
+2. Do not promote current REST based on the DOG×PRISM mock; it also failed to beat reciprocal-only.
+3. If Sean approves another attempt, evaluate one minimal variant against both `experiments/synthetic/run_decision_slice.py` and `experiments/synthetic/run_prism_contract_mock.py`.
 4. Keep REST / reciprocal-only / covariance-whitening / no-transform as the comparison standard.
 5. Avoid broad expansion until a variant or repositioning earns evidence.
 

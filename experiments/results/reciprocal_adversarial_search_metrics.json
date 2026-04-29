@@ -1,0 +1,1585 @@
+{
+  "schema_version": "reciprocal-adversarial-failure-search-v1",
+  "mode": "synthetic_and_prism_paper_mock_only",
+  "hard_baseline": "reciprocal_only",
+  "claim_boundary": "No PRISM live-use claims; no attempt to rescue REST; promising requires DOG-side win plus PRISM false-pass/auditability guardrails.",
+  "failure_criteria": {
+    "reciprocal_absolute_normalized_mse_gt": 1.0,
+    "reciprocal_relative_error_ratio_to_best_ge": 1.1,
+    "reciprocal_absolute_stability_gt": 1.5,
+    "reciprocal_relative_stability_ratio_to_best_ge": 1.25,
+    "candidate_downstream_error_ratio_vs_reciprocal_max": 0.98,
+    "candidate_stability_ratio_vs_reciprocal_max": 1.1,
+    "candidate_runtime_ratio_vs_reciprocal_max": 3.0,
+    "candidate_false_pass_delta_vs_reciprocal_max": 1e-09,
+    "candidate_auditability_delta_vs_reciprocal_max": 1e-09
+  },
+  "seeds": [
+    111,
+    222,
+    333,
+    444,
+    555
+  ],
+  "cases": [
+    {
+      "case": "switching_lag",
+      "description": "abrupt covariance swaps that stress window lag",
+      "generator": "switching_lag",
+      "config": {
+        "steps": 240,
+        "dimension": 6,
+        "window_size": 20,
+        "rank": 2,
+        "ridge_scale": 0.5,
+        "beta": 0.7,
+        "latent_persistence": 0.72,
+        "latent_noise": 0.65,
+        "observation_noise": 0.06
+      },
+      "seeds": [
+        111,
+        222,
+        333,
+        444,
+        555
+      ],
+      "samples_evaluated_per_seed": [
+        221,
+        221,
+        221,
+        221,
+        221
+      ],
+      "methods": {
+        "rest": {
+          "stability_mean": 1.877243970200866,
+          "downstream_error_mean": 0.8963095493297795,
+          "downstream_normalized_mse_mean": 1.0122549016312972,
+          "runtime_ms_mean": 0.021815994509223984
+        },
+        "reciprocal_only": {
+          "stability_mean": 1.0709273396729833,
+          "downstream_error_mean": 0.9011732719873065,
+          "downstream_normalized_mse_mean": 1.0163858251518483,
+          "runtime_ms_mean": 0.006825403611668769
+        },
+        "covariance_whitening": {
+          "stability_mean": 1.2114309894803783,
+          "downstream_error_mean": 0.9050873951874573,
+          "downstream_normalized_mse_mean": 1.0197393349867696,
+          "runtime_ms_mean": 0.0037780678891618973
+        },
+        "no_transform": {
+          "stability_mean": 1.9223734249774431,
+          "downstream_error_mean": 0.8663109122997238,
+          "downstream_normalized_mse_mean": 0.9868941644127365,
+          "runtime_ms_mean": 0.001671331310676352
+        }
+      },
+      "reciprocal_failure": {
+        "absolute_downstream_failure": true,
+        "relative_downstream_failure": false,
+        "absolute_stability_failure": false,
+        "relative_stability_failure": false,
+        "any_failure": true
+      },
+      "baseline_comparison": {
+        "rest": {
+          "downstream_error_ratio_vs_reciprocal": 0.9946028995658057,
+          "stability_ratio_vs_reciprocal": 1.7529144141320534,
+          "runtime_ratio_vs_reciprocal": 3.196293691984335,
+          "beats_reciprocal_dog_side": false
+        },
+        "reciprocal_only": {
+          "downstream_error_ratio_vs_reciprocal": 1.0,
+          "stability_ratio_vs_reciprocal": 1.0,
+          "runtime_ratio_vs_reciprocal": 1.0,
+          "beats_reciprocal_dog_side": false
+        },
+        "covariance_whitening": {
+          "downstream_error_ratio_vs_reciprocal": 1.0043433636147676,
+          "stability_ratio_vs_reciprocal": 1.131198116438319,
+          "runtime_ratio_vs_reciprocal": 0.5535303264268328,
+          "beats_reciprocal_dog_side": false
+        },
+        "no_transform": {
+          "downstream_error_ratio_vs_reciprocal": 0.9613144766147994,
+          "stability_ratio_vs_reciprocal": 1.7950549526212078,
+          "runtime_ratio_vs_reciprocal": 0.24486922763351743,
+          "beats_reciprocal_dog_side": false
+        }
+      }
+    },
+    {
+      "case": "outlier_bursts",
+      "description": "rare high-magnitude bursts contaminate covariance estimates",
+      "generator": "outlier_bursts",
+      "config": {
+        "steps": 240,
+        "dimension": 6,
+        "window_size": 20,
+        "rank": 2,
+        "ridge_scale": 0.5,
+        "beta": 0.7,
+        "latent_persistence": 0.72,
+        "latent_noise": 0.65,
+        "observation_noise": 0.06
+      },
+      "seeds": [
+        111,
+        222,
+        333,
+        444,
+        555
+      ],
+      "samples_evaluated_per_seed": [
+        221,
+        221,
+        221,
+        221,
+        221
+      ],
+      "methods": {
+        "rest": {
+          "stability_mean": 1.8812775842116989,
+          "downstream_error_mean": 0.9253914349480394,
+          "downstream_normalized_mse_mean": 1.0194968327340541,
+          "runtime_ms_mean": 0.020514000874861854
+        },
+        "reciprocal_only": {
+          "stability_mean": 1.0905090767641332,
+          "downstream_error_mean": 0.9303041087017252,
+          "downstream_normalized_mse_mean": 1.023815142914716,
+          "runtime_ms_mean": 0.006451665212313868
+        },
+        "covariance_whitening": {
+          "stability_mean": 1.294505680163458,
+          "downstream_error_mean": 0.9327934626133103,
+          "downstream_normalized_mse_mean": 1.025556812451666,
+          "runtime_ms_mean": 0.003610989178964927
+        },
+        "no_transform": {
+          "stability_mean": 2.1242987390049204,
+          "downstream_error_mean": 0.9144612329038848,
+          "downstream_normalized_mse_mean": 1.0088434708123628,
+          "runtime_ms_mean": 0.0015637194629804952
+        }
+      },
+      "reciprocal_failure": {
+        "absolute_downstream_failure": true,
+        "relative_downstream_failure": false,
+        "absolute_stability_failure": false,
+        "relative_stability_failure": false,
+        "any_failure": true
+      },
+      "baseline_comparison": {
+        "rest": {
+          "downstream_error_ratio_vs_reciprocal": 0.9947192818910134,
+          "stability_ratio_vs_reciprocal": 1.7251370248049769,
+          "runtime_ratio_vs_reciprocal": 3.179644355337616,
+          "beats_reciprocal_dog_side": false
+        },
+        "reciprocal_only": {
+          "downstream_error_ratio_vs_reciprocal": 1.0,
+          "stability_ratio_vs_reciprocal": 1.0,
+          "runtime_ratio_vs_reciprocal": 1.0,
+          "beats_reciprocal_dog_side": false
+        },
+        "covariance_whitening": {
+          "downstream_error_ratio_vs_reciprocal": 1.0026758496370172,
+          "stability_ratio_vs_reciprocal": 1.187065479550747,
+          "runtime_ratio_vs_reciprocal": 0.5596987847529455,
+          "beats_reciprocal_dog_side": false
+        },
+        "no_transform": {
+          "downstream_error_ratio_vs_reciprocal": 0.982970218394553,
+          "stability_ratio_vs_reciprocal": 1.9479881316608116,
+          "runtime_ratio_vs_reciprocal": 0.2423745516112533,
+          "beats_reciprocal_dog_side": false
+        }
+      }
+    },
+    {
+      "case": "low_variance_target",
+      "description": "predictive target lives in a low-variance direction",
+      "generator": "low_variance_target",
+      "config": {
+        "steps": 240,
+        "dimension": 6,
+        "window_size": 20,
+        "rank": 2,
+        "ridge_scale": 0.5,
+        "beta": 0.7,
+        "latent_persistence": 0.72,
+        "latent_noise": 0.65,
+        "observation_noise": 0.06
+      },
+      "seeds": [
+        111,
+        222,
+        333,
+        444,
+        555
+      ],
+      "samples_evaluated_per_seed": [
+        221,
+        221,
+        221,
+        221,
+        221
+      ],
+      "methods": {
+        "rest": {
+          "stability_mean": 2.18887659142469,
+          "downstream_error_mean": 0.9795858734594202,
+          "downstream_normalized_mse_mean": 1.0066978330876482,
+          "runtime_ms_mean": 0.020525884130159478
+        },
+        "reciprocal_only": {
+          "stability_mean": 1.164467939832549,
+          "downstream_error_mean": 0.9785936780950445,
+          "downstream_normalized_mse_mean": 1.0055053735366217,
+          "runtime_ms_mean": 0.0064817664481602545
+        },
+        "covariance_whitening": {
+          "stability_mean": 1.2301761779675549,
+          "downstream_error_mean": 0.9778594253936734,
+          "downstream_normalized_mse_mean": 1.00461216404727,
+          "runtime_ms_mean": 0.0035285556212708152
+        },
+        "no_transform": {
+          "stability_mean": 3.0622609071058884,
+          "downstream_error_mean": 0.9895655469702225,
+          "downstream_normalized_mse_mean": 1.0182330389384215,
+          "runtime_ms_mean": 0.0015759465879364553
+        }
+      },
+      "reciprocal_failure": {
+        "absolute_downstream_failure": true,
+        "relative_downstream_failure": false,
+        "absolute_stability_failure": false,
+        "relative_stability_failure": false,
+        "any_failure": true
+      },
+      "baseline_comparison": {
+        "rest": {
+          "downstream_error_ratio_vs_reciprocal": 1.0010138992174025,
+          "stability_ratio_vs_reciprocal": 1.879722503772368,
+          "runtime_ratio_vs_reciprocal": 3.1667114658204665,
+          "beats_reciprocal_dog_side": false
+        },
+        "reciprocal_only": {
+          "downstream_error_ratio_vs_reciprocal": 1.0,
+          "stability_ratio_vs_reciprocal": 1.0,
+          "runtime_ratio_vs_reciprocal": 1.0,
+          "beats_reciprocal_dog_side": false
+        },
+        "covariance_whitening": {
+          "downstream_error_ratio_vs_reciprocal": 0.9992496858320193,
+          "stability_ratio_vs_reciprocal": 1.0564276918988895,
+          "runtime_ratio_vs_reciprocal": 0.5443817899783074,
+          "beats_reciprocal_dog_side": false
+        },
+        "no_transform": {
+          "downstream_error_ratio_vs_reciprocal": 1.0112118738560993,
+          "stability_ratio_vs_reciprocal": 2.629751152742121,
+          "runtime_ratio_vs_reciprocal": 0.24313535523696053,
+          "beats_reciprocal_dog_side": false
+        }
+      }
+    },
+    {
+      "case": "eigenvalue_collapse",
+      "description": "near-isotropic retained spectrum with rapid basis rotation",
+      "generator": "eigenvalue_collapse",
+      "config": {
+        "steps": 240,
+        "dimension": 6,
+        "window_size": 20,
+        "rank": 2,
+        "ridge_scale": 0.5,
+        "beta": 0.7,
+        "latent_persistence": 0.72,
+        "latent_noise": 0.65,
+        "observation_noise": 0.06
+      },
+      "seeds": [
+        111,
+        222,
+        333,
+        444,
+        555
+      ],
+      "samples_evaluated_per_seed": [
+        221,
+        221,
+        221,
+        221,
+        221
+      ],
+      "methods": {
+        "rest": {
+          "stability_mean": 1.2872829080767185,
+          "downstream_error_mean": 0.915280889597103,
+          "downstream_normalized_mse_mean": 1.0091519708415697,
+          "runtime_ms_mean": 0.021314915855377238
+        },
+        "reciprocal_only": {
+          "stability_mean": 0.8767366482666372,
+          "downstream_error_mean": 0.9155456025212262,
+          "downstream_normalized_mse_mean": 1.0094086910723572,
+          "runtime_ms_mean": 0.006755943840334816
+        },
+        "covariance_whitening": {
+          "stability_mean": 1.225123700077848,
+          "downstream_error_mean": 0.9142940166947264,
+          "downstream_normalized_mse_mean": 1.0082251450668396,
+          "runtime_ms_mean": 0.0036840054581344247
+        },
+        "no_transform": {
+          "stability_mean": 0.9502998193261881,
+          "downstream_error_mean": 0.9115993055677736,
+          "downstream_normalized_mse_mean": 1.0055777278588596,
+          "runtime_ms_mean": 0.001668371991054218
+        }
+      },
+      "reciprocal_failure": {
+        "absolute_downstream_failure": true,
+        "relative_downstream_failure": false,
+        "absolute_stability_failure": false,
+        "relative_stability_failure": false,
+        "any_failure": true
+      },
+      "baseline_comparison": {
+        "rest": {
+          "downstream_error_ratio_vs_reciprocal": 0.9997108686630198,
+          "stability_ratio_vs_reciprocal": 1.4682663381549714,
+          "runtime_ratio_vs_reciprocal": 3.15498712824127,
+          "beats_reciprocal_dog_side": false
+        },
+        "reciprocal_only": {
+          "downstream_error_ratio_vs_reciprocal": 1.0,
+          "stability_ratio_vs_reciprocal": 1.0,
+          "runtime_ratio_vs_reciprocal": 1.0,
+          "beats_reciprocal_dog_side": false
+        },
+        "covariance_whitening": {
+          "downstream_error_ratio_vs_reciprocal": 0.9986329617846963,
+          "stability_ratio_vs_reciprocal": 1.397367958211846,
+          "runtime_ratio_vs_reciprocal": 0.5452984135451088,
+          "beats_reciprocal_dog_side": false
+        },
+        "no_transform": {
+          "downstream_error_ratio_vs_reciprocal": 0.9956896773436678,
+          "stability_ratio_vs_reciprocal": 1.0839056644945662,
+          "runtime_ratio_vs_reciprocal": 0.24694876548463665,
+          "beats_reciprocal_dog_side": false
+        }
+      }
+    },
+    {
+      "case": "reciprocal_clip_stress",
+      "description": "tiny retained eigenvalue stresses reciprocal clipping",
+      "generator": "reciprocal_clip_stress",
+      "config": {
+        "steps": 240,
+        "dimension": 6,
+        "window_size": 20,
+        "rank": 2,
+        "ridge_scale": 0.5,
+        "beta": 0.7,
+        "latent_persistence": 0.72,
+        "latent_noise": 0.65,
+        "observation_noise": 0.06
+      },
+      "seeds": [
+        111,
+        222,
+        333,
+        444,
+        555
+      ],
+      "samples_evaluated_per_seed": [
+        221,
+        221,
+        221,
+        221,
+        221
+      ],
+      "methods": {
+        "rest": {
+          "stability_mean": 1.5968363589597687,
+          "downstream_error_mean": 0.946513920916529,
+          "downstream_normalized_mse_mean": 0.9902942960450796,
+          "runtime_ms_mean": 0.020516754775434496
+        },
+        "reciprocal_only": {
+          "stability_mean": 1.001192092215023,
+          "downstream_error_mean": 0.9436241487019705,
+          "downstream_normalized_mse_mean": 0.9868892085029369,
+          "runtime_ms_mean": 0.006385276932163982
+        },
+        "covariance_whitening": {
+          "stability_mean": 1.3350570090911806,
+          "downstream_error_mean": 0.9421060715390499,
+          "downstream_normalized_mse_mean": 0.9848514667518291,
+          "runtime_ms_mean": 0.003566466978665787
+        },
+        "no_transform": {
+          "stability_mean": 1.5123715094048784,
+          "downstream_error_mean": 0.9594008513876308,
+          "downstream_normalized_mse_mean": 1.002402369808904,
+          "runtime_ms_mean": 0.001548390054066004
+        }
+      },
+      "reciprocal_failure": {
+        "absolute_downstream_failure": false,
+        "relative_downstream_failure": false,
+        "absolute_stability_failure": false,
+        "relative_stability_failure": false,
+        "any_failure": false
+      },
+      "baseline_comparison": {
+        "rest": {
+          "downstream_error_ratio_vs_reciprocal": 1.0030624186743562,
+          "stability_ratio_vs_reciprocal": 1.594935049304026,
+          "runtime_ratio_vs_reciprocal": 3.2131346836481423,
+          "beats_reciprocal_dog_side": false
+        },
+        "reciprocal_only": {
+          "downstream_error_ratio_vs_reciprocal": 1.0,
+          "stability_ratio_vs_reciprocal": 1.0,
+          "runtime_ratio_vs_reciprocal": 1.0,
+          "beats_reciprocal_dog_side": false
+        },
+        "covariance_whitening": {
+          "downstream_error_ratio_vs_reciprocal": 0.9983912268830669,
+          "stability_ratio_vs_reciprocal": 1.3334673929930065,
+          "runtime_ratio_vs_reciprocal": 0.5585453875462697,
+          "beats_reciprocal_dog_side": false
+        },
+        "no_transform": {
+          "downstream_error_ratio_vs_reciprocal": 1.0167192655119757,
+          "stability_ratio_vs_reciprocal": 1.5105707697500181,
+          "runtime_ratio_vs_reciprocal": 0.24249379792228554,
+          "beats_reciprocal_dog_side": false
+        }
+      }
+    }
+  ],
+  "raw_runs": [
+    {
+      "case": "switching_lag",
+      "seed": 111,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.8873064290607808,
+          "downstream_error": 0.9081944360000161,
+          "downstream_normalized_mse": 1.0205213844539895,
+          "runtime_ms_mean": 0.026134769084581018
+        },
+        "reciprocal_only": {
+          "stability": 1.07585911058764,
+          "downstream_error": 0.9039082316689528,
+          "downstream_normalized_mse": 1.015705055477945,
+          "runtime_ms_mean": 0.00835655205614435
+        },
+        "covariance_whitening": {
+          "stability": 1.2157393475714418,
+          "downstream_error": 0.8996691434115431,
+          "downstream_normalized_mse": 1.0109416699673182,
+          "runtime_ms_mean": 0.004597904998308672
+        },
+        "no_transform": {
+          "stability": 1.9495323421623998,
+          "downstream_error": 0.9202164922548944,
+          "downstream_normalized_mse": 1.0340303479610198,
+          "runtime_ms_mean": 0.0021529638747594055
+        }
+      }
+    },
+    {
+      "case": "switching_lag",
+      "seed": 222,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.97259661200475,
+          "downstream_error": 0.5175055106711538,
+          "downstream_normalized_mse": 1.1903735981548604,
+          "runtime_ms_mean": 0.02063151589019026
+        },
+        "reciprocal_only": {
+          "stability": 1.1057223707924944,
+          "downstream_error": 0.5175458053700392,
+          "downstream_normalized_mse": 1.1904662845991778,
+          "runtime_ms_mean": 0.006483859714827547
+        },
+        "covariance_whitening": {
+          "stability": 1.2245181884748868,
+          "downstream_error": 0.5177564031526122,
+          "downstream_normalized_mse": 1.1909507046392267,
+          "runtime_ms_mean": 0.003605809954797841
+        },
+        "no_transform": {
+          "stability": 2.0777800748846538,
+          "downstream_error": 0.5191386855050742,
+          "downstream_normalized_mse": 1.1941302503322422,
+          "runtime_ms_mean": 0.0015875159729086706
+        }
+      }
+    },
+    {
+      "case": "switching_lag",
+      "seed": 333,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.7593358557459438,
+          "downstream_error": 1.2170193671242464,
+          "downstream_normalized_mse": 1.0155348964383832,
+          "runtime_ms_mean": 0.02133165613831889
+        },
+        "reciprocal_only": {
+          "stability": 1.0097815370185088,
+          "downstream_error": 1.236198819336866,
+          "downstream_normalized_mse": 1.0315390813697305,
+          "runtime_ms_mean": 0.006629583713302507
+        },
+        "covariance_whitening": {
+          "stability": 1.150188138230561,
+          "downstream_error": 1.2515716518221516,
+          "downstream_normalized_mse": 1.0443668540967976,
+          "runtime_ms_mean": 0.003555076974033214
+        },
+        "no_transform": {
+          "stability": 1.8360374407316713,
+          "downstream_error": 1.09911530675558,
+          "downstream_normalized_mse": 0.9171505231320752,
+          "runtime_ms_mean": 0.0015752760837501446
+        }
+      }
+    },
+    {
+      "case": "switching_lag",
+      "seed": 444,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.887026768349119,
+          "downstream_error": 0.9094681025680563,
+          "downstream_normalized_mse": 0.9102946663541375,
+          "runtime_ms_mean": 0.02051279629563293
+        },
+        "reciprocal_only": {
+          "stability": 1.0976208729947432,
+          "downstream_error": 0.9156443697534664,
+          "downstream_normalized_mse": 0.9164765467972024,
+          "runtime_ms_mean": 0.006351185574331131
+        },
+        "covariance_whitening": {
+          "stability": 1.2704504291010907,
+          "downstream_error": 0.9214041103868056,
+          "downstream_normalized_mse": 0.9222415221309245,
+          "runtime_ms_mean": 0.0036090769585352643
+        },
+        "no_transform": {
+          "stability": 1.832733778710249,
+          "downstream_error": 0.8803226740282268,
+          "downstream_normalized_mse": 0.8811227491934395,
+          "runtime_ms_mean": 0.0015213575504659106
+        }
+      }
+    },
+    {
+      "case": "switching_lag",
+      "seed": 555,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.879954185843737,
+          "downstream_error": 0.9293603302854248,
+          "downstream_normalized_mse": 0.9245499627551157,
+          "runtime_ms_mean": 0.020469235137396815
+        },
+        "reciprocal_only": {
+          "stability": 1.0656528069715296,
+          "downstream_error": 0.9325691338072083,
+          "downstream_normalized_mse": 0.9277421575151851,
+          "runtime_ms_mean": 0.006305836999738311
+        },
+        "covariance_whitening": {
+          "stability": 1.1962588440239112,
+          "downstream_error": 0.9350356671641741,
+          "downstream_normalized_mse": 0.9301959240995803,
+          "runtime_ms_mean": 0.0035224705601344937
+        },
+        "no_transform": {
+          "stability": 1.9157834883982425,
+          "downstream_error": 0.9127614029548433,
+          "downstream_normalized_mse": 0.9080369514449055,
+          "runtime_ms_mean": 0.0015195430714976278
+        }
+      }
+    },
+    {
+      "case": "outlier_bursts",
+      "seed": 111,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.8970329718277366,
+          "downstream_error": 0.8765114185142879,
+          "downstream_normalized_mse": 0.9849197604112117,
+          "runtime_ms_mean": 0.020643724008764634
+        },
+        "reciprocal_only": {
+          "stability": 1.0936510987774684,
+          "downstream_error": 0.8652382424235783,
+          "downstream_normalized_mse": 0.9722522997714457,
+          "runtime_ms_mean": 0.006366126884983397
+        },
+        "covariance_whitening": {
+          "stability": 1.2882813126274812,
+          "downstream_error": 0.8504073739179557,
+          "downstream_normalized_mse": 0.9555871255972089,
+          "runtime_ms_mean": 0.003588674366774408
+        },
+        "no_transform": {
+          "stability": 2.1446896990250033,
+          "downstream_error": 0.8830343252644459,
+          "downstream_normalized_mse": 0.9922494307587355,
+          "runtime_ms_mean": 0.0016143032503988578
+        }
+      }
+    },
+    {
+      "case": "outlier_bursts",
+      "seed": 222,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.933088202380698,
+          "downstream_error": 0.4397074745292794,
+          "downstream_normalized_mse": 1.0114214395749825,
+          "runtime_ms_mean": 0.02033679185217095
+        },
+        "reciprocal_only": {
+          "stability": 1.13668736186454,
+          "downstream_error": 0.43805194567951944,
+          "downstream_normalized_mse": 1.0076133683697464,
+          "runtime_ms_mean": 0.006548868815811789
+        },
+        "covariance_whitening": {
+          "stability": 1.3849313816144537,
+          "downstream_error": 0.4362089104825445,
+          "downstream_normalized_mse": 1.003373992375269,
+          "runtime_ms_mean": 0.0036648734461103157
+        },
+        "no_transform": {
+          "stability": 2.248356623376482,
+          "downstream_error": 0.4396990030222654,
+          "downstream_normalized_mse": 1.0114019532930434,
+          "runtime_ms_mean": 0.0015558008144333604
+        }
+      }
+    },
+    {
+      "case": "outlier_bursts",
+      "seed": 333,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.8554705240956244,
+          "downstream_error": 1.2375671088911255,
+          "downstream_normalized_mse": 1.032680842814387,
+          "runtime_ms_mean": 0.020554475038527295
+        },
+        "reciprocal_only": {
+          "stability": 1.0720714674367227,
+          "downstream_error": 1.2333805370686903,
+          "downstream_normalized_mse": 1.0291873817430361,
+          "runtime_ms_mean": 0.0064028824054808845
+        },
+        "covariance_whitening": {
+          "stability": 1.2604330106836288,
+          "downstream_error": 1.2299688768758845,
+          "downstream_normalized_mse": 1.0263405412783926,
+          "runtime_ms_mean": 0.0036544615672258617
+        },
+        "no_transform": {
+          "stability": 2.1076722401096473,
+          "downstream_error": 1.2345165573754002,
+          "downstream_normalized_mse": 1.0301353274337055,
+          "runtime_ms_mean": 0.0015943708962063428
+        }
+      }
+    },
+    {
+      "case": "outlier_bursts",
+      "seed": 444,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.812506507446501,
+          "downstream_error": 0.9896196478242949,
+          "downstream_normalized_mse": 0.9905190567871559,
+          "runtime_ms_mean": 0.020327719391483763
+        },
+        "reciprocal_only": {
+          "stability": 1.0616784686152436,
+          "downstream_error": 1.0056639260340645,
+          "downstream_normalized_mse": 1.0065779167280544,
+          "runtime_ms_mean": 0.006444140245750277
+        },
+        "covariance_whitening": {
+          "stability": 1.2741455512488415,
+          "downstream_error": 1.0214066812308713,
+          "downstream_normalized_mse": 1.0223349796188883,
+          "runtime_ms_mean": 0.0035582940172924496
+        },
+        "no_transform": {
+          "stability": 1.9177359272698031,
+          "downstream_error": 0.9538936649982414,
+          "downstream_normalized_mse": 0.9547606046490476,
+          "runtime_ms_mean": 0.0015200227085496742
+        }
+      }
+    },
+    {
+      "case": "outlier_bursts",
+      "seed": 555,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.9082897153079346,
+          "downstream_error": 1.0835515249812098,
+          "downstream_normalized_mse": 1.0779430640825336,
+          "runtime_ms_mean": 0.02070729408336264
+        },
+        "reciprocal_only": {
+          "stability": 1.0884569871266918,
+          "downstream_error": 1.1091858923027735,
+          "downstream_normalized_mse": 1.1034447479612979,
+          "runtime_ms_mean": 0.006496307709542993
+        },
+        "covariance_whitening": {
+          "stability": 1.2647371446428854,
+          "downstream_error": 1.1259754705592955,
+          "downstream_normalized_mse": 1.1201474233885718,
+          "runtime_ms_mean": 0.0035886424974216004
+        },
+        "no_transform": {
+          "stability": 2.2030392052436674,
+          "downstream_error": 1.0611626138590717,
+          "downstream_normalized_mse": 1.0556700379272823,
+          "runtime_ms_mean": 0.001534099645314241
+        }
+      }
+    },
+    {
+      "case": "low_variance_target",
+      "seed": 111,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 2.2474796835802833,
+          "downstream_error": 1.0884786276377874,
+          "downstream_normalized_mse": 1.006283793567702,
+          "runtime_ms_mean": 0.020441506676927918
+        },
+        "reciprocal_only": {
+          "stability": 1.1964100841574898,
+          "downstream_error": 1.0884139131211337,
+          "downstream_normalized_mse": 1.0062239658708934,
+          "runtime_ms_mean": 0.006458203552440399
+        },
+        "covariance_whitening": {
+          "stability": 1.2647373507927315,
+          "downstream_error": 1.0883357169770171,
+          "downstream_normalized_mse": 1.0061516745915369,
+          "runtime_ms_mean": 0.0034817284733221375
+        },
+        "no_transform": {
+          "stability": 3.1379384006957203,
+          "downstream_error": 1.0876044066265702,
+          "downstream_normalized_mse": 1.0054755880474031,
+          "runtime_ms_mean": 0.0015204523192777623
+        }
+      }
+    },
+    {
+      "case": "low_variance_target",
+      "seed": 222,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 2.0425044364914093,
+          "downstream_error": 1.0155667503552053,
+          "downstream_normalized_mse": 1.0168663973521412,
+          "runtime_ms_mean": 0.020229778252805402
+        },
+        "reciprocal_only": {
+          "stability": 1.0854632384242002,
+          "downstream_error": 1.0182613387447095,
+          "downstream_normalized_mse": 1.019564434075994,
+          "runtime_ms_mean": 0.006262764548809095
+        },
+        "covariance_whitening": {
+          "stability": 1.1449873840143932,
+          "downstream_error": 1.0207633506476301,
+          "downstream_normalized_mse": 1.02206964786816,
+          "runtime_ms_mean": 0.0035052354133064223
+        },
+        "no_transform": {
+          "stability": 2.869002678978187,
+          "downstream_error": 1.012438137957014,
+          "downstream_normalized_mse": 1.013733781187869,
+          "runtime_ms_mean": 0.0015494796863337768
+        }
+      }
+    },
+    {
+      "case": "low_variance_target",
+      "seed": 333,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 2.1917448664060144,
+          "downstream_error": 1.0888239898126173,
+          "downstream_normalized_mse": 0.9897323674062666,
+          "runtime_ms_mean": 0.02024565164325864
+        },
+        "reciprocal_only": {
+          "stability": 1.1586712146122498,
+          "downstream_error": 1.0886713585338696,
+          "downstream_normalized_mse": 0.9895936267849462,
+          "runtime_ms_mean": 0.00641100902460111
+        },
+        "covariance_whitening": {
+          "stability": 1.217241342652773,
+          "downstream_error": 1.088596883512299,
+          "downstream_normalized_mse": 0.9895259295812646,
+          "runtime_ms_mean": 0.0035129366852121842
+        },
+        "no_transform": {
+          "stability": 3.194763010749013,
+          "downstream_error": 1.0924105379956177,
+          "downstream_normalized_mse": 0.9929925112469515,
+          "runtime_ms_mean": 0.0016469367104477136
+        }
+      }
+    },
+    {
+      "case": "low_variance_target",
+      "seed": 444,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 2.2017197892717006,
+          "downstream_error": 0.9816780485723158,
+          "downstream_normalized_mse": 1.0511187859877367,
+          "runtime_ms_mean": 0.02041161977564832
+        },
+        "reciprocal_only": {
+          "stability": 1.1830351440748086,
+          "downstream_error": 0.9760855808043369,
+          "downstream_normalized_mse": 1.0451307250959785,
+          "runtime_ms_mean": 0.006305809788973749
+        },
+        "covariance_whitening": {
+          "stability": 1.2608762987450954,
+          "downstream_error": 0.9714928820822504,
+          "downstream_normalized_mse": 1.040213153686301,
+          "runtime_ms_mean": 0.0034721400451791637
+        },
+        "no_transform": {
+          "stability": 2.9101611972299812,
+          "downstream_error": 1.015357045266704,
+          "downstream_normalized_mse": 1.0871801262307772,
+          "runtime_ms_mean": 0.0015653347881243256
+        }
+      }
+    },
+    {
+      "case": "low_variance_target",
+      "seed": 555,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 2.260934181374042,
+          "downstream_error": 0.7233819509191757,
+          "downstream_normalized_mse": 0.9694878211243938,
+          "runtime_ms_mean": 0.021300864302157108
+        },
+        "reciprocal_only": {
+          "stability": 1.1987600178939966,
+          "downstream_error": 0.721536199271173,
+          "downstream_normalized_mse": 0.9670141158552962,
+          "runtime_ms_mean": 0.006971045325976919
+        },
+        "covariance_whitening": {
+          "stability": 1.2630385136327809,
+          "downstream_error": 0.7201082937491708,
+          "downstream_normalized_mse": 0.9651004145090871,
+          "runtime_ms_mean": 0.0036707374893341685
+        },
+        "no_transform": {
+          "stability": 3.1994392478765414,
+          "downstream_error": 0.740017607005207,
+          "downstream_normalized_mse": 0.9917831879791073,
+          "runtime_ms_mean": 0.001597529435498699
+        }
+      }
+    },
+    {
+      "case": "eigenvalue_collapse",
+      "seed": 111,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.250912284428474,
+          "downstream_error": 0.9064332772385765,
+          "downstream_normalized_mse": 1.0185424027445402,
+          "runtime_ms_mean": 0.022831764633185758
+        },
+        "reciprocal_only": {
+          "stability": 0.8517111370773562,
+          "downstream_error": 0.9042427836009513,
+          "downstream_normalized_mse": 1.0160809853309383,
+          "runtime_ms_mean": 0.007246809881059369
+        },
+        "covariance_whitening": {
+          "stability": 1.2011204700773606,
+          "downstream_error": 0.9022608191391097,
+          "downstream_normalized_mse": 1.013853888316949,
+          "runtime_ms_mean": 0.0038993077799604104
+        },
+        "no_transform": {
+          "stability": 0.9337653605945835,
+          "downstream_error": 0.9077758467269859,
+          "downstream_normalized_mse": 1.0200510233864721,
+          "runtime_ms_mean": 0.0019014026774504386
+        }
+      }
+    },
+    {
+      "case": "eigenvalue_collapse",
+      "seed": 222,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.2475947566813275,
+          "downstream_error": 0.42823392827226653,
+          "downstream_normalized_mse": 0.9850298239111344,
+          "runtime_ms_mean": 0.022394190155490136
+        },
+        "reciprocal_only": {
+          "stability": 0.8469055536949953,
+          "downstream_error": 0.42935074617654584,
+          "downstream_normalized_mse": 0.9875987444729204,
+          "runtime_ms_mean": 0.00753966062337611
+        },
+        "covariance_whitening": {
+          "stability": 1.1747618803171445,
+          "downstream_error": 0.43050244034794727,
+          "downstream_normalized_mse": 0.9902478879245662,
+          "runtime_ms_mean": 0.0039650726093114165
+        },
+        "no_transform": {
+          "stability": 0.9213451928145558,
+          "downstream_error": 0.4263995059515214,
+          "downstream_normalized_mse": 0.9808102593780939,
+          "runtime_ms_mean": 0.0016963937977219328
+        }
+      }
+    },
+    {
+      "case": "eigenvalue_collapse",
+      "seed": 333,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.2784217508558609,
+          "downstream_error": 1.1791352380383406,
+          "downstream_normalized_mse": 0.983922700160174,
+          "runtime_ms_mean": 0.020472353132156132
+        },
+        "reciprocal_only": {
+          "stability": 0.8604791248328664,
+          "downstream_error": 1.1865428789888322,
+          "downstream_normalized_mse": 0.9901039640650253,
+          "runtime_ms_mean": 0.006299031592459877
+        },
+        "covariance_whitening": {
+          "stability": 1.1859900689223382,
+          "downstream_error": 1.1921222658952935,
+          "downstream_normalized_mse": 0.9947596517700054,
+          "runtime_ms_mean": 0.0035224569959058194
+        },
+        "no_transform": {
+          "stability": 0.9554521919383864,
+          "downstream_error": 1.1625321287444565,
+          "downstream_normalized_mse": 0.9700683299399518,
+          "runtime_ms_mean": 0.001527678760872707
+        }
+      }
+    },
+    {
+      "case": "eigenvalue_collapse",
+      "seed": 444,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.3115282909402883,
+          "downstream_error": 1.041760512593956,
+          "downstream_normalized_mse": 1.0427073094206374,
+          "runtime_ms_mean": 0.020480986467401426
+        },
+        "reciprocal_only": {
+          "stability": 0.9107626484190966,
+          "downstream_error": 1.0383587595594406,
+          "downstream_normalized_mse": 1.039302464726437,
+          "runtime_ms_mean": 0.006313991060083294
+        },
+        "covariance_whitening": {
+          "stability": 1.2978996669283684,
+          "downstream_error": 1.0308990955926178,
+          "downstream_normalized_mse": 1.0318360210956834,
+          "runtime_ms_mean": 0.003483918404872466
+        },
+        "no_transform": {
+          "stability": 0.9443700997703904,
+          "downstream_error": 1.0418034635356497,
+          "downstream_normalized_mse": 1.042750299397997,
+          "runtime_ms_mean": 0.0016541990709103374
+        }
+      }
+    },
+    {
+      "case": "eigenvalue_collapse",
+      "seed": 555,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.3479574574776418,
+          "downstream_error": 1.0208414918423747,
+          "downstream_normalized_mse": 1.0155576179713621,
+          "runtime_ms_mean": 0.020395284888652738
+        },
+        "reciprocal_only": {
+          "stability": 0.9138247773088706,
+          "downstream_error": 1.0192328442803607,
+          "downstream_normalized_mse": 1.0139572967664647,
+          "runtime_ms_mean": 0.006380226044695428
+        },
+        "covariance_whitening": {
+          "stability": 1.2658464141440282,
+          "downstream_error": 1.0156854624986638,
+          "downstream_normalized_mse": 1.0104282762269945,
+          "runtime_ms_mean": 0.003549271500622011
+        },
+        "no_transform": {
+          "stability": 0.9965662515130242,
+          "downstream_error": 1.0194855828802547,
+          "downstream_normalized_mse": 1.0142087271917843,
+          "runtime_ms_mean": 0.0015621856483156746
+        }
+      }
+    },
+    {
+      "case": "reciprocal_clip_stress",
+      "seed": 111,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.6529966706299402,
+          "downstream_error": 0.7119680568360828,
+          "downstream_normalized_mse": 0.9528412813491632,
+          "runtime_ms_mean": 0.02064790050720383
+        },
+        "reciprocal_only": {
+          "stability": 1.0243240782527274,
+          "downstream_error": 0.7127133449997232,
+          "downstream_normalized_mse": 0.953838715604814,
+          "runtime_ms_mean": 0.006338945734556933
+        },
+        "covariance_whitening": {
+          "stability": 1.3549308737797736,
+          "downstream_error": 0.7188115344375019,
+          "downstream_normalized_mse": 0.962000046133637,
+          "runtime_ms_mean": 0.00349573763832766
+        },
+        "no_transform": {
+          "stability": 1.597216420373481,
+          "downstream_error": 0.7142612879990364,
+          "downstream_normalized_mse": 0.9559103590960623,
+          "runtime_ms_mean": 0.0016029773005315974
+        }
+      }
+    },
+    {
+      "case": "reciprocal_clip_stress",
+      "seed": 222,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.6265914669760766,
+          "downstream_error": 0.7883884987647212,
+          "downstream_normalized_mse": 1.043598194045686,
+          "runtime_ms_mean": 0.020370339366741166
+        },
+        "reciprocal_only": {
+          "stability": 1.0359021003521798,
+          "downstream_error": 0.7757631182615973,
+          "downstream_normalized_mse": 1.0268858443439284,
+          "runtime_ms_mean": 0.006495357406925098
+        },
+        "covariance_whitening": {
+          "stability": 1.4190633980912393,
+          "downstream_error": 0.7593381727613049,
+          "downstream_normalized_mse": 1.0051439702700913,
+          "runtime_ms_mean": 0.0036861991626473893
+        },
+        "no_transform": {
+          "stability": 1.5178878739344883,
+          "downstream_error": 0.8081084615251927,
+          "downstream_normalized_mse": 1.0697017173159027,
+          "runtime_ms_mean": 0.0015326787923605968
+        }
+      }
+    },
+    {
+      "case": "reciprocal_clip_stress",
+      "seed": 333,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.579984178493135,
+          "downstream_error": 1.3501154942847453,
+          "downstream_normalized_mse": 1.0243453925968067,
+          "runtime_ms_mean": 0.02080615380345907
+        },
+        "reciprocal_only": {
+          "stability": 0.9648980163546509,
+          "downstream_error": 1.3455566065247258,
+          "downstream_normalized_mse": 1.0208865213431173,
+          "runtime_ms_mean": 0.006356651678642393
+        },
+        "covariance_whitening": {
+          "stability": 1.2160838609180122,
+          "downstream_error": 1.3438301160234203,
+          "downstream_normalized_mse": 1.019576616673583,
+          "runtime_ms_mean": 0.0035243166286110608
+        },
+        "no_transform": {
+          "stability": 1.5399166745554567,
+          "downstream_error": 1.3952274618552523,
+          "downstream_normalized_mse": 1.0585722689843755,
+          "runtime_ms_mean": 0.0015222943547009006
+        }
+      }
+    },
+    {
+      "case": "reciprocal_clip_stress",
+      "seed": 444,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.597911856885053,
+          "downstream_error": 0.8795673972602441,
+          "downstream_normalized_mse": 0.9236302237710728,
+          "runtime_ms_mean": 0.020307823548770858
+        },
+        "reciprocal_only": {
+          "stability": 1.013785178772702,
+          "downstream_error": 0.8828416619879039,
+          "downstream_normalized_mse": 0.9270685161321974,
+          "runtime_ms_mean": 0.0062709231195893405
+        },
+        "covariance_whitening": {
+          "stability": 1.3836260478863505,
+          "downstream_error": 0.8876403441100563,
+          "downstream_normalized_mse": 0.9321075931331136,
+          "runtime_ms_mean": 0.0035301493127868253
+        },
+        "no_transform": {
+          "stability": 1.4582426187196613,
+          "downstream_error": 0.8761350112903826,
+          "downstream_normalized_mse": 0.9200258889227293,
+          "runtime_ms_mean": 0.0015286560602564094
+        }
+      }
+    },
+    {
+      "case": "reciprocal_clip_stress",
+      "seed": 555,
+      "samples_evaluated": 221,
+      "methods": {
+        "rest": {
+          "stability": 1.5266976218146382,
+          "downstream_error": 1.0025301574368513,
+          "downstream_normalized_mse": 1.0070563884626687,
+          "runtime_ms_mean": 0.020451556650997557
+        },
+        "reciprocal_only": {
+          "stability": 0.9670510873428553,
+          "downstream_error": 1.0012460117359023,
+          "downstream_normalized_mse": 1.0057664450906272,
+          "runtime_ms_mean": 0.006464506721106143
+        },
+        "covariance_whitening": {
+          "stability": 1.3015808647805287,
+          "downstream_error": 1.000910190362967,
+          "downstream_normalized_mse": 1.0054291075487205,
+          "runtime_ms_mean": 0.003595932150955999
+        },
+        "no_transform": {
+          "stability": 1.4485939594413035,
+          "downstream_error": 1.003272034268289,
+          "downstream_normalized_mse": 1.0078016147254496,
+          "runtime_ms_mean": 0.0015553437624805148
+        }
+      }
+    }
+  ],
+  "prism_scenarios": [
+    {
+      "scenario": "default_mock",
+      "description": "current paper/mock contract trace",
+      "config": {
+        "repeats_per_case": 12,
+        "window_size": 16,
+        "rank": 4,
+        "ridge_scale": 0.5,
+        "beta": 0.7,
+        "noise_scale": 0.025,
+        "seed": 717
+      },
+      "reciprocal_contract_failure": {
+        "false_pass_failure": false,
+        "auditability_failure": false,
+        "contract_error_failure": false,
+        "any_failure": false
+      },
+      "methods": {
+        "rest": {
+          "contract_classification_error": 0.13953488372093023,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13953488372093023,
+          "stability": 0.43055603232438694,
+          "runtime_ms_mean": 0.021410101857199743,
+          "auditability_reconstruction_error": 0.008306209005653018
+        },
+        "reciprocal_only": {
+          "contract_classification_error": 0.13953488372093023,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13953488372093023,
+          "stability": 0.3679951808968226,
+          "runtime_ms_mean": 0.0066074912753895645,
+          "auditability_reconstruction_error": 0.008306209005653018
+        },
+        "covariance_whitening": {
+          "contract_classification_error": 0.13953488372093023,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13953488372093023,
+          "stability": 2.5569584224796653,
+          "runtime_ms_mean": 0.003428049201733972,
+          "auditability_reconstruction_error": 0.008306209005653018
+        },
+        "no_transform": {
+          "contract_classification_error": 0.7906976744186046,
+          "false_pass_rate": 0.7906976744186046,
+          "false_block_rate": 0.0,
+          "stability": 0.168270181509502,
+          "runtime_ms_mean": 0.0006997543223725076,
+          "auditability_reconstruction_error": 0.0
+        }
+      },
+      "baseline_comparison": {
+        "rest": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "reciprocal_only": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "covariance_whitening": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "no_transform": {
+          "false_pass_delta_vs_reciprocal": 0.7906976744186046,
+          "auditability_delta_vs_reciprocal": -0.008306209005653018,
+          "guardrail_ok": false
+        }
+      },
+      "decision": "STOP_OR_REFINE"
+    },
+    {
+      "scenario": "high_noise_contract",
+      "description": "higher contract-feature noise",
+      "config": {
+        "repeats_per_case": 12,
+        "window_size": 16,
+        "rank": 4,
+        "ridge_scale": 0.5,
+        "beta": 0.7,
+        "noise_scale": 0.1,
+        "seed": 1201
+      },
+      "reciprocal_contract_failure": {
+        "false_pass_failure": false,
+        "auditability_failure": false,
+        "contract_error_failure": false,
+        "any_failure": false
+      },
+      "methods": {
+        "rest": {
+          "contract_classification_error": 0.13953488372093023,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13953488372093023,
+          "stability": 0.610775597743596,
+          "runtime_ms_mean": 0.021695270097871686,
+          "auditability_reconstruction_error": 0.03393255081429875
+        },
+        "reciprocal_only": {
+          "contract_classification_error": 0.13953488372093023,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13953488372093023,
+          "stability": 0.552465242785415,
+          "runtime_ms_mean": 0.006475940404414902,
+          "auditability_reconstruction_error": 0.03393255081429875
+        },
+        "covariance_whitening": {
+          "contract_classification_error": 0.13953488372093023,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13953488372093023,
+          "stability": 2.4804178799002363,
+          "runtime_ms_mean": 0.0034382562597257724,
+          "auditability_reconstruction_error": 0.03393255081429875
+        },
+        "no_transform": {
+          "contract_classification_error": 0.38372093023255816,
+          "false_pass_rate": 0.36046511627906974,
+          "false_block_rate": 0.023255813953488372,
+          "stability": 0.4046284821571632,
+          "runtime_ms_mean": 0.0006431507548162093,
+          "auditability_reconstruction_error": 0.0
+        }
+      },
+      "baseline_comparison": {
+        "rest": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "reciprocal_only": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "covariance_whitening": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "no_transform": {
+          "false_pass_delta_vs_reciprocal": 0.36046511627906974,
+          "auditability_delta_vs_reciprocal": -0.03393255081429875,
+          "guardrail_ok": false
+        }
+      },
+      "decision": "STOP_OR_REFINE"
+    },
+    {
+      "scenario": "tiny_window_contract",
+      "description": "very short contract covariance window",
+      "config": {
+        "repeats_per_case": 12,
+        "window_size": 4,
+        "rank": 2,
+        "ridge_scale": 0.5,
+        "beta": 0.7,
+        "noise_scale": 0.025,
+        "seed": 1302
+      },
+      "reciprocal_contract_failure": {
+        "false_pass_failure": false,
+        "auditability_failure": false,
+        "contract_error_failure": false,
+        "any_failure": false
+      },
+      "methods": {
+        "rest": {
+          "contract_classification_error": 0.13333333333333333,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13333333333333333,
+          "stability": 0.2602722125704959,
+          "runtime_ms_mean": 0.02146415831687741,
+          "auditability_reconstruction_error": 0.005313168232620669
+        },
+        "reciprocal_only": {
+          "contract_classification_error": 0.13333333333333333,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13333333333333333,
+          "stability": 0.2175601340881621,
+          "runtime_ms_mean": 0.006320952973446122,
+          "auditability_reconstruction_error": 0.005313168232620669
+        },
+        "covariance_whitening": {
+          "contract_classification_error": 0.13333333333333333,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13333333333333333,
+          "stability": 1.7868195257446173,
+          "runtime_ms_mean": 0.003403235737999481,
+          "auditability_reconstruction_error": 0.005313168232620669
+        },
+        "no_transform": {
+          "contract_classification_error": 0.7888888888888889,
+          "false_pass_rate": 0.7888888888888889,
+          "false_block_rate": 0.0,
+          "stability": 0.16819241340620736,
+          "runtime_ms_mean": 0.0006292895264006361,
+          "auditability_reconstruction_error": 0.0
+        }
+      },
+      "baseline_comparison": {
+        "rest": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "reciprocal_only": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "covariance_whitening": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "no_transform": {
+          "false_pass_delta_vs_reciprocal": 0.7888888888888889,
+          "auditability_delta_vs_reciprocal": -0.005313168232620669,
+          "guardrail_ok": false
+        }
+      },
+      "decision": "STOP_OR_REFINE"
+    },
+    {
+      "scenario": "low_repeats_contract",
+      "description": "few repeats per contract case",
+      "config": {
+        "repeats_per_case": 4,
+        "window_size": 4,
+        "rank": 2,
+        "ridge_scale": 0.5,
+        "beta": 0.7,
+        "noise_scale": 0.08,
+        "seed": 1403
+      },
+      "reciprocal_contract_failure": {
+        "false_pass_failure": false,
+        "auditability_failure": false,
+        "contract_error_failure": false,
+        "any_failure": false
+      },
+      "methods": {
+        "rest": {
+          "contract_classification_error": 0.13333333333333333,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13333333333333333,
+          "stability": 0.661102264565595,
+          "runtime_ms_mean": 0.021638134132876283,
+          "auditability_reconstruction_error": 0.014416555907556769
+        },
+        "reciprocal_only": {
+          "contract_classification_error": 0.13333333333333333,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13333333333333333,
+          "stability": 0.530910486534088,
+          "runtime_ms_mean": 0.006321742289073132,
+          "auditability_reconstruction_error": 0.014416555907556769
+        },
+        "covariance_whitening": {
+          "contract_classification_error": 0.13333333333333333,
+          "false_pass_rate": 0.0,
+          "false_block_rate": 0.13333333333333333,
+          "stability": 1.585235529644432,
+          "runtime_ms_mean": 0.003392814552668271,
+          "auditability_reconstruction_error": 0.014416555907556769
+        },
+        "no_transform": {
+          "contract_classification_error": 0.6333333333333333,
+          "false_pass_rate": 0.6,
+          "false_block_rate": 0.03333333333333333,
+          "stability": 0.4683543894148648,
+          "runtime_ms_mean": 0.0007686908575874206,
+          "auditability_reconstruction_error": 0.0
+        }
+      },
+      "baseline_comparison": {
+        "rest": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "reciprocal_only": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "covariance_whitening": {
+          "false_pass_delta_vs_reciprocal": 0.0,
+          "auditability_delta_vs_reciprocal": 0.0,
+          "guardrail_ok": true
+        },
+        "no_transform": {
+          "false_pass_delta_vs_reciprocal": 0.6,
+          "auditability_delta_vs_reciprocal": -0.014416555907556769,
+          "guardrail_ok": false
+        }
+      },
+      "decision": "STOP_OR_REFINE"
+    }
+  ],
+  "prism_method_guardrails": {
+    "rest": {
+      "max_false_pass_delta_vs_reciprocal": 0.0,
+      "max_auditability_delta_vs_reciprocal": 0.0,
+      "guardrail_ok_all_scenarios": true
+    },
+    "covariance_whitening": {
+      "max_false_pass_delta_vs_reciprocal": 0.0,
+      "max_auditability_delta_vs_reciprocal": 0.0,
+      "guardrail_ok_all_scenarios": true
+    },
+    "no_transform": {
+      "max_false_pass_delta_vs_reciprocal": 0.7906976744186046,
+      "max_auditability_delta_vs_reciprocal": -0.005313168232620669,
+      "guardrail_ok_all_scenarios": false
+    }
+  },
+  "decision": {
+    "decision": "FAILURES_FOUND_NO_DOG_RESCUE",
+    "rationale": "The search found reciprocal-only failure criteria, but no current DOG method beat reciprocal-only while preserving PRISM guardrails. Recommend stopping current REST rescue and refocusing on baseline characterization or a pre-registered new variant only.",
+    "reciprocal_failure_case_count": 4,
+    "reciprocal_failure_cases": [
+      "switching_lag",
+      "outlier_bursts",
+      "low_variance_target",
+      "eigenvalue_collapse"
+    ],
+    "reciprocal_contract_failures": [],
+    "dog_side_candidates": {},
+    "promising_candidates": {}
+  }
+}

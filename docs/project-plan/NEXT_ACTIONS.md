@@ -5,9 +5,9 @@ _Last updated: 2026-04-28_
 This file is the short operational queue for the repo. It exists to turn the current framing into the next few resumable slices without re-reading the entire project history.
 
 ## Active objective
-Respond to the combined DOG, DOG×PRISM, and reciprocal-only robustness results:
+Respond to the combined DOG, DOG×PRISM, reciprocal-only robustness, and adversarial-search results:
 
-> DOG PIVOT — reciprocal-only matched or beat REST across the moderate-drift clean-to-messy spectral-gap regimes. DOG×PRISM STOP_OR_REFINE — reciprocal-only also matched REST on simulated PRISM contract-gate classification / false-pass risk while running faster and producing a more stable representation. Robustness sweep — reciprocal-only remains enough under the registered downstream/stability/runtime/false-pass/auditability rule.
+> DOG PIVOT — reciprocal-only matched or beat REST across the moderate-drift clean-to-messy spectral-gap regimes. DOG×PRISM STOP_OR_REFINE — reciprocal-only also matched REST on simulated PRISM contract-gate classification / false-pass risk while running faster and producing a more stable representation. Robustness sweep — reciprocal-only remains enough under the registered downstream/stability/runtime/false-pass/auditability rule. Adversarial search — reciprocal-only failures were found, but no current DOG method rescued them under PRISM guardrails.
 
 ## Control docs for this phase
 Use these before reopening old phase reports:
@@ -16,6 +16,7 @@ Use these before reopening old phase reports:
 - `DECISIONS.md`
 - `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`
 - `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md`
+- `docs/project-plan/RECIPROCAL_ADVERSARIAL_FAILURE_SEARCH_2026-04-28.md`
 - `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`
 
 ## Completed decision target
@@ -63,24 +64,32 @@ Do **not** broaden scope, revive universal-geometry claims, claim REST helps PRI
 - `experiments/results/reciprocal_robustness_sweep_metrics.json` remains the machine-readable evidence,
 - no-transform downstream-only signals are not mistaken for a REST continuation result because they failed stability and PRISM false-pass guardrails.
 
-### 4) Use the post-PIVOT refinement protocol before any variant
-**Why fourth:** the repo needs a narrow, evidence-bearing path that prevents theorem-first rationalization and PRISM-help claim inflation.
+### 4) Preserve the adversarial failure-search result
+**Why fourth:** the search found reciprocal-only downstream failures, but no current DOG method rescued them under PRISM guardrails.
+
+**Definition of done:**
+- `docs/project-plan/RECIPROCAL_ADVERSARIAL_FAILURE_SEARCH_2026-04-28.md` remains the canonical adversarial note,
+- `experiments/results/reciprocal_adversarial_search_metrics.json` remains the machine-readable evidence,
+- the found failures are treated as baseline characterization, not REST validation.
+
+### 5) Use the post-PIVOT refinement protocol before any variant
+**Why fifth:** the repo needs a narrow, evidence-bearing path that prevents theorem-first rationalization and PRISM-help claim inflation.
 
 **Definition of done:**
 - `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` is cited by any next variant note,
 - reciprocal-only is treated as the hard baseline to beat,
 - PRISM false-pass and auditability guardrails are pre-registered.
 
-### 5) Test one minimal variant against both harnesses, or reposition
-**Why fifth:** any pivot follow-up must beat the exact DOG benchmark current REST failed and must not degrade PRISM contract-gate auditability. If no bounded variant is justified, the honest path is reciprocal-only / scope-demotion positioning.
+### 6) Reposition or test one genuinely new bounded variant
+**Why sixth:** current REST, whitening, and no-transform have failed to rescue reciprocal-only failures. If no bounded variant is genuinely motivated, the honest path is reciprocal-only / scope-demotion positioning.
 
 **Definition of done:**
-- one minimal architecture change is implemented without broad operator-family expansion, or a scope-demotion note is written,
-- `run_decision_slice.py`, `run_prism_contract_mock.py`, and where relevant `run_reciprocal_robustness_sweep.py` can evaluate the result,
+- either a scope-demotion/repositioning note is written, or one genuinely new minimal architecture change is implemented without broad operator-family expansion,
+- `run_decision_slice.py`, `run_prism_contract_mock.py`, `run_reciprocal_robustness_sweep.py`, and `run_reciprocal_adversarial_search.py` can evaluate the result where relevant,
 - the result is `CONTINUE_VARIANT`, `REFINE_VARIANT`, `STOP_OR_REFINE`, or explicit scope demotion.
 
-### 6) Tighten method / theorem docs only after new variant evidence exists
-**Why sixth:** theory alignment should mirror surviving empirical evidence rather than rationalize the failed mainline slice.
+### 7) Tighten method / theorem docs only after new variant evidence exists
+**Why seventh:** theory alignment should mirror surviving empirical evidence rather than rationalize the failed mainline slice.
 
 **Definition of done:**
 - any edits to `REST_METHOD_NOTE.md` or `REST_THEOREM_DRAFT.md` explicitly cite the decision-slice or variant result,
@@ -91,8 +100,9 @@ Do **not** broaden scope, revive universal-geometry claims, claim REST helps PRI
 - **PRISM mock stop/refine fired:** reciprocal-only matched REST on contract classification / false-pass risk while running faster and producing a more stable representation.
 - **Hard baseline rule:** matching reciprocal-only is no longer enough; any next variant must beat it without worsening PRISM contract auditability.
 - **Robustness sweep result:** no qualified reciprocal-only failure case was found; no-transform had downstream-only signals but failed stability and PRISM false-pass guardrails.
+- **Adversarial search result:** reciprocal-only failures were found, but no current DOG method rescued them under the registered DOG + PRISM guardrails.
 
 ## One-sentence guidance for the next stand-up
 If there is only one slice to do next, do this:
 
-> do not promote current REST; reciprocal-only remains enough after the robustness sweep, so the next slice should either test one pre-registered bounded variant against DOG + PRISM guardrails or explicitly demote/reposition the REST line.
+> do not promote current REST; adversarial failures do not rescue it, so the next slice should explicitly demote/reposition the REST line unless there is a genuinely new pre-registered variant to test against DOG + PRISM guardrails.

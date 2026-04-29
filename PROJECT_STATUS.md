@@ -46,6 +46,15 @@ Post-PIVOT evidence artifacts:
 Result:
 - **RECIPROCAL_BASELINE_REMAINS_ENOUGH** — across 35 DOG scenario/regime summaries plus 4 PRISM mock guardrail scenarios, no REST/whitening/no-transform comparison beat reciprocal-only under the registered downstream, stability, runtime, false-pass, and auditability rule. Some no-transform downstream-only signals appeared, but they failed stability and PRISM false-pass guardrails.
 
+## Reciprocal-only adversarial failure search
+Adversarial evidence artifacts:
+- `experiments/synthetic/run_reciprocal_adversarial_search.py`
+- `experiments/results/reciprocal_adversarial_search_metrics.json`
+- `docs/project-plan/RECIPROCAL_ADVERSARIAL_FAILURE_SEARCH_2026-04-28.md`
+
+Result:
+- **FAILURES_FOUND_NO_DOG_RESCUE** — four narrow synthetic adversarial cases flagged reciprocal-only absolute downstream normalized-MSE failures, but no current REST/whitening/no-transform path beat reciprocal-only while preserving PRISM false-pass and auditability guardrails. Recommendation: stop trying to rescue current REST; refocus on reciprocal-only characterization, scope demotion, or a separately pre-registered new variant only.
+
 ## What is currently supported
 
 ### Implementation
@@ -88,9 +97,10 @@ Current operating rule:
 1. Treat `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md` as the canonical decision note.
 2. Treat `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` as the controlling protocol for any next variant.
 3. Treat `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md` as the current robustness result: reciprocal-only remains enough.
-4. Do not promote current REST based on the DOG×PRISM mock or robustness sweep.
-5. Keep REST / reciprocal-only / covariance-whitening / no-transform as the comparison standard, with reciprocal-only as the hard baseline to beat.
-6. Avoid broad expansion until a variant or repositioning earns evidence.
+4. Treat `docs/project-plan/RECIPROCAL_ADVERSARIAL_FAILURE_SEARCH_2026-04-28.md` as the current adversarial result: failures found, no DOG rescue.
+5. Do not promote current REST based on the DOG×PRISM mock, robustness sweep, or adversarial search.
+6. Keep REST / reciprocal-only / covariance-whitening / no-transform as the comparison standard, with reciprocal-only as the hard baseline to beat.
+7. Avoid broad expansion until a variant or repositioning earns evidence.
 
 ## Current blockers / risks
 - **Contribution-framing risk:** the original ordering-sensitive novelty story is weakened by commutativity in the active architecture.
@@ -107,6 +117,7 @@ Current operating rule:
 - `docs/project-plan/NEXT_ACTIONS.md` — short operational queue for the next slices.
 - `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` — hard-baseline and claim-control protocol for any next variant.
 - `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md` — robustness sweep showing reciprocal-only remains enough under the registered guardrails.
+- `docs/project-plan/RECIPROCAL_ADVERSARIAL_FAILURE_SEARCH_2026-04-28.md` — adversarial search showing reciprocal-only failures but no current DOG rescue.
 - `docs/project-plan/PHASE5_COMPLETION_REPORT.md` — what Phase 5 changed.
 - `docs/project-plan/PHASE5_SCOPE_DECISION.md` — current strategic scope decision.
 - `docs/project-plan/PHASE4_EVALUATION_NOTE.md` — best compact empirical picture before the next slice.
@@ -114,7 +125,7 @@ Current operating rule:
 ## Practical interpretation
 If someone asks what this repo currently is, the best short answer is:
 
-> a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, now holding a locked PIVOT result and a robustness sweep showing reciprocal-only remains the hard baseline to beat.
+> a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, now holding a locked PIVOT result, a robustness sweep where reciprocal-only remains enough, and an adversarial search where reciprocal-only failures do not rescue current REST.
 
 ## Repo operations status
 - 2026-04-08: the repo is currently synchronized with `origin/main`.

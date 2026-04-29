@@ -120,6 +120,16 @@ This file is the compressed decision record for the repo. It is meant to answer:
 - Do not promote REST or whitening from this sweep.
 - The next evidence-bearing work must either introduce one bounded, pre-registered variant or explicitly reposition the project around reciprocal-only / scope demotion.
 
+### D12 — Adversarial search found reciprocal failures but no DOG rescue
+**Decision:** `docs/project-plan/RECIPROCAL_ADVERSARIAL_FAILURE_SEARCH_2026-04-28.md` is the current adversarial search evidence. Reciprocal-only has narrow synthetic downstream failure flags, but no current DOG method earns a follow-up claim.
+
+**Why:** Four adversarial DOG cases crossed the reciprocal-only absolute normalized-MSE failure criterion, but REST, covariance-whitening, and no-transform did not beat reciprocal-only on the registered DOG-side scorecard while preserving PRISM paper/mock false-pass and auditability guardrails.
+
+**Implications:**
+- Do not try to rescue current REST from the adversarial search result.
+- Use the found failure cases only as baseline characterization unless a genuinely new, pre-registered variant is introduced.
+- If no new variant is clearly motivated, the evidence-supported path is stopping/refocusing or scope demotion around reciprocal-only.
+
 ## What would justify reopening these decisions
 Revisit the current decisions only if one of the following happens:
 - theorem tightening materially changes what can be honestly claimed,
@@ -132,8 +142,9 @@ During the post-PIVOT refinement phase, the repo should behave as follows:
 1. preserve the PIVOT evidence from the locked decision slice,
 2. preserve the DOG×PRISM STOP_OR_REFINE mock evidence,
 3. preserve the reciprocal-only robustness sweep result,
-4. do not broaden or continue the current REST line as-is,
-5. require reciprocal-only as the hard baseline for every new slice,
-6. test at most one minimal variant against both the DOG decision harness and the PRISM mock harness,
-7. tighten theorem and method notes only after variant evidence exists,
-8. keep the control docs current and honest.
+4. preserve the adversarial search result,
+5. do not broaden or continue the current REST line as-is,
+6. require reciprocal-only as the hard baseline for every new slice,
+7. test at most one minimal variant against both the DOG decision harness and the PRISM mock harness,
+8. tighten theorem and method notes only after variant evidence exists,
+9. keep the control docs current and honest.

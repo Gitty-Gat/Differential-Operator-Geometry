@@ -10,6 +10,7 @@ This protocol is not theorem prose and is not evidence by itself. It defines wha
 - Reciprocal-only matched or beat current REST across the locked DOG regimes and ran faster.
 - In the DOG×PRISM mock trace, reciprocal-only matched current REST on contract classification and false-pass risk, ran faster, and produced a more stable representation.
 - The reciprocal-only robustness sweep found no qualified REST/whitening/no-transform failure regime under the registered DOG + PRISM guardrails.
+- The reciprocal-only adversarial search found narrow reciprocal-only downstream failures, but no current DOG method rescued them under PRISM false-pass/auditability guardrails.
 - No DOG artifact currently supports the claim that REST helps PRISM.
 - PRISM remains paper/mock-only as a DOG stress target unless PRISM's theorem-to-contract obligations are independently satisfied.
 
@@ -121,6 +122,7 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 PYTHONPATH=src python experiments/synthetic/run_decision_slice.py
 PYTHONPATH=src python experiments/synthetic/run_prism_contract_mock.py
 PYTHONPATH=src python experiments/synthetic/run_reciprocal_robustness_sweep.py
+PYTHONPATH=src python experiments/synthetic/run_reciprocal_adversarial_search.py
 ```
 
 If runtime is constrained, the minimum reproduction check is:

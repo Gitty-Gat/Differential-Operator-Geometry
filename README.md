@@ -10,26 +10,30 @@ The broader "geometry as the mechanism of computation" motivation remains part o
 In the active implementation, REST should be understood primarily as a retained-coordinate spectral preconditioning pipeline built from streaming covariance structure. In that setting, the reciprocal and exponential components act as commuting diagonal reweightings, so the repo does **not** currently claim that stage ordering is independently established as the key source of benefit.
 
 ## Purpose
-This repository is currently focused on a disciplined narrowed research program:
-- maintain the covariance-based REST implementation as the canonical path,
+This repository is currently focused on disciplined post-PIVOT claim control:
+- preserve the covariance-based REST implementation as a reference implementation, not as a validated continuation claim,
 - document the strongest honest contribution and its limits,
-- tighten method/theorem language so it matches the implemented operator,
+- keep reciprocal-only as the hard baseline for any future research slice,
 - preserve synthetic evaluation artifacts and compact empirical lessons,
-- and support a few targeted follow-up validation slices before any broader expansion.
+- and require benchmark evidence before any REST-like variant is promoted.
 
 ## Current stage
-**Stage:** Active narrowed research program after Phase 5 reframing
+**Stage:** Post-PIVOT refinement / claim-control phase after Phase 5 reframing
 
 What exists now:
 - a covariance-based REST implementation under `src/rest/`,
 - tests, synthetic experiments, metrics, and generated figures,
 - Phase 4 empirical notes showing mixed-but-real viability under controlled drift,
 - Phase 5 reframing documents that narrow the contribution to the retained-coordinate preconditioner view,
+- a locked decision slice showing **PIVOT** for current REST because reciprocal-only matched or beat it,
+- a DOG×PRISM paper/mock stress harness showing **STOP_OR_REFINE** for current REST in simulated theorem-to-contract traces,
 - repo control docs (`PROJECT_STATUS.md`, `ROADMAP.md`, `WORKLOG.md`, `NEXT_ACTIONS.md`) that keep future slices honest and small.
 
 What does not yet exist:
 - a completed proof beyond draft level,
 - support for a strong ordering-sensitive novelty claim in the active architecture,
+- evidence that current REST is superior to reciprocal-only,
+- evidence that REST helps PRISM,
 - large-scale or real-world benchmark validation,
 - broad operator-family generalization beyond the covariance case.
 
@@ -77,12 +81,12 @@ Example Phase 4 artifact:
 ![Phase 4 stability-vs-beta figure](experiments/results/figures/stability_vs_beta.svg)
 
 ## Planned next work
-With Phase 5 completed, the immediate next steps are:
-1. tighten `docs/project-plan/REST_METHOD_NOTE.md` so it matches the implemented retained-coordinate covariance path,
-2. review `docs/project-plan/REST_THEOREM_DRAFT.md` only for bounded proof-detail or constant cleanup,
-3. run one narrow validation slice tied to a concrete preconditioning question,
-4. revisit the non-commuting variant only if the trigger conditions in `DECISIONS.md` are met,
-5. avoid broad real-world expansion until the narrowed contribution is better supported.
+The immediate next steps are post-PIVOT refinement steps, not REST continuation steps:
+1. use `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` before proposing any variant,
+2. keep reciprocal-only as the explicit hard baseline to beat,
+3. test at most one narrow mechanism-specific variant at a time against both the DOG decision slice and DOG×PRISM mock harness,
+4. update method/theorem prose only after benchmark evidence exists,
+5. stop or refine whenever reciprocal-only remains enough or PRISM contract obligations become less auditable.
 
 ## Project control
 - Status: [`PROJECT_STATUS.md`](PROJECT_STATUS.md)

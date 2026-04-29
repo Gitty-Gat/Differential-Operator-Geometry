@@ -120,6 +120,8 @@ Stop immediately if:
 - the work starts making production-readiness claims.
 
 ## Current DOG-side status
-`PLAN_DEFINED / PAPER_MOCK_HARNESS_ADDED / NOT LIVE_VALIDATED`.
+`PLAN_DEFINED / PAPER_MOCK_HARNESS_ADDED / MOCK_RESULT_STOP_OR_REFINE / NOT_LIVE_VALIDATED`.
 
 The companion plan and mock harness are intended to produce bounded evidence only. Current REST remains unvalidated for PRISM live use.
+
+Post-PIVOT claim control is governed by DOG `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`: reciprocal-only is the hard baseline, and no DOG variant may claim REST helps PRISM. At most, a future variant may report a paper/mock contract-gate scorecard improvement if it beats reciprocal-only without worsening false-pass risk or auditability.

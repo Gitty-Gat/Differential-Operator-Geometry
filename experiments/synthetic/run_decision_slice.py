@@ -333,6 +333,12 @@ def run_decision_slice(
         "regimes": regime_summaries,
         "raw_runs": raw_runs,
         "overall_decision": decision,
+        "post_pivot_claim_control": {
+            "hard_baseline": "reciprocal_only",
+            "protocol": "docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md",
+            "current_rest_status": "reference_implementation_not_validated_continuation",
+            "rule": "Stop or refine if reciprocal-only remains enough; no theorem prose in place of benchmark evidence.",
+        },
     }
 
 
@@ -399,6 +405,13 @@ def write_evaluation_note(path: Path, payload: Dict[str, object]) -> None:
         lines.append("The slice does not justify broad expansion. It supports targeted refinement and a tighter account of where REST differs from simpler reciprocal conditioning.")
     else:
         lines.append("The locked slice does not support continuing the current REST architecture as-is. Reciprocal-only is too competitive, so the next strategic step should be bounded architectural revision or scope demotion rather than broader validation.")
+    lines.append("")
+    lines.append("## Post-PIVOT claim control")
+    lines.append("- Current REST status: reference implementation, not validated continuation.")
+    lines.append("- Hard baseline for next slices: reciprocal-only.")
+    lines.append("- Protocol: `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`.")
+    lines.append("- Stop/refine if reciprocal-only remains enough.")
+    lines.append("- Do not use theorem prose as a substitute for benchmark evidence.")
     lines.append("")
     lines.append("## Command")
     lines.append("```bash")

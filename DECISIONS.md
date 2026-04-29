@@ -16,14 +16,15 @@ This file is the compressed decision record for the repo. It is meant to answer:
 - Avoid broad claims of universal superiority or architecture-independent novelty.
 - Prefer disciplined scope over ambitious framing.
 
-### D2 — Keep the covariance-based retained-coordinate implementation as the main line
-**Decision:** The canonical active implementation remains the covariance-based retained-coordinate path already present in `src/rest/`.
+### D2 — Keep the covariance-based retained-coordinate implementation as the reference line
+**Decision:** The canonical implemented reference remains the covariance-based retained-coordinate path already present in `src/rest/`, but current REST is **not** a validated continuation line after the locked PIVOT result.
 
-**Why:** It is the part of the project that is implemented, tested, and tied to current synthetic evidence. Broadening to other operator families now would increase scope faster than confidence.
+**Why:** It is the implemented, tested object that future work must compare against. However, the first decisive scorecard showed reciprocal-only matching or beating current REST, so preserving the implementation is not the same as promoting it.
 
 **Implications:**
 - Use the covariance formulation as the default reference point in active docs.
-- Defer operator-family diversification until the current line is tighter.
+- Do not broaden or continue current REST as-is without new evidence.
+- Defer operator-family diversification until a narrow variant beats reciprocal-only under the post-PIVOT protocol.
 
 ### D3 — Bound the theory claim to one-step stability / perturbation language
 **Decision:** The theorem target is a **single-step perturbation or stability bound** for the retained-coordinate preconditioner under the current assumptions.
@@ -85,8 +86,29 @@ This file is the compressed decision record for the repo. It is meant to answer:
 **Implications:**
 - Mainline expansion is not justified by the first decisive scorecard.
 - Theory or method prose should not be polished to rationalize the failed slice.
-- The next strategic choice is whether Sean authorizes one bounded architecture-change spike.
 - Any variant must be judged against the same REST / reciprocal-only / covariance-whitening / no-transform benchmark standard.
+- Matching reciprocal-only is not enough to continue; reciprocal-only is now the hard baseline to beat.
+
+### D9 — Make reciprocal-only the hard post-PIVOT baseline
+**Decision:** Every next research slice must treat reciprocal-only as the explicit hard baseline. Current REST and any proposed variant must beat reciprocal-only on the pre-registered scorecard to earn continuation.
+
+**Why:** Reciprocal-only has now matched or beaten current REST in the locked DOG decision slice and matched REST on simulated PRISM contract-gate classification / false-pass risk while running faster and producing a more stable representation.
+
+**Implications:**
+- `STOP_OR_REFINE` is the default if reciprocal-only remains enough.
+- Runtime, stability, downstream error, false-pass rate, and auditability must be reported against reciprocal-only.
+- Claims may not compare only against no-transform or whitening when reciprocal-only is the meaningful competitor.
+
+### D10 — Use the post-PIVOT refinement protocol before proposing variants
+**Decision:** The controlling protocol for the next bounded DOG slice is `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`.
+
+**Why:** The repo needs a narrow path for possible architectural refinement without sliding back into theorem-first claim inflation or PRISM-help claims.
+
+**Implications:**
+- Test at most one mechanism-specific variant per slice.
+- Compare against no-transform, covariance-whitening, reciprocal-only, current REST, and the proposed variant.
+- Run both the DOG decision-slice harness and the DOG×PRISM paper/mock harness, or explicitly record why only a smaller reproduction check was feasible.
+- No DOG result may claim REST helps PRISM. At most, a future variant may claim a paper/mock contract-gate scorecard improvement if it beats reciprocal-only without worsening false-pass risk or auditability.
 
 ## What would justify reopening these decisions
 Revisit the current decisions only if one of the following happens:
@@ -96,10 +118,11 @@ Revisit the current decisions only if one of the following happens:
 - or the repo is repackaged for a different audience (for example, a paper-first or benchmark-first push).
 
 ## Present operating rule
-Until Sean decides the pivot follow-up, the repo should behave as follows:
+During the post-PIVOT refinement phase, the repo should behave as follows:
 1. preserve the PIVOT evidence from the locked decision slice,
-2. do not broaden the current REST line as-is,
-3. ask whether one bounded architecture-change spike is authorized,
-4. if authorized, test one minimal variant against the same harness,
-5. tighten theorem and method notes only after variant evidence exists,
-6. keep the control docs current and honest.
+2. preserve the DOG×PRISM STOP_OR_REFINE mock evidence,
+3. do not broaden or continue the current REST line as-is,
+4. require reciprocal-only as the hard baseline for every new slice,
+5. test at most one minimal variant against both the DOG decision harness and the PRISM mock harness,
+6. tighten theorem and method notes only after variant evidence exists,
+7. keep the control docs current and honest.

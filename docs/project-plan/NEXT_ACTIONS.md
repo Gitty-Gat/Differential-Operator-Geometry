@@ -14,6 +14,7 @@ Use these before reopening old phase reports:
 - `ROADMAP.md`
 - `WORKLOG.md`
 - `DECISIONS.md`
+- `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`
 - `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`
 
 ## Completed decision target
@@ -28,11 +29,12 @@ The decisive slice has now been run:
 ## Current execution rule
 Prefer small slices that do one of the following, in order:
 1. preserve the decision-slice and DOG×PRISM mock evidence,
-2. avoid re-litigating current REST vs reciprocal-only unless a genuinely new architecture is introduced,
-3. if Sean approves another spike, test one minimal architecture change against both DOG's decision harness and the PRISM contract mock harness,
-4. update theorem or method prose only after new evidence exists.
+2. make reciprocal-only the explicit hard baseline for every next slice,
+3. avoid re-litigating current REST vs reciprocal-only unless a genuinely new architecture is introduced,
+4. test one minimal architecture change against both DOG's decision harness and the PRISM contract mock harness,
+5. update theorem or method prose only after new evidence exists.
 
-Do **not** broaden scope, revive universal-geometry claims, or polish theorem prose as a substitute for the failed scorecards.
+Do **not** broaden scope, revive universal-geometry claims, claim REST helps PRISM, or polish theorem prose as a substitute for the failed scorecards.
 
 ## Priority queue
 
@@ -52,16 +54,24 @@ Do **not** broaden scope, revive universal-geometry claims, or polish theorem pr
 - `docs/project-plan/DOG_PRISM_CONTRACT_MOCK_EVALUATION_2026-04-28.md` remains the canonical DOG-owned mock result,
 - `experiments/results/prism_contract_mock_metrics.json` remains the machine-readable evidence.
 
-### 3) If Sean approves another spike, test one minimal variant against both harnesses
-**Why third:** any pivot follow-up must beat the exact DOG benchmark current REST failed and must not degrade PRISM contract-gate auditability.
+### 3) Use the post-PIVOT refinement protocol before any variant
+**Why third:** the repo needs a narrow, evidence-bearing path that prevents theorem-first rationalization and PRISM-help claim inflation.
+
+**Definition of done:**
+- `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` is cited by any next variant note,
+- reciprocal-only is treated as the hard baseline to beat,
+- PRISM false-pass and auditability guardrails are pre-registered.
+
+### 4) Test one minimal variant against both harnesses
+**Why fourth:** any pivot follow-up must beat the exact DOG benchmark current REST failed and must not degrade PRISM contract-gate auditability.
 
 **Definition of done:**
 - one minimal architecture change is implemented without broad operator-family expansion,
 - `run_decision_slice.py` and `run_prism_contract_mock.py` can evaluate it under the same regimes/traces,
-- the result is continue / refine / stop for the variant.
+- the result is `CONTINUE_VARIANT`, `REFINE_VARIANT`, or `STOP_OR_REFINE` for the variant.
 
-### 4) Tighten method / theorem docs only after new variant evidence exists
-**Why fourth:** theory alignment should mirror surviving empirical evidence rather than rationalize the failed mainline slice.
+### 5) Tighten method / theorem docs only after new variant evidence exists
+**Why fifth:** theory alignment should mirror surviving empirical evidence rather than rationalize the failed mainline slice.
 
 **Definition of done:**
 - any edits to `REST_METHOD_NOTE.md` or `REST_THEOREM_DRAFT.md` explicitly cite the decision-slice or variant result,
@@ -69,8 +79,10 @@ Do **not** broaden scope, revive universal-geometry claims, or polish theorem pr
 
 ## Applied stop / continue signal
 - **Pivot fired:** reciprocal-only matched or beat REST across the board on the locked scorecard.
+- **PRISM mock stop/refine fired:** reciprocal-only matched REST on contract classification / false-pass risk while running faster and producing a more stable representation.
+- **Hard baseline rule:** matching reciprocal-only is no longer enough; any next variant must beat it without worsening PRISM contract auditability.
 
 ## One-sentence guidance for the next stand-up
 If there is only one slice to do next, do this:
 
-> do not promote current REST; if Sean wants another attempt, test one minimal architecture change against both the DOG decision slice and the PRISM contract mock harness, with reciprocal-only as the standard to beat.
+> do not promote current REST; if another attempt is authorized, test one minimal architecture change against both the DOG decision slice and the PRISM contract mock harness, with reciprocal-only as the hard baseline to beat.

@@ -63,32 +63,32 @@
           "stability_seed_variance": 0.004862822550793127,
           "downstream_error_mean": 1.3339377178731453,
           "downstream_error_seed_variance": 0.14534446136583382,
-          "runtime_ms_mean": 0.02370826738313205,
-          "runtime_ms_seed_variance": 6.330340250857915e-08
+          "runtime_ms_mean": 0.0230628570482627,
+          "runtime_ms_seed_variance": 8.61817787552836e-06
         },
         "reciprocal_only": {
           "stability_mean": 0.9025317908617628,
           "stability_seed_variance": 0.0018175525866420468,
           "downstream_error_mean": 1.3434322640248346,
           "downstream_error_seed_variance": 0.163614923729688,
-          "runtime_ms_mean": 0.007364989645218771,
-          "runtime_ms_seed_variance": 4.0958383459697157e-08
+          "runtime_ms_mean": 0.007273244567925998,
+          "runtime_ms_seed_variance": 8.879811239927779e-07
         },
         "covariance_whitening": {
           "stability_mean": 1.171654223056581,
           "stability_seed_variance": 0.00487372235040243,
           "downstream_error_mean": 1.3448493171194247,
           "downstream_error_seed_variance": 0.1688658993000618,
-          "runtime_ms_mean": 0.00403625392039859,
-          "runtime_ms_seed_variance": 1.312224680243154e-08
+          "runtime_ms_mean": 0.004150213442538947,
+          "runtime_ms_seed_variance": 5.355815057167749e-07
         },
         "no_transform": {
           "stability_mean": 1.52135465972461,
           "stability_seed_variance": 0.010913543761410498,
           "downstream_error_mean": 1.2958384043301034,
           "downstream_error_seed_variance": 0.08028523880323815,
-          "runtime_ms_mean": 0.0017746207176875368,
-          "runtime_ms_seed_variance": 1.0143883352831184e-08
+          "runtime_ms_mean": 0.0017816227241877682,
+          "runtime_ms_seed_variance": 1.2858137349111315e-07
         }
       },
       "scorecard": {
@@ -124,32 +124,32 @@
           "stability_seed_variance": 0.004109676552864516,
           "downstream_error_mean": 1.1386911837037945,
           "downstream_error_seed_variance": 0.1490262829834285,
-          "runtime_ms_mean": 0.025002924284558147,
-          "runtime_ms_seed_variance": 6.044643579235045e-06
+          "runtime_ms_mean": 0.02090362267215239,
+          "runtime_ms_seed_variance": 2.8905480155782945e-08
         },
         "reciprocal_only": {
           "stability_mean": 0.8711113780778916,
           "stability_seed_variance": 0.0020635286972961004,
           "downstream_error_mean": 1.1385382833858941,
           "downstream_error_seed_variance": 0.16903689174624673,
-          "runtime_ms_mean": 0.007599574090596866,
-          "runtime_ms_seed_variance": 5.158472208851506e-07
+          "runtime_ms_mean": 0.006551843496501552,
+          "runtime_ms_seed_variance": 9.351345853259478e-09
         },
         "covariance_whitening": {
           "stability_mean": 1.1200481304816117,
           "stability_seed_variance": 0.004780364735073243,
           "downstream_error_mean": 1.133116230589677,
           "downstream_error_seed_variance": 0.18854876574848206,
-          "runtime_ms_mean": 0.0042381865333420725,
-          "runtime_ms_seed_variance": 2.1170246483866814e-07
+          "runtime_ms_mean": 0.0037891595893409192,
+          "runtime_ms_seed_variance": 2.0010434621338922e-08
         },
         "no_transform": {
           "stability_mean": 1.2154072172546992,
           "stability_seed_variance": 0.004964675737136899,
           "downstream_error_mean": 1.123633691496425,
           "downstream_error_seed_variance": 0.1091697920724691,
-          "runtime_ms_mean": 0.00185006217599166,
-          "runtime_ms_seed_variance": 6.769900567122313e-08
+          "runtime_ms_mean": 0.0015629212249256188,
+          "runtime_ms_seed_variance": 1.0801809307901507e-09
         }
       },
       "scorecard": {
@@ -185,32 +185,32 @@
           "stability_seed_variance": 0.0027058211763926515,
           "downstream_error_mean": 1.084879221787494,
           "downstream_error_seed_variance": 0.2144399270357357,
-          "runtime_ms_mean": 0.023591394799413433,
-          "runtime_ms_seed_variance": 1.6270426254221927e-07
+          "runtime_ms_mean": 0.020806370959755932,
+          "runtime_ms_seed_variance": 1.7589326722065105e-08
         },
         "reciprocal_only": {
           "stability_mean": 0.8488437036303186,
           "stability_seed_variance": 0.0017251845073197353,
           "downstream_error_mean": 1.0863861252211346,
           "downstream_error_seed_variance": 0.21976197348494564,
-          "runtime_ms_mean": 0.007135768856722355,
-          "runtime_ms_seed_variance": 2.01323734691555e-08
+          "runtime_ms_mean": 0.006499910904179023,
+          "runtime_ms_seed_variance": 2.2511351571212095e-08
         },
         "covariance_whitening": {
           "stability_mean": 1.1051958426649358,
           "stability_seed_variance": 0.0059851366388871405,
           "downstream_error_mean": 1.0866336010463633,
           "downstream_error_seed_variance": 0.22351131198982896,
-          "runtime_ms_mean": 0.0040848093392952325,
-          "runtime_ms_seed_variance": 5.098028103087383e-08
+          "runtime_ms_mean": 0.0036908787775632723,
+          "runtime_ms_seed_variance": 6.73725212104959e-09
         },
         "no_transform": {
           "stability_mean": 1.040896479539397,
           "stability_seed_variance": 0.0039622171462532175,
           "downstream_error_mean": 1.0792972303005073,
           "downstream_error_seed_variance": 0.20552988832206176,
-          "runtime_ms_mean": 0.0017119274967635975,
-          "runtime_ms_seed_variance": 8.582086271663273e-09
+          "runtime_ms_mean": 0.0015671740523105187,
+          "runtime_ms_seed_variance": 1.019530697267632e-09
         }
       },
       "scorecard": {
@@ -233,22 +233,22 @@
         "rest": {
           "stability": 1.6005922813078832,
           "downstream_error": 0.9243074227779347,
-          "runtime_ms_mean": 0.023544176166196754
+          "runtime_ms_mean": 0.02890861174498849
         },
         "reciprocal_only": {
           "stability": 0.9839459745272213,
           "downstream_error": 0.9287415048884127,
-          "runtime_ms_mean": 0.007482419725627533
+          "runtime_ms_mean": 0.009151238387443337
         },
         "covariance_whitening": {
           "stability": 1.2771272090625543,
           "downstream_error": 0.9439599693477837,
-          "runtime_ms_mean": 0.004144362799782268
+          "runtime_ms_mean": 0.0056097409837225385
         },
         "no_transform": {
           "stability": 1.5334211561353503,
           "downstream_error": 0.9513368501555693,
-          "runtime_ms_mean": 0.0016761968504043943
+          "runtime_ms_mean": 0.0024921292592312927
         }
       }
     },
@@ -263,22 +263,22 @@
         "rest": {
           "stability": 1.472482345116595,
           "downstream_error": 1.2984130615154523,
-          "runtime_ms_mean": 0.02362945078527724
+          "runtime_ms_mean": 0.021566258981815477
         },
         "reciprocal_only": {
           "stability": 0.8959854466191759,
           "downstream_error": 1.284665981278568,
-          "runtime_ms_mean": 0.007513088084892442
+          "runtime_ms_mean": 0.006867549310521575
         },
         "covariance_whitening": {
           "stability": 1.128915277775404,
           "downstream_error": 1.2591754042969163,
-          "runtime_ms_mean": 0.0038334818089735536
+          "runtime_ms_mean": 0.003874585427702139
         },
         "no_transform": {
           "stability": 1.5634976062397687,
           "downstream_error": 1.341858132392789,
-          "runtime_ms_mean": 0.001680875705842199
+          "runtime_ms_mean": 0.001672828930262428
         }
       }
     },
@@ -293,22 +293,22 @@
         "rest": {
           "stability": 1.397372639872193,
           "downstream_error": 0.9471705049399578,
-          "runtime_ms_mean": 0.024058378231892642
+          "runtime_ms_mean": 0.021530362743331803
         },
         "reciprocal_only": {
           "stability": 0.8850998683601393,
           "downstream_error": 0.9357053661179136,
-          "runtime_ms_mean": 0.007187036354890349
+          "runtime_ms_mean": 0.006820782376670428
         },
         "covariance_whitening": {
           "stability": 1.2240091826314978,
           "downstream_error": 0.9313482578072165,
-          "runtime_ms_mean": 0.004145440433193674
+          "runtime_ms_mean": 0.0037608237569449576
         },
         "no_transform": {
           "stability": 1.3427876045692162,
           "downstream_error": 0.9868279702511246,
-          "runtime_ms_mean": 0.0019279429386701637
+          "runtime_ms_mean": 0.0016327926718962857
         }
       }
     },
@@ -323,22 +323,22 @@
         "rest": {
           "stability": 1.4440322895055033,
           "downstream_error": 1.5737920055329828,
-          "runtime_ms_mean": 0.02337622810173249
+          "runtime_ms_mean": 0.021228554343878304
         },
         "reciprocal_only": {
           "stability": 0.8890342924789404,
           "downstream_error": 1.5740612302748154,
-          "runtime_ms_mean": 0.007062777126638624
+          "runtime_ms_mean": 0.006654466275569688
         },
         "covariance_whitening": {
           "stability": 1.1461539325565484,
           "downstream_error": 1.5710107644183433,
-          "runtime_ms_mean": 0.004048740920741014
+          "runtime_ms_mean": 0.003705689019446353
         },
         "no_transform": {
           "stability": 1.502825692100198,
           "downstream_error": 1.582031951268061,
-          "runtime_ms_mean": 0.0018572176052945053
+          "runtime_ms_mean": 0.0015273471190980178
         }
       }
     },
@@ -353,22 +353,22 @@
         "rest": {
           "stability": 1.4338739213374012,
           "downstream_error": 1.9260055945993986,
-          "runtime_ms_mean": 0.023933103630561114
+          "runtime_ms_mean": 0.022080497427299436
         },
         "reciprocal_only": {
           "stability": 0.8585933723233371,
           "downstream_error": 1.9939872375644643,
-          "runtime_ms_mean": 0.007579626934044907
+          "runtime_ms_mean": 0.006872186489424963
         },
         "covariance_whitening": {
           "stability": 1.0820655132569013,
           "downstream_error": 2.018752189726864,
-          "runtime_ms_mean": 0.00400924363930244
+          "runtime_ms_mean": 0.0038002280248787467
         },
         "no_transform": {
           "stability": 1.6642412395785158,
           "downstream_error": 1.6171371175829734,
-          "runtime_ms_mean": 0.0017308704882264233
+          "runtime_ms_mean": 0.0015830156404508153
         }
       }
     },
@@ -383,22 +383,22 @@
         "rest": {
           "stability": 1.5136266944401928,
           "downstream_error": 0.9090933861157505,
-          "runtime_ms_mean": 0.022915606112508924
+          "runtime_ms_mean": 0.020767217350446912
         },
         "reciprocal_only": {
           "stability": 0.9546926686613245,
           "downstream_error": 0.9029692445141846,
-          "runtime_ms_mean": 0.006927098348885147
+          "runtime_ms_mean": 0.006442476745418616
         },
         "covariance_whitening": {
           "stability": 1.2270316557338303,
           "downstream_error": 0.8997535954918485,
-          "runtime_ms_mean": 0.00393796895227728
+          "runtime_ms_mean": 0.0035716476902990586
         },
         "no_transform": {
           "stability": 1.2420522576624438,
           "downstream_error": 0.9270434433758934,
-          "runtime_ms_mean": 0.001663316115197108
+          "runtime_ms_mean": 0.001519611437830331
         }
       }
     },
@@ -413,22 +413,22 @@
         "rest": {
           "stability": 1.4044303911730154,
           "downstream_error": 1.1750891084908113,
-          "runtime_ms_mean": 0.02340851286399043
+          "runtime_ms_mean": 0.02085444548874828
         },
         "reciprocal_only": {
           "stability": 0.8721138385646506,
           "downstream_error": 1.137914214471384,
-          "runtime_ms_mean": 0.007286870485600542
+          "runtime_ms_mean": 0.00647584460748099
         },
         "covariance_whitening": {
           "stability": 1.1010170019113525,
           "downstream_error": 1.0935844620248296,
-          "runtime_ms_mean": 0.003848051782148538
+          "runtime_ms_mean": 0.0037421140277823384
         },
         "no_transform": {
           "stability": 1.2477656373293706,
           "downstream_error": 1.2330229965693462,
-          "runtime_ms_mean": 0.001719999915381551
+          "runtime_ms_mean": 0.0015481398267480858
         }
       }
     },
@@ -443,22 +443,22 @@
         "rest": {
           "stability": 1.3400023487216697,
           "downstream_error": 0.623524933755961,
-          "runtime_ms_mean": 0.02521372010526935
+          "runtime_ms_mean": 0.02076252326450716
         },
         "reciprocal_only": {
           "stability": 0.8626872644096434,
           "downstream_error": 0.6134612063453242,
-          "runtime_ms_mean": 0.007679984537861069
+          "runtime_ms_mean": 0.00652415532612126
         },
         "covariance_whitening": {
           "stability": 1.1522432700770489,
           "downstream_error": 0.5937762548879162,
-          "runtime_ms_mean": 0.00417867359579203
+          "runtime_ms_mean": 0.003765518012531391
         },
         "no_transform": {
           "stability": 1.0977129398093866,
           "downstream_error": 0.6248836250540432,
-          "runtime_ms_mean": 0.0018296735535389044
+          "runtime_ms_mean": 0.0015491554448730915
         }
       }
     },
@@ -473,22 +473,22 @@
         "rest": {
           "stability": 1.3492315922312648,
           "downstream_error": 1.197236028404011,
-          "runtime_ms_mean": 0.029675740950862717
+          "runtime_ms_mean": 0.020908481745143453
         },
         "reciprocal_only": {
           "stability": 0.8464422929170244,
           "downstream_error": 1.184345649044389,
-          "runtime_ms_mean": 0.008950139957385432
+          "runtime_ms_mean": 0.0066056579078180916
         },
         "covariance_whitening": {
           "stability": 1.103791727022813,
           "downstream_error": 1.174560281930172,
-          "runtime_ms_mean": 0.005128621764241602
+          "runtime_ms_mean": 0.0039982175381511565
         },
         "no_transform": {
           "stability": 1.1835476250566082,
           "downstream_error": 1.2231999240949343,
-          "runtime_ms_mean": 0.0023573626999512866
+          "runtime_ms_mean": 0.0015824871156437062
         }
       }
     },
@@ -503,22 +503,22 @@
         "rest": {
           "stability": 1.3591925283730282,
           "downstream_error": 1.7885124617524395,
-          "runtime_ms_mean": 0.023801041390159327
+          "runtime_ms_mean": 0.02122544551191615
         },
         "reciprocal_only": {
           "stability": 0.8196208258368148,
           "downstream_error": 1.854001102554188,
-          "runtime_ms_mean": 0.007153777123252147
+          "runtime_ms_mean": 0.006711082895668802
         },
         "covariance_whitening": {
           "stability": 1.0161569976630143,
           "downstream_error": 1.9039065586136175,
-          "runtime_ms_mean": 0.004097616572250912
+          "runtime_ms_mean": 0.003868300677940655
         },
         "no_transform": {
           "stability": 1.3059576264156874,
           "downstream_error": 1.6100184683879062,
-          "runtime_ms_mean": 0.0016799585958894516
+          "runtime_ms_mean": 0.0016152122995328796
         }
       }
     },
@@ -533,22 +533,22 @@
         "rest": {
           "stability": 1.3692071996060928,
           "downstream_error": 0.7543905955021822,
-          "runtime_ms_mean": 0.024112497370115872
+          "runtime_ms_mean": 0.020995782529923176
         },
         "reciprocal_only": {
           "stability": 0.903512045815123,
           "downstream_error": 0.7560586664642004,
-          "runtime_ms_mean": 0.0073118082271349605
+          "runtime_ms_mean": 0.0064175802091778365
         },
         "covariance_whitening": {
           "stability": 1.1989502387554989,
           "downstream_error": 0.7575422468561551,
-          "runtime_ms_mean": 0.0037825181838239594
+          "runtime_ms_mean": 0.0036210258258506656
         },
         "no_transform": {
           "stability": 1.0269016811231424,
           "downstream_error": 0.7457294453449744,
-          "runtime_ms_mean": 0.0015848135088426857
+          "runtime_ms_mean": 0.0015471088838729756
         }
       }
     },
@@ -563,22 +563,22 @@
         "rest": {
           "stability": 1.3323914212954415,
           "downstream_error": 1.0399720080390489,
-          "runtime_ms_mean": 0.02342251290914354
+          "runtime_ms_mean": 0.020637834311789865
         },
         "reciprocal_only": {
           "stability": 0.8427554054141703,
           "downstream_error": 1.0026682206196829,
-          "runtime_ms_mean": 0.007203233107780299
+          "runtime_ms_mean": 0.0064529379890987965
         },
         "covariance_whitening": {
           "stability": 1.0677575520975717,
           "downstream_error": 0.9642160832055369,
-          "runtime_ms_mean": 0.003887031056874171
+          "runtime_ms_mean": 0.0036158394063955626
         },
         "no_transform": {
           "stability": 1.0704328937802792,
           "downstream_error": 1.099867195436845,
-          "runtime_ms_mean": 0.0017230414635854064
+          "runtime_ms_mean": 0.0015242744030290972
         }
       }
     },
@@ -593,22 +593,22 @@
         "rest": {
           "stability": 1.328851280505991,
           "downstream_error": 0.49218141837117574,
-          "runtime_ms_mean": 0.02313026417551352
+          "runtime_ms_mean": 0.020847740901152753
         },
         "reciprocal_only": {
           "stability": 0.8846592890113948,
           "downstream_error": 0.4924692519675517,
-          "runtime_ms_mean": 0.0069015490970425935
+          "runtime_ms_mean": 0.0066197461032711565
         },
         "covariance_whitening": {
           "stability": 1.197787569076526,
           "downstream_error": 0.49372412831539236,
-          "runtime_ms_mean": 0.0043872434635636995
+          "runtime_ms_mean": 0.003730678804812306
         },
         "no_transform": {
           "stability": 1.003785499321369,
           "downstream_error": 0.4919898287206201,
-          "runtime_ms_mean": 0.0016319948989581897
+          "runtime_ms_mean": 0.001597492326801363
         }
       }
     },
@@ -623,22 +623,22 @@
         "rest": {
           "stability": 1.2184833341809373,
           "downstream_error": 1.3033446926901064,
-          "runtime_ms_mean": 0.024029829061256572
+          "runtime_ms_mean": 0.020675207023029916
         },
         "reciprocal_only": {
           "stability": 0.787201606488141,
           "downstream_error": 1.343432269989709,
-          "runtime_ms_mean": 0.007059647588356678
+          "runtime_ms_mean": 0.006715792758749808
         },
         "covariance_whitening": {
           "stability": 1.0368317461482537,
           "downstream_error": 1.3882493583168185,
-          "runtime_ms_mean": 0.004101746121163292
+          "runtime_ms_mean": 0.0036537876534227455
         },
         "no_transform": {
           "stability": 0.9591258053556175,
           "downstream_error": 1.2415660786976968,
-          "runtime_ms_mean": 0.0017870363193971872
+          "runtime_ms_mean": 0.0015570155714054645
         }
       }
     },
@@ -653,22 +653,22 @@
         "rest": {
           "stability": 1.3440829051328567,
           "downstream_error": 1.8345073943349568,
-          "runtime_ms_mean": 0.023261870481037665
+          "runtime_ms_mean": 0.020875290032883943
         },
         "reciprocal_only": {
           "stability": 0.8260901714227638,
           "downstream_error": 1.837302217064529,
-          "runtime_ms_mean": 0.007202606263297244
+          "runtime_ms_mean": 0.006293497460597518
         },
         "covariance_whitening": {
           "stability": 1.0246521072468282,
           "downstream_error": 1.8294361885379138,
-          "runtime_ms_mean": 0.004265507871051044
+          "runtime_ms_mean": 0.0038330621973350835
         },
         "no_transform": {
           "stability": 1.144236518116576,
           "downstream_error": 1.8173336033024001,
-          "runtime_ms_mean": 0.0018327512930345195
+          "runtime_ms_mean": 0.0016099790764436937
         }
       }
     }
@@ -676,5 +676,11 @@
   "overall_decision": {
     "decision": "PIVOT",
     "rationale": "Reciprocal-only matches or beats REST across the locked regimes on both downstream error and stability, so the current architecture does not earn mainline continuation from this slice."
+  },
+  "post_pivot_claim_control": {
+    "hard_baseline": "reciprocal_only",
+    "protocol": "docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md",
+    "current_rest_status": "reference_implementation_not_validated_continuation",
+    "rule": "Stop or refine if reciprocal-only remains enough; no theorem prose in place of benchmark evidence."
   }
 }

@@ -3,7 +3,7 @@
 _Last updated: 2026-04-28_
 
 ## Current status
-**Active, narrowed research program with the locked decision slice completed and a PIVOT result recorded.**
+**Post-PIVOT refinement / claim-control program. Current REST is a reference implementation, not a validated continuation claim.**
 
 The repository is no longer in idea-only mode. Phases 1–5 produced:
 - a covariance-based REST implementation,
@@ -14,7 +14,7 @@ The repository is no longer in idea-only mode. Phases 1–5 produced:
 
 The strongest current statement remains:
 
-> REST is presently best understood as a **covariance-based streaming geometric preconditioner in retained spectral coordinates**, with partial one-step stability formalization and controlled synthetic empirical support.
+> REST is presently best understood as a **covariance-based streaming geometric preconditioner in retained spectral coordinates**, with partial one-step stability formalization and controlled synthetic empirical support; however, the locked decision slice produced **PIVOT**, so current REST must not be promoted unless a future variant beats reciprocal-only.
 
 ## Current decisive validation result
 The prior human-selection blocker was cleared by `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`, and the locked slice was executed on 2026-04-28.
@@ -59,25 +59,27 @@ Result:
 ## What is not yet supported
 - A completed proof beyond draft level.
 - A justified claim that stage ordering is independently meaningful in the current architecture.
+- Evidence that current REST is superior to reciprocal-only.
+- Any claim that REST helps PRISM.
 - Large-scale or real-world benchmark validation.
 - Broad operator-family generalization beyond the covariance case.
 - Strong claims of general superiority across downstream tasks.
 
 ## Canonical project direction
-**Decision:** do not continue the current REST architecture as-is without revision; the locked scorecard fired the pivot condition.
+**Decision:** do not continue the current REST architecture as-is without revision; the locked scorecard fired the pivot condition, and the DOG×PRISM mock also returned STOP_OR_REFINE.
 
 Current operating rule:
 1. preserve the decision-slice evidence as the canonical benchmark result,
-2. do not broaden validation or polish theory as a substitute for the failed scorecard,
-3. ask Sean whether to authorize a bounded architecture-change spike,
-4. if approved, test exactly one minimal variant against the same harness,
+2. preserve the DOG×PRISM mock evidence as paper/mock-only and not a PRISM-help claim,
+3. make reciprocal-only the hard baseline for every next research slice,
+4. test exactly one minimal variant at a time against both `experiments/synthetic/run_decision_slice.py` and `experiments/synthetic/run_prism_contract_mock.py`,
 5. update method/theorem prose only after new evidence exists.
 
 ## Highest-priority open work
 1. Treat `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md` as the canonical decision note.
-2. Do not promote current REST based on the DOG×PRISM mock; it also failed to beat reciprocal-only.
-3. If Sean approves another attempt, evaluate one minimal variant against both `experiments/synthetic/run_decision_slice.py` and `experiments/synthetic/run_prism_contract_mock.py`.
-4. Keep REST / reciprocal-only / covariance-whitening / no-transform as the comparison standard.
+2. Treat `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` as the controlling protocol for any next variant.
+3. Do not promote current REST based on the DOG×PRISM mock; it also failed to beat reciprocal-only.
+4. Keep REST / reciprocal-only / covariance-whitening / no-transform as the comparison standard, with reciprocal-only as the hard baseline to beat.
 5. Avoid broad expansion until a variant or repositioning earns evidence.
 
 ## Current blockers / risks
@@ -93,6 +95,7 @@ Current operating rule:
 - `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md` — authoritative decision target for the completed slice.
 - `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md` — canonical PIVOT result from the locked benchmark.
 - `docs/project-plan/NEXT_ACTIONS.md` — short operational queue for the next slices.
+- `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` — hard-baseline and claim-control protocol for any next variant.
 - `docs/project-plan/PHASE5_COMPLETION_REPORT.md` — what Phase 5 changed.
 - `docs/project-plan/PHASE5_SCOPE_DECISION.md` — current strategic scope decision.
 - `docs/project-plan/PHASE4_EVALUATION_NOTE.md` — best compact empirical picture before the next slice.
@@ -100,7 +103,7 @@ Current operating rule:
 ## Practical interpretation
 If someone asks what this repo currently is, the best short answer is:
 
-> a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, now holding a locked PIVOT result showing that the current REST architecture did not beat reciprocal-only on the first decisive validation slice.
+> a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, now holding a locked PIVOT result showing that current REST did not beat reciprocal-only and that reciprocal-only is the hard baseline for any future variant.
 
 ## Repo operations status
 - 2026-04-08: the repo is currently synchronized with `origin/main`.

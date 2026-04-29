@@ -278,7 +278,13 @@ def evaluate_mock_trace(config: PrismMockConfig = PrismMockConfig()) -> Dict[str
         "dog_context_artifacts_referenced": [
             "docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md",
             "experiments/results/decision_slice_metrics.json",
+            "docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md",
         ],
+        "post_pivot_claim_control": {
+            "hard_baseline": "reciprocal_only",
+            "current_rest_status": "reference_implementation_not_prism_validation",
+            "claim_boundary": "No claim that REST helps PRISM; paper/mock scorecard improvements only.",
+        },
         "feature_names": list(FEATURE_NAMES),
         "config": asdict(config),
         "trace_case_count": len(trace_cases()),
@@ -339,6 +345,13 @@ def write_note(path: Path, payload: Dict[str, object]) -> None:
     lines.append(f"- reciprocal-only remains enough: `{str(payload['scorecard']['reciprocal_only_remains_enough']).lower()}`")
     lines.append(f"- transforms obscure contract fields: `{str(payload['scorecard']['transforms_obscure_contract_fields']).lower()}`")
     lines.append("- live/write access required: `false`")
+    lines.append("")
+    lines.append("## Post-PIVOT claim control")
+    lines.append("- Current REST status: reference implementation, not PRISM validation.")
+    lines.append("- Hard baseline for next slices: reciprocal-only.")
+    lines.append("- Protocol: `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`.")
+    lines.append("- No claim that REST helps PRISM.")
+    lines.append("- A future variant may only report a paper/mock contract-gate scorecard improvement if it beats reciprocal-only without worsening false-pass risk or auditability.")
     lines.append("")
     lines.append("## Verification command")
     lines.append("```bash")

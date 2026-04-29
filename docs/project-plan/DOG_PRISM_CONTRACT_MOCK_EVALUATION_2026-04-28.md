@@ -15,6 +15,7 @@ No live credentials, no production reads/writes, no order placement, no new PRIS
 ## DOG artifacts coordinated
 - DOG `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md`
 - DOG `experiments/results/decision_slice_metrics.json`
+- DOG `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`
 
 ## Protocol
 Simulated PRISM contract-gate traces are encoded as numeric paper/mock vectors covering signal eligibility, execution gating, risk throttles, monitoring invariants, and artifact requirements. DOG compares current REST against reciprocal-only, covariance-whitening, and no-transform.
@@ -30,10 +31,10 @@ Simulated PRISM contract-gate traces are encoded as numeric paper/mock vectors c
 ## Results
 | Method | Contract error | False pass | False block | Stability | Runtime ms | Auditability loss |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| rest | 0.139535 | 0.000000 | 0.139535 | 0.430556 | 0.027092 | 0.008306 |
-| reciprocal_only | 0.139535 | 0.000000 | 0.139535 | 0.367995 | 0.008234 | 0.008306 |
-| covariance_whitening | 0.139535 | 0.000000 | 0.139535 | 2.556958 | 0.004587 | 0.008306 |
-| no_transform | 0.790698 | 0.790698 | 0.000000 | 0.168270 | 0.000725 | 0.000000 |
+| rest | 0.139535 | 0.000000 | 0.139535 | 0.430556 | 0.028050 | 0.008306 |
+| reciprocal_only | 0.139535 | 0.000000 | 0.139535 | 0.367995 | 0.008823 | 0.008306 |
+| covariance_whitening | 0.139535 | 0.000000 | 0.139535 | 2.556958 | 0.004758 | 0.008306 |
+| no_transform | 0.790698 | 0.790698 | 0.000000 | 0.168270 | 0.000785 | 0.000000 |
 
 ## Decision
 **STOP_OR_REFINE**
@@ -44,6 +45,13 @@ Paper/mock trace evidence does not justify promoting current REST: reciprocal-on
 - reciprocal-only remains enough: `true`
 - transforms obscure contract fields: `false`
 - live/write access required: `false`
+
+## Post-PIVOT claim control
+- Current REST status: reference implementation, not PRISM validation.
+- Hard baseline for next slices: reciprocal-only.
+- Protocol: `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`.
+- No claim that REST helps PRISM.
+- A future variant may only report a paper/mock contract-gate scorecard improvement if it beats reciprocal-only without worsening false-pass risk or auditability.
 
 ## Verification command
 ```bash

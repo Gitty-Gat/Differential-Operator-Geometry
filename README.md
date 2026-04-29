@@ -27,6 +27,7 @@ What exists now:
 - Phase 5 reframing documents that narrow the contribution to the retained-coordinate preconditioner view,
 - a locked decision slice showing **PIVOT** for current REST because reciprocal-only matched or beat it,
 - a DOG×PRISM paper/mock stress harness showing **STOP_OR_REFINE** for current REST in simulated theorem-to-contract traces,
+- a reciprocal-only robustness sweep showing **RECIPROCAL_BASELINE_REMAINS_ENOUGH** under DOG + PRISM guardrails,
 - repo control docs (`PROJECT_STATUS.md`, `ROADMAP.md`, `WORKLOG.md`, `NEXT_ACTIONS.md`) that keep future slices honest and small.
 
 What does not yet exist:
@@ -84,9 +85,10 @@ Example Phase 4 artifact:
 The immediate next steps are post-PIVOT refinement steps, not REST continuation steps:
 1. use `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` before proposing any variant,
 2. keep reciprocal-only as the explicit hard baseline to beat,
-3. test at most one narrow mechanism-specific variant at a time against both the DOG decision slice and DOG×PRISM mock harness,
-4. update method/theorem prose only after benchmark evidence exists,
-5. stop or refine whenever reciprocal-only remains enough or PRISM contract obligations become less auditable.
+3. treat `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md` as the current robustness result,
+4. test at most one narrow mechanism-specific variant at a time against both the DOG decision slice and DOG×PRISM mock harness,
+5. update method/theorem prose only after benchmark evidence exists,
+6. stop or refine whenever reciprocal-only remains enough or PRISM contract obligations become less auditable.
 
 ## Project control
 - Status: [`PROJECT_STATUS.md`](PROJECT_STATUS.md)

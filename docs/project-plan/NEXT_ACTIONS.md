@@ -5,9 +5,9 @@ _Last updated: 2026-04-28_
 This file is the short operational queue for the repo. It exists to turn the current framing into the next few resumable slices without re-reading the entire project history.
 
 ## Active objective
-Respond to the combined DOG and DOG×PRISM paper/mock results:
+Respond to the combined DOG, DOG×PRISM, and reciprocal-only robustness results:
 
-> DOG PIVOT — reciprocal-only matched or beat REST across the moderate-drift clean-to-messy spectral-gap regimes. DOG×PRISM STOP_OR_REFINE — reciprocal-only also matched REST on simulated PRISM contract-gate classification / false-pass risk while running faster and producing a more stable representation.
+> DOG PIVOT — reciprocal-only matched or beat REST across the moderate-drift clean-to-messy spectral-gap regimes. DOG×PRISM STOP_OR_REFINE — reciprocal-only also matched REST on simulated PRISM contract-gate classification / false-pass risk while running faster and producing a more stable representation. Robustness sweep — reciprocal-only remains enough under the registered downstream/stability/runtime/false-pass/auditability rule.
 
 ## Control docs for this phase
 Use these before reopening old phase reports:
@@ -15,6 +15,7 @@ Use these before reopening old phase reports:
 - `WORKLOG.md`
 - `DECISIONS.md`
 - `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`
+- `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md`
 - `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`
 
 ## Completed decision target
@@ -54,24 +55,32 @@ Do **not** broaden scope, revive universal-geometry claims, claim REST helps PRI
 - `docs/project-plan/DOG_PRISM_CONTRACT_MOCK_EVALUATION_2026-04-28.md` remains the canonical DOG-owned mock result,
 - `experiments/results/prism_contract_mock_metrics.json` remains the machine-readable evidence.
 
-### 3) Use the post-PIVOT refinement protocol before any variant
-**Why third:** the repo needs a narrow, evidence-bearing path that prevents theorem-first rationalization and PRISM-help claim inflation.
+### 3) Preserve the reciprocal-only robustness result
+**Why third:** the failure-regime sweep did not find a qualified REST/whitening/no-transform win over reciprocal-only under the registered DOG + PRISM guardrails.
+
+**Definition of done:**
+- `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md` remains the canonical robustness note,
+- `experiments/results/reciprocal_robustness_sweep_metrics.json` remains the machine-readable evidence,
+- no-transform downstream-only signals are not mistaken for a REST continuation result because they failed stability and PRISM false-pass guardrails.
+
+### 4) Use the post-PIVOT refinement protocol before any variant
+**Why fourth:** the repo needs a narrow, evidence-bearing path that prevents theorem-first rationalization and PRISM-help claim inflation.
 
 **Definition of done:**
 - `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` is cited by any next variant note,
 - reciprocal-only is treated as the hard baseline to beat,
 - PRISM false-pass and auditability guardrails are pre-registered.
 
-### 4) Test one minimal variant against both harnesses
-**Why fourth:** any pivot follow-up must beat the exact DOG benchmark current REST failed and must not degrade PRISM contract-gate auditability.
+### 5) Test one minimal variant against both harnesses, or reposition
+**Why fifth:** any pivot follow-up must beat the exact DOG benchmark current REST failed and must not degrade PRISM contract-gate auditability. If no bounded variant is justified, the honest path is reciprocal-only / scope-demotion positioning.
 
 **Definition of done:**
-- one minimal architecture change is implemented without broad operator-family expansion,
-- `run_decision_slice.py` and `run_prism_contract_mock.py` can evaluate it under the same regimes/traces,
-- the result is `CONTINUE_VARIANT`, `REFINE_VARIANT`, or `STOP_OR_REFINE` for the variant.
+- one minimal architecture change is implemented without broad operator-family expansion, or a scope-demotion note is written,
+- `run_decision_slice.py`, `run_prism_contract_mock.py`, and where relevant `run_reciprocal_robustness_sweep.py` can evaluate the result,
+- the result is `CONTINUE_VARIANT`, `REFINE_VARIANT`, `STOP_OR_REFINE`, or explicit scope demotion.
 
-### 5) Tighten method / theorem docs only after new variant evidence exists
-**Why fifth:** theory alignment should mirror surviving empirical evidence rather than rationalize the failed mainline slice.
+### 6) Tighten method / theorem docs only after new variant evidence exists
+**Why sixth:** theory alignment should mirror surviving empirical evidence rather than rationalize the failed mainline slice.
 
 **Definition of done:**
 - any edits to `REST_METHOD_NOTE.md` or `REST_THEOREM_DRAFT.md` explicitly cite the decision-slice or variant result,
@@ -81,8 +90,9 @@ Do **not** broaden scope, revive universal-geometry claims, claim REST helps PRI
 - **Pivot fired:** reciprocal-only matched or beat REST across the board on the locked scorecard.
 - **PRISM mock stop/refine fired:** reciprocal-only matched REST on contract classification / false-pass risk while running faster and producing a more stable representation.
 - **Hard baseline rule:** matching reciprocal-only is no longer enough; any next variant must beat it without worsening PRISM contract auditability.
+- **Robustness sweep result:** no qualified reciprocal-only failure case was found; no-transform had downstream-only signals but failed stability and PRISM false-pass guardrails.
 
 ## One-sentence guidance for the next stand-up
 If there is only one slice to do next, do this:
 
-> do not promote current REST; if another attempt is authorized, test one minimal architecture change against both the DOG decision slice and the PRISM contract mock harness, with reciprocal-only as the hard baseline to beat.
+> do not promote current REST; reciprocal-only remains enough after the robustness sweep, so the next slice should either test one pre-registered bounded variant against DOG + PRISM guardrails or explicitly demote/reposition the REST line.

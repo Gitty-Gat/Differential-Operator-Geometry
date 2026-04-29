@@ -9,6 +9,7 @@ _Last updated: 2026-04-28_
 - Added the approved paper/mock DOG×PRISM companion plan in `docs/project-plan/DOG_PRISM_ARCHITECTURE_SPIKE_PLAN_2026-04-28.md`, coordinated with PRISM's theorem-to-contract gate artifacts.
 - Added `experiments/synthetic/run_prism_contract_mock.py`, `experiments/results/prism_contract_mock_metrics.json`, and `docs/project-plan/DOG_PRISM_CONTRACT_MOCK_EVALUATION_2026-04-28.md`. Result: **STOP_OR_REFINE** because reciprocal-only matched REST on contract classification / false-pass risk while running faster and producing a more stable representation.
 - Added `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` and refreshed README / DECISIONS / ROADMAP / PROJECT_STATUS / NEXT_ACTIONS / positioning docs so current REST is demoted to a reference implementation, reciprocal-only is the hard baseline, and future variants must preserve PRISM contract obligations without inflating claims.
+- Added and ran `experiments/synthetic/run_reciprocal_robustness_sweep.py`, producing `experiments/results/reciprocal_robustness_sweep_metrics.json` and `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md`. Result: **RECIPROCAL_BASELINE_REMAINS_ENOUGH** across 35 DOG scenario/regime summaries plus 4 PRISM mock guardrail scenarios; no-transform had downstream-only signals but failed stability and PRISM false-pass guardrails.
 
 ## 2026-04-13
 - Recorded the authoritative chairman decision memo for the next DOG validation slice in `docs/project-plan/CHAIRMAN_DECISION_TARGET_MEMO_2026-04-13.md`.

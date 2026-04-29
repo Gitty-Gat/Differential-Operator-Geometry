@@ -37,6 +37,15 @@ Approved bounded follow-on artifacts:
 Result:
 - **STOP_OR_REFINE** — in simulated PRISM theorem-to-contract traces, reciprocal-only matched REST on contract classification and false-pass risk while running faster and producing a more stable representation. No live/write authority was used or widened.
 
+## Reciprocal-only robustness / failure-regime sweep
+Post-PIVOT evidence artifacts:
+- `experiments/synthetic/run_reciprocal_robustness_sweep.py`
+- `experiments/results/reciprocal_robustness_sweep_metrics.json`
+- `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md`
+
+Result:
+- **RECIPROCAL_BASELINE_REMAINS_ENOUGH** — across 35 DOG scenario/regime summaries plus 4 PRISM mock guardrail scenarios, no REST/whitening/no-transform comparison beat reciprocal-only under the registered downstream, stability, runtime, false-pass, and auditability rule. Some no-transform downstream-only signals appeared, but they failed stability and PRISM false-pass guardrails.
+
 ## What is currently supported
 
 ### Implementation
@@ -78,9 +87,10 @@ Current operating rule:
 ## Highest-priority open work
 1. Treat `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md` as the canonical decision note.
 2. Treat `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` as the controlling protocol for any next variant.
-3. Do not promote current REST based on the DOG×PRISM mock; it also failed to beat reciprocal-only.
-4. Keep REST / reciprocal-only / covariance-whitening / no-transform as the comparison standard, with reciprocal-only as the hard baseline to beat.
-5. Avoid broad expansion until a variant or repositioning earns evidence.
+3. Treat `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md` as the current robustness result: reciprocal-only remains enough.
+4. Do not promote current REST based on the DOG×PRISM mock or robustness sweep.
+5. Keep REST / reciprocal-only / covariance-whitening / no-transform as the comparison standard, with reciprocal-only as the hard baseline to beat.
+6. Avoid broad expansion until a variant or repositioning earns evidence.
 
 ## Current blockers / risks
 - **Contribution-framing risk:** the original ordering-sensitive novelty story is weakened by commutativity in the active architecture.
@@ -96,6 +106,7 @@ Current operating rule:
 - `docs/project-plan/CHAIRMAN_DECISION_SLICE_EVALUATION_NOTE_2026-04-28.md` — canonical PIVOT result from the locked benchmark.
 - `docs/project-plan/NEXT_ACTIONS.md` — short operational queue for the next slices.
 - `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` — hard-baseline and claim-control protocol for any next variant.
+- `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md` — robustness sweep showing reciprocal-only remains enough under the registered guardrails.
 - `docs/project-plan/PHASE5_COMPLETION_REPORT.md` — what Phase 5 changed.
 - `docs/project-plan/PHASE5_SCOPE_DECISION.md` — current strategic scope decision.
 - `docs/project-plan/PHASE4_EVALUATION_NOTE.md` — best compact empirical picture before the next slice.
@@ -103,7 +114,7 @@ Current operating rule:
 ## Practical interpretation
 If someone asks what this repo currently is, the best short answer is:
 
-> a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, now holding a locked PIVOT result showing that current REST did not beat reciprocal-only and that reciprocal-only is the hard baseline for any future variant.
+> a disciplined research repo for studying REST as a retained-coordinate streaming geometric preconditioner, now holding a locked PIVOT result and a robustness sweep showing reciprocal-only remains the hard baseline to beat.
 
 ## Repo operations status
 - 2026-04-08: the repo is currently synchronized with `origin/main`.

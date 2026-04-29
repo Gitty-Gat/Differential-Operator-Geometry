@@ -110,6 +110,16 @@ This file is the compressed decision record for the repo. It is meant to answer:
 - Run both the DOG decision-slice harness and the DOG×PRISM paper/mock harness, or explicitly record why only a smaller reproduction check was feasible.
 - No DOG result may claim REST helps PRISM. At most, a future variant may claim a paper/mock contract-gate scorecard improvement if it beats reciprocal-only without worsening false-pass risk or auditability.
 
+### D11 — Treat reciprocal-only robustness sweep as another stop/refine signal
+**Decision:** `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md` is the current robustness evidence. Reciprocal-only remains enough under the registered sweep rule.
+
+**Why:** The sweep covered 35 DOG scenario/regime summaries and 4 PRISM mock guardrail scenarios. No REST/whitening/no-transform comparison beat reciprocal-only while also satisfying downstream, stability, runtime, false-pass, and auditability constraints. No-transform produced some downstream-only signals, but failed stability and PRISM false-pass guardrails.
+
+**Implications:**
+- Do not treat no-transform downstream-only signals as a REST continuation path.
+- Do not promote REST or whitening from this sweep.
+- The next evidence-bearing work must either introduce one bounded, pre-registered variant or explicitly reposition the project around reciprocal-only / scope demotion.
+
 ## What would justify reopening these decisions
 Revisit the current decisions only if one of the following happens:
 - theorem tightening materially changes what can be honestly claimed,
@@ -121,8 +131,9 @@ Revisit the current decisions only if one of the following happens:
 During the post-PIVOT refinement phase, the repo should behave as follows:
 1. preserve the PIVOT evidence from the locked decision slice,
 2. preserve the DOG×PRISM STOP_OR_REFINE mock evidence,
-3. do not broaden or continue the current REST line as-is,
-4. require reciprocal-only as the hard baseline for every new slice,
-5. test at most one minimal variant against both the DOG decision harness and the PRISM mock harness,
-6. tighten theorem and method notes only after variant evidence exists,
-7. keep the control docs current and honest.
+3. preserve the reciprocal-only robustness sweep result,
+4. do not broaden or continue the current REST line as-is,
+5. require reciprocal-only as the hard baseline for every new slice,
+6. test at most one minimal variant against both the DOG decision harness and the PRISM mock harness,
+7. tighten theorem and method notes only after variant evidence exists,
+8. keep the control docs current and honest.

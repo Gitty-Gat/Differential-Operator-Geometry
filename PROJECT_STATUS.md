@@ -47,7 +47,7 @@ Post-PIVOT evidence artifacts:
 - `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md`
 
 Result:
-- **RECIPROCAL_BASELINE_REMAINS_ENOUGH** — across 35 DOG scenario/regime summaries plus 4 PRISM mock guardrail scenarios, no REST/whitening/no-transform comparison beat reciprocal-only under the registered downstream, stability, runtime, false-pass, and auditability rule. Some no-transform downstream-only signals appeared, but they failed stability and PRISM false-pass guardrails.
+- **RECIPROCAL_BASELINE_REMAINS_ENOUGH** — across 35 DOG scenario/regime summaries plus 4 then-active archived PRISM paper/mock checks, no REST/whitening/no-transform comparison beat reciprocal-only under the registered downstream, stability, runtime, false-pass, and auditability rule. Some no-transform downstream-only signals appeared, but they failed stability and archived paper/mock false-pass checks.
 
 ## Reciprocal-only adversarial failure search
 Adversarial evidence artifacts:
@@ -56,7 +56,7 @@ Adversarial evidence artifacts:
 - `docs/project-plan/RECIPROCAL_ADVERSARIAL_FAILURE_SEARCH_2026-04-28.md`
 
 Result:
-- **FAILURES_FOUND_NO_DOG_RESCUE** — four narrow synthetic adversarial cases flagged reciprocal-only absolute downstream normalized-MSE failures, but no current REST/whitening/no-transform path beat reciprocal-only while preserving PRISM false-pass and auditability guardrails. Recommendation: stop trying to rescue current REST; refocus on reciprocal-only characterization, scope demotion, or a separately pre-registered new variant only.
+- **FAILURES_FOUND_NO_DOG_RESCUE** — four narrow synthetic adversarial cases flagged reciprocal-only absolute downstream normalized-MSE failures, but no current REST/whitening/no-transform path beat reciprocal-only under the registered scorecard and archived paper/mock checks. Recommendation: stop trying to rescue current REST; refocus on reciprocal-only characterization, scope demotion, or a separately pre-registered DOG-local variant only.
 
 ## Reciprocal-only characterization / REST scope demotion
 Positioning artifact:
@@ -80,8 +80,9 @@ Result:
 ### Empirical evidence
 - Phase 3 established that REST is implementable and testable.
 - Phase 4 established mixed-but-real viability under controlled synthetic drift.
-- REST is empirically distinguishable from simple baselines, but it is **not** uniformly best.
-- Reciprocal-only behavior can outperform REST in some regimes.
+- Those Phase 3/4 viability signals are superseded for continuation purposes by the locked PIVOT, reciprocal-only robustness sweep, and adversarial search.
+- REST is empirically distinguishable from simple baselines, but it is **not** validated as better than reciprocal-only.
+- Reciprocal-only is the current evidence-supported center of gravity.
 - In the current retained-coordinate diagonal formulation, reciprocal and exponential weighting commute, so reversed-order ablations are algebraically identical.
 
 ## What is not yet supported

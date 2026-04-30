@@ -1,5 +1,10 @@
 # REST_THEOREM_DRAFT
 
+## 2026-04-30 status
+This theorem draft is a scope-control artifact for the current REST reference implementation. It does **not** override the locked PIVOT, robustness sweep, adversarial search, or reciprocal-only scope-demotion note.
+
+Use it only to keep proof language aligned with the implemented retained-coordinate preconditioner. It is not evidence that current REST beats reciprocal-only, should continue as-is, or helps PRISM.
+
 ## Purpose
 This note gives a tighter theorem draft for the **canonical covariance-based REST implementation actually present in this repository**. The goal is deliberately narrow:
 
@@ -8,12 +13,12 @@ This note gives a tighter theorem draft for the **canonical covariance-based RES
 - prove only a **single-step stability / perturbation statement**,
 - and avoid implying a non-commuting ordering mechanism that the current diagonal architecture does not support.
 
-The point of this draft is not to finish the full theory. The point is to make the theorem language match the strongest honest claim the repo can presently defend.
+The point of this draft is not to finish the full theory or rescue a failed scorecard. The point is to make theorem language match the strongest honest claim the repo can presently defend.
 
 ---
 
 ## 1. Implementation anchor
-The active code path in `src/rest/core.py` does the following at a single time step:
+The current reference code path in `src/rest/core.py` does the following at a single time step:
 
 1. build or receive a symmetric PSD covariance operator,
 2. compute a top-`k` eigendecomposition,
@@ -262,7 +267,7 @@ T_s := W_s U_s^\top
 \qquad (s \in \{t-1,t\})
 ```
 
-be the retained-coordinate transform defined above. Under Assumptions A1-A6, there exists a constant `C_{\mathrm{basis}} > 0` depending only on the chosen eigenvector perturbation estimate and the retained dimension `k` such that
+be the retained-coordinate transform defined above. Under Assumptions A1-A6, after fixing eigenvector signs consistently across the two steps (equivalently, using the closest sign convention for each simple ordered eigenvector), and for sufficiently small `\delta` relative to `\gamma_*`, there exists a constant `C_{\mathrm{basis}} > 0` depending only on the chosen eigenvector perturbation estimate and the retained dimension `k` such that
 
 ```math
 \|T_t - T_{t-1}\|_2
@@ -389,7 +394,7 @@ Also,
 ```
 
 ### Step 3: Control ordered eigenvector motion
-Under A2-A4, standard eigenvector perturbation results for simple ordered eigenpairs give
+Under A2-A4, after sign-aligning the ordered eigenvectors between steps, standard eigenvector perturbation results for simple ordered eigenpairs give
 
 ```math
 \|U_t - U_{t-1}\|_2
@@ -429,14 +434,17 @@ This draft does **not** justify claims about:
 - asymptotic convergence,
 - broad operator-family generalization,
 - empirical superiority over simpler baselines,
+- superiority over reciprocal-only,
+- justification for continuing current REST as-is after PIVOT,
+- any PRISM-facing claim,
 - or a distinct non-commuting ordering mechanism in the current retained-coordinate diagonal architecture.
 
 ### 8.3 Why the commuting point matters
 Because the reciprocal and exponential stages are both diagonal spectral functions of the same retained eigenvalues, the current architecture is algebraically commuting at the retained-coordinate level. So the theorem should be read as a theorem about the **composite preconditioner** `W_t`, not as evidence that “reciprocal then exponential” is already a separately validated mechanism.
 
 ### 8.4 Strongest honest takeaway
-The strongest honest short summary remains:
+The strongest honest short summary is now:
 
-> REST is presently best understood as a covariance-based streaming geometric preconditioner in retained spectral coordinates, with a plausible and partially formalized one-step stability theory.
+> Current REST is a covariance-based retained-coordinate streaming preconditioner with a plausible one-step stability story, preserved as a reference implementation; reciprocal-only is the hard baseline and current evidence-supported center of gravity after PIVOT / robustness / adversarial results.
 
-That is narrower than the early framing, but it matches the code and the existing empirical picture much better.
+That is narrower than the early framing, but it matches the code, the completed scorecards, and the 2026-04-30 scope-demotion direction much better.

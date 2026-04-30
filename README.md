@@ -1,13 +1,15 @@
 # Differential Operator Geometry
 
 ## Project overview
-Differential Operator Geometry (DOG) is a research repository centered on the current, narrower REST line:
+Differential Operator Geometry (DOG) is a research repository for retained-coordinate streaming spectral preconditioners. After the locked PIVOT, robustness sweep, adversarial search, and PRISM↔DOG stand-down, the repo is currently centered on reciprocal-only as the hard baseline and evidence-supported center of gravity.
 
-> **REST as a covariance-based streaming geometric preconditioner in retained spectral coordinates, with partial one-step stability formalization and controlled synthetic support.**
+Current REST remains important, but as a covariance-based reference implementation and comparison architecture:
+
+> **Current REST is a covariance-based streaming geometric preconditioner in retained spectral coordinates, with partial one-step stability formalization and controlled synthetic support, but it is not validated as superior to reciprocal-only.**
 
 The broader "geometry as the mechanism of computation" motivation remains part of the project history, but it is **not** the main claim presently supported by the repository.
 
-In the active implementation, REST should be understood primarily as a retained-coordinate spectral preconditioning pipeline built from streaming covariance structure. In that setting, the reciprocal and exponential components act as commuting diagonal reweightings, so the repo does **not** currently claim that stage ordering is independently established as the key source of benefit.
+In the active REST implementation, the reciprocal and exponential components act as commuting diagonal reweightings, so the repo does **not** currently claim that stage ordering is independently established as the key source of benefit.
 
 ## Purpose
 This repository is currently focused on disciplined post-PIVOT claim control:
@@ -44,7 +46,7 @@ What does not yet exist:
 ## High-level idea summary
 The current repo-level summary is:
 
-> DOG studies REST as a covariance-based streaming geometric preconditioner built in retained spectral coordinates. The main question is whether that preconditioning view yields useful behavior in some controlled streaming regimes, together with a modest one-step stability story, rather than whether it proves a universal geometry-first mechanism of computation.
+> DOG studies retained-coordinate streaming spectral preconditioners, currently centered on reciprocal-only as the hard baseline. Current REST is preserved as a covariance-based reference implementation with a modest one-step stability story, not as a validated improvement over reciprocal-only or proof of a universal geometry-first mechanism of computation.
 
 ## Repository structure
 
@@ -73,12 +75,14 @@ The original instructions referenced `Abstract.docx`, but the active source file
 
 This preserves traceability to the actual source material used during bootstrap.
 
-## Phase 4 summary
-Phase 4 strengthened the empirical and diagnostic picture and led to a clear recommendation:
+## Historical Phase 4 summary
+Phase 4 strengthened the empirical and diagnostic picture and led to a pre-PIVOT recommendation:
 
-- REST remains computationally viable and empirically distinguishable from simple baselines.
-- The strongest current limitation is architectural: in the retained-coordinate diagonal formulation, the reciprocal and exponential maps commute, so the ordering hypothesis is not empirically distinguishable as a separate source of benefit.
-- The current recommendation is therefore **REFINE**, not scale blindly.
+- REST remained computationally viable and empirically distinguishable from simple baselines in that phase.
+- The strongest limitation was architectural: in the retained-coordinate diagonal formulation, the reciprocal and exponential maps commute, so the ordering hypothesis is not empirically distinguishable as a separate source of benefit.
+- The Phase 4 recommendation was therefore **REFINE**, not scale blindly.
+
+This is historical context. The later locked PIVOT, robustness sweep, and adversarial search supersede Phase 4 as continuation evidence: current REST is now reference/comparison material unless a new pre-registered DOG-local variant beats reciprocal-only.
 
 Example Phase 4 artifact:
 

@@ -21,6 +21,9 @@ The strongest current contribution in this repo is **not** a general proof that 
 - That the current theorem draft proves broad geometric superiority.
 - That synthetic results already justify broad real-world performance claims.
 
+## Consequence for method/theory docs
+Method and theorem documents inherit this framing: they may preserve current REST as a reference object, but must not use theory language to restart REST promotion, PRISM integration, or claims against reciprocal-only without new benchmark evidence.
+
 ## Consequence for execution
 The next good slices are:
 1. preserve the PIVOT, archived DOG×PRISM STOP_OR_REFINE, robustness, and adversarial evidence,

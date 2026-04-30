@@ -1,7 +1,12 @@
 # REST_METHOD_NOTE
 
+## 2026-04-30 status
+This note is retained as the formal specification of the current REST reference implementation. It is **not** a continuation claim after the locked PIVOT, reciprocal-only robustness sweep, adversarial search, and PRISM↔DOG stand-down.
+
+Use this note together with `docs/project-plan/RECIPROCAL_ONLY_CHARACTERIZATION_AND_SCOPE_DEMOTION_2026-04-30.md`: reciprocal-only is now the hard baseline and current evidence-supported center of gravity; current REST is a reference/comparison architecture unless a genuinely new DOG-local variant beats reciprocal-only.
+
 ## Purpose
-This note gives the first formal specification of **REST** (Reciprocal–Exponential Spectral Transforms) in the canonical covariance-based setting adopted by the repository. After Phase 4, the most accurate framing of this object is:
+This note gives the first formal specification of **REST** (Reciprocal–Exponential Spectral Transforms) in the canonical covariance-based setting adopted by the repository. After Phase 4 and the post-PIVOT evidence, the most accurate framing of this object is:
 
 > REST is a **streaming geometric preconditioner** in retained spectral coordinates.
 
@@ -12,7 +17,7 @@ The goal is intentionally narrow:
 3. state one modest single-step stability theorem target,
 4. provide an algorithm description aligned with that theorem target.
 
-This note does **not** claim that REST is already fully characterized, globally near-isometric, or empirically superior to existing methods. It only formalizes the initial covariance-based operator version needed for rigorous follow-up work.
+This note does **not** claim that REST is already fully characterized, globally near-isometric, empirically superior to existing methods, or superior to reciprocal-only. It only formalizes the current covariance-based reference implementation needed for comparison, theorem hygiene, and any future pre-registered DOG-local variant work.
 
 ---
 
@@ -274,7 +279,9 @@ This theorem is intentionally modest. It does **not** claim:
 - long-horizon stability under arbitrary repeated updates,
 - near-isometry,
 - angle preservation,
-- or superiority over PCA/whitening.
+- superiority over PCA/whitening,
+- superiority over reciprocal-only,
+- or a reason to continue current REST despite the post-PIVOT scorecards.
 
 It only states that, under a retained spectral gap and bounded transform laws, the one-step REST operator is stable under one-step perturbations of the local covariance operator.
 
@@ -332,7 +339,7 @@ The claimed output bound follows by the triangle inequality and boundedness assu
 ---
 
 ## Algorithm box
-### Algorithm 1. REST in retained covariance coordinates
+### Algorithm 1. Current REST reference implementation in retained covariance coordinates
 **Inputs**
 - stream `(x_t) \subset \mathbb{R}^d`
 - window length `m`
@@ -369,10 +376,11 @@ The present note leaves several things unresolved:
 - repeated-update near-isometry,
 - behavior when the retained spectral gap collapses,
 - whether the exponential lift helps more than it harms empirically,
-- comparison to concrete baselines,
+- why current REST should beat reciprocal-only in any registered regime,
+- comparison to concrete baselines beyond the completed DOG-local scorecards,
 - and whether a genuinely non-commuting ordering effect exists outside the present diagonal retained-coordinate architecture.
 
-That is acceptable for the current stage. This note is meant to produce one coherent preconditioning object, not a finished theory.
+That is acceptable for the current stage. This note is meant to preserve one coherent reference preconditioning object, not to rescue current REST as a promoted method.
 
 ---
 
@@ -384,4 +392,4 @@ The repository now has a mathematically precise preconditioning object to work w
 - a composite geometric preconditioner,
 - and a narrow first theorem target.
 
-That is enough structure for theorem refinement, implementation analysis, and further architectural work.
+That is enough structure for theorem hygiene, implementation analysis, and comparison against reciprocal-only. Further architectural work requires a separate pre-registered DOG-local variant and scorecard.

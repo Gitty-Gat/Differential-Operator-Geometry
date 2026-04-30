@@ -1,5 +1,7 @@
 # DOG×PRISM Architecture Spike Plan — 2026-04-28
 
+**2026-04-30 stand-down:** PRISM↔DOG collaboration is no longer active unless explicitly reauthorized. This artifact is preserved as historical paper/mock evidence only; do not use it as an active integration plan.
+
 ## Approval frame
 Chairman-approved bounded follow-on work. PRISM is a theorem-to-contract stress case for DOG's post-PIVOT research.
 

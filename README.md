@@ -26,9 +26,11 @@ What exists now:
 - Phase 4 empirical notes showing mixed-but-real viability under controlled drift,
 - Phase 5 reframing documents that narrow the contribution to the retained-coordinate preconditioner view,
 - a locked decision slice showing **PIVOT** for current REST because reciprocal-only matched or beat it,
-- a DOG×PRISM paper/mock stress harness showing **STOP_OR_REFINE** for current REST in simulated theorem-to-contract traces,
-- a reciprocal-only robustness sweep showing **RECIPROCAL_BASELINE_REMAINS_ENOUGH** under DOG + PRISM guardrails,
+- an archived DOG×PRISM paper/mock stress harness showing **STOP_OR_REFINE** for current REST in simulated theorem-to-contract traces,
+- a reciprocal-only robustness sweep showing **RECIPROCAL_BASELINE_REMAINS_ENOUGH** under DOG-local plus archived paper/mock guardrails,
 - an adversarial search showing **FAILURES_FOUND_NO_DOG_RESCUE** for current REST/whitening/no-transform,
+- a 2026-04-30 stand-down note ending PRISM↔DOG as an active collaboration target,
+- a reciprocal-only characterization / REST scope-demotion note,
 - repo control docs (`PROJECT_STATUS.md`, `ROADMAP.md`, `WORKLOG.md`, `NEXT_ACTIONS.md`) that keep future slices honest and small.
 
 What does not yet exist:
@@ -84,13 +86,15 @@ Example Phase 4 artifact:
 
 ## Planned next work
 The immediate next steps are post-PIVOT refinement steps, not REST continuation steps:
-1. use `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` before proposing any variant,
+1. use `docs/project-plan/PRISM_DOG_STANDDOWN_2026-04-30.md` and `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` before proposing any variant,
 2. keep reciprocal-only as the explicit hard baseline to beat,
 3. treat `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md` as the current robustness result,
 4. treat `docs/project-plan/RECIPROCAL_ADVERSARIAL_FAILURE_SEARCH_2026-04-28.md` as the current adversarial result,
-5. test at most one narrow mechanism-specific variant at a time against both the DOG decision slice and DOG×PRISM mock harness,
-6. update method/theorem prose only after benchmark evidence exists,
-7. stop or refine whenever reciprocal-only remains enough or PRISM contract obligations become less auditable.
+5. stop using PRISM as an active integration target unless explicitly reauthorized,
+6. use `docs/project-plan/RECIPROCAL_ONLY_CHARACTERIZATION_AND_SCOPE_DEMOTION_2026-04-30.md` as the current positioning note,
+7. test at most one narrow mechanism-specific variant at a time against DOG-local decision / robustness / adversarial harnesses,
+8. update method/theorem prose only after benchmark evidence exists,
+9. stop or refine whenever reciprocal-only remains enough or auditability becomes worse.
 
 ## Project control
 - Status: [`PROJECT_STATUS.md`](PROJECT_STATUS.md)

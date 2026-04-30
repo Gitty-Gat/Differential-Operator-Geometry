@@ -1,5 +1,7 @@
 # DOG×PRISM Contract-Gate Mock Evaluation — 2026-04-28
 
+**2026-04-30 stand-down:** PRISM↔DOG collaboration is no longer active unless explicitly reauthorized. This result is preserved as historical claim-control evidence only, not an active PRISM-serving benchmark.
+
 ## Status
 Paper/mock-only DOG-owned follow-on artifact for the approved DOG×PRISM bounded spike.
 

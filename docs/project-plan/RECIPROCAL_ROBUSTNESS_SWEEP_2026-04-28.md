@@ -1,5 +1,7 @@
 # Reciprocal-Only Robustness / Failure-Regime Sweep — 2026-04-28
 
+**2026-04-30 stand-down note:** PRISM guardrails in this historical sweep are archived evidence only. Future DOG work should not expand PRISM-specific integration gates unless explicitly reauthorized.
+
 ## Status
 Executed post-PIVOT robustness slice. Reciprocal-only is the hard baseline.
 

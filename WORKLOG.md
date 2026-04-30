@@ -1,6 +1,11 @@
 # WORKLOG
 
-_Last updated: 2026-04-28_
+_Last updated: 2026-04-30_
+
+## 2026-04-30
+- Recorded the chairman PRISM↔DOG stand-down in `docs/project-plan/PRISM_DOG_STANDDOWN_2026-04-30.md` and updated README / DECISIONS / ROADMAP / PROJECT_STATUS / NEXT_ACTIONS / post-PIVOT protocol so PRISM artifacts are preserved as archived evidence, not active integration work.
+- Redirected the active DOG path toward reciprocal-only characterization / scope demotion or one genuinely new pre-registered DOG-local variant.
+- Added `docs/project-plan/RECIPROCAL_ONLY_CHARACTERIZATION_AND_SCOPE_DEMOTION_2026-04-30.md`, centering reciprocal-only as the evidence-supported baseline and demoting current REST to reference/comparison status.
 
 ## 2026-04-28
 - Implemented the locked moderate-drift / spectral-gap decision-slice harness in `experiments/synthetic/run_decision_slice.py`.

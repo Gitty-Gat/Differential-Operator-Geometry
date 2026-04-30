@@ -1,5 +1,7 @@
 # Reciprocal-Only Adversarial Failure Search — 2026-04-28
 
+**2026-04-30 stand-down note:** PRISM guardrails in this historical search are archived evidence only. Future DOG work should not expand PRISM-specific integration gates unless explicitly reauthorized.
+
 ## Status
 Executed narrow adversarial search. Reciprocal-only remains the current winning baseline; this slice searches for its failures rather than trying to rescue REST.
 

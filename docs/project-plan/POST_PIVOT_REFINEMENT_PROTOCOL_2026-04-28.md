@@ -1,7 +1,7 @@
 # Post-PIVOT Refinement Protocol — 2026-04-28
 
 ## Status
-Active claim-control protocol for DOG after the locked decision-slice **PIVOT** and the DOG×PRISM paper/mock **STOP_OR_REFINE** result.
+Active DOG-local claim-control protocol for DOG after the locked decision-slice **PIVOT** and follow-on reciprocal-only robustness/adversarial results. PRISM-specific material in this file is historical after the 2026-04-30 PRISM↔DOG stand-down.
 
 This protocol is not theorem prose and is not evidence by itself. It defines what the next evidence-bearing slice must prove before DOG may revive any continuation claim for a REST-like variant.
 
@@ -9,10 +9,10 @@ This protocol is not theorem prose and is not evidence by itself. It defines wha
 - Current REST did **not** earn continuation as-is on the locked decision slice.
 - Reciprocal-only matched or beat current REST across the locked DOG regimes and ran faster.
 - In the DOG×PRISM mock trace, reciprocal-only matched current REST on contract classification and false-pass risk, ran faster, and produced a more stable representation.
-- The reciprocal-only robustness sweep found no qualified REST/whitening/no-transform failure regime under the registered DOG + PRISM guardrails.
-- The reciprocal-only adversarial search found narrow reciprocal-only downstream failures, but no current DOG method rescued them under PRISM false-pass/auditability guardrails.
+- The reciprocal-only robustness sweep found no qualified REST/whitening/no-transform failure regime under the registered scorecard.
+- The reciprocal-only adversarial search found narrow reciprocal-only downstream failures, but no current DOG method rescued them under the registered scorecard.
 - No DOG artifact currently supports the claim that REST helps PRISM.
-- PRISM remains paper/mock-only as a DOG stress target unless PRISM's theorem-to-contract obligations are independently satisfied.
+- PRISM↔DOG collaboration is stood down as of 2026-04-30 unless explicitly reauthorized; PRISM mock artifacts remain archived claim-control evidence only.
 
 ## Hard baseline rule
 For every post-PIVOT research slice, **reciprocal-only is the hard baseline to beat**.
@@ -30,7 +30,6 @@ Required comparison set:
 A permitted variant must be narrow and mechanism-specific. Acceptable examples include:
 - one non-commuting retained-coordinate modification that is still reconstructable/auditable;
 - one adaptive weighting rule with a pre-registered trigger and bounded parameter range;
-- one contract-aware projection that preserves PRISM gate fields rather than hiding them;
 - one stability-regularized update that changes the representation in a measurable way beyond reciprocal-only.
 
 Disallowed variant shapes:
@@ -38,7 +37,7 @@ Disallowed variant shapes:
 - theorem-only reframing without a runnable benchmark;
 - adding many knobs and searching until something wins;
 - using PRISM live data, credentials, or write paths;
-- compressing away PRISM contract obligations to improve a numeric score.
+- compressing away auditability-critical fields to improve a numeric score.
 
 ## Required evidence gates
 A candidate variant must pass all gates below before receiving any `CONTINUE` label.
@@ -55,29 +54,24 @@ Default materiality threshold for a small slice:
 - at least 2% relative improvement on the primary metric being claimed, or
 - a clearly documented qualitative win on a pre-registered failure case.
 
-### Gate 2 — PRISM contract preservation
-Run the DOG×PRISM paper/mock contract harness or a directly paired extension.
+### Gate 2 — Auditability / safety preservation
+Use DOG-local reconstructability, stability, and downstream checks by default. Do not run or extend PRISM-specific contract-gate work unless PRISM↔DOG collaboration is explicitly reauthorized.
 
 Minimum pass condition:
-- false-pass rate is no worse than reciprocal-only;
-- contract classification error is better than reciprocal-only if a paper/mock PRISM scorecard improvement is reported;
-- all five PRISM contract classes remain mapped and inspectable:
-  - signal eligibility;
-  - execution gating;
-  - risk throttles;
-  - monitoring invariants;
-  - artifact requirements.
+- no hidden authority surface or opaque transform is introduced;
+- reconstructability/auditability is no worse than current REST unless the loss is explicitly irrelevant to the DOG-local scored task;
+- any archived PRISM mock result may be cited only as historical evidence, not as an active integration claim.
 
 ### Gate 3 — Auditability / reconstruction guardrail
-The variant must not hide the fields that explain a contract decision.
+The variant must not hide the fields needed to explain the DOG-local scored behavior.
 
 Minimum pass condition:
-- auditability reconstruction error must be no worse than current REST unless the lost detail is explicitly irrelevant to the scored contract class;
-- no transformed representation may be treated as an authority surface for PRISM.
+- auditability reconstruction error must be no worse than current REST unless the lost detail is explicitly irrelevant to the scored task;
+- no transformed representation may be treated as an authority surface for an external system.
 
 ### Gate 4 — Claim-control review
 The result note must state one of:
-- `CONTINUE_VARIANT` — variant beats reciprocal-only and preserves PRISM obligations;
+- `CONTINUE_VARIANT` — variant beats reciprocal-only and preserves DOG-local auditability/safety obligations;
 - `REFINE_VARIANT` — variant shows a narrow signal but fails a secondary guardrail;
 - `STOP_OR_REFINE` — reciprocal-only remains enough, auditability degrades, or claims would inflate beyond evidence.
 
@@ -87,8 +81,8 @@ Every post-PIVOT variant result must include:
 - commit hash and dirty/clean status;
 - methods compared;
 - decision-slice metrics;
-- PRISM mock metrics;
-- false-pass rate;
+- archived PRISM mock metrics only if explicitly relevant/re-authorized;
+- false-pass rate only for any active contract-like mock used in the slice;
 - auditability reconstruction error;
 - runtime cost;
 - explicit claim allowed / claim not allowed section;
@@ -98,7 +92,7 @@ Every post-PIVOT variant result must include:
 - DOG currently contains an implemented retained-coordinate streaming preconditioner research line.
 - The locked post-Phase-5 decision slice produced **PIVOT** for current REST.
 - Reciprocal-only is the hard baseline for future slices.
-- DOG×PRISM work is a paper/mock stress target only.
+- DOG×PRISM work is archived paper/mock stress evidence only, not an active integration target.
 
 ## Claims not allowed now
 - Current REST is validated as superior to reciprocal-only.
@@ -111,8 +105,8 @@ Every post-PIVOT variant result must include:
 Stop or refine immediately if:
 - reciprocal-only matches or beats the variant;
 - a claimed benefit depends on theorem prose rather than benchmark evidence;
-- PRISM contract fields become less auditable;
-- false-pass risk worsens;
+- auditability-critical fields become less inspectable without a pre-registered reason;
+- false-pass risk worsens in any active contract-like mock used by the slice;
 - live/write authority or credentials are required;
 - the slice expands beyond one mechanism-specific variant.
 
@@ -120,7 +114,6 @@ Stop or refine immediately if:
 ```bash
 PYTHONPATH=src python -m unittest discover -s tests -v
 PYTHONPATH=src python experiments/synthetic/run_decision_slice.py
-PYTHONPATH=src python experiments/synthetic/run_prism_contract_mock.py
 PYTHONPATH=src python experiments/synthetic/run_reciprocal_robustness_sweep.py
 PYTHONPATH=src python experiments/synthetic/run_reciprocal_adversarial_search.py
 ```
@@ -128,5 +121,5 @@ PYTHONPATH=src python experiments/synthetic/run_reciprocal_adversarial_search.py
 If runtime is constrained, the minimum reproduction check is:
 ```bash
 PYTHONPATH=src python -m unittest discover -s tests -v
-PYTHONPATH=src python experiments/synthetic/run_prism_contract_mock.py
+PYTHONPATH=src python experiments/synthetic/run_decision_slice.py
 ```

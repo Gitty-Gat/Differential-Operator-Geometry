@@ -1,6 +1,6 @@
 # DECISIONS
 
-_Last updated: 2026-04-28_
+_Last updated: 2026-04-30_
 
 This file is the compressed decision record for the repo. It is meant to answer: what has already been decided, what remains intentionally deferred, and what should guide the next slices.
 
@@ -107,8 +107,9 @@ This file is the compressed decision record for the repo. It is meant to answer:
 **Implications:**
 - Test at most one mechanism-specific variant per slice.
 - Compare against no-transform, covariance-whitening, reciprocal-only, current REST, and the proposed variant.
-- Run both the DOG decision-slice harness and the DOG×PRISM paper/mock harness, or explicitly record why only a smaller reproduction check was feasible.
-- No DOG result may claim REST helps PRISM. At most, a future variant may claim a paper/mock contract-gate scorecard improvement if it beats reciprocal-only without worsening false-pass risk or auditability.
+- Run DOG-local decision, robustness, and adversarial harnesses before making a continuation claim.
+- Preserve the DOG×PRISM paper/mock harness as archived evidence only; do not use it as a default active gate unless PRISM↔DOG collaboration is explicitly reauthorized.
+- No DOG result may claim REST helps PRISM.
 
 ### D11 — Treat reciprocal-only robustness sweep as another stop/refine signal
 **Decision:** `docs/project-plan/RECIPROCAL_ROBUSTNESS_SWEEP_2026-04-28.md` is the current robustness evidence. Reciprocal-only remains enough under the registered sweep rule.
@@ -130,6 +131,26 @@ This file is the compressed decision record for the repo. It is meant to answer:
 - Use the found failure cases only as baseline characterization unless a genuinely new, pre-registered variant is introduced.
 - If no new variant is clearly motivated, the evidence-supported path is stopping/refocusing or scope demotion around reciprocal-only.
 
+### D13 — Stand down PRISM↔DOG collaboration
+**Decision:** As of 2026-04-30, PRISM↔DOG collaboration is stood down. DOG preserves prior paper/mock artifacts but should not spend further cycles on PRISM integration, PRISM theorem-to-contract service work, or PRISM-specific guardrail expansion unless explicitly reauthorized.
+
+**Why:** Chairman directive: PRISM↔DOG is not a good fit for either team at the moment. Existing artifacts are useful for claim control, but continued integration work would distract from DOG's current evidence-supported path.
+
+**Implications:**
+- Keep `docs/project-plan/PRISM_DOG_STANDDOWN_2026-04-30.md` in the read-first control layer.
+- Archive, do not extend, `DOG_PRISM_*` and `run_prism_contract_mock.py` work.
+- Future DOG slices should prioritize reciprocal-only characterization, scope demotion, or one genuinely new pre-registered variant using DOG-local harnesses.
+
+### D14 — Center reciprocal-only and demote current REST scope
+**Decision:** `docs/project-plan/RECIPROCAL_ONLY_CHARACTERIZATION_AND_SCOPE_DEMOTION_2026-04-30.md` is the active positioning note. Reciprocal-only is the current evidence-supported center of gravity; current REST remains a reference implementation and comparison method, not a promoted method.
+
+**Why:** The locked decision slice, robustness sweep, and adversarial search all failed to produce a qualified current-REST rescue. Reciprocal-only failures exist, but current REST does not solve them.
+
+**Implications:**
+- Method/theory prose should be tightened around scope demotion before any broader claim work.
+- New architecture work requires one pre-registered DOG-local mechanism and scorecard.
+- Do not re-litigate current REST versus reciprocal-only without a genuinely new variant.
+
 ## What would justify reopening these decisions
 Revisit the current decisions only if one of the following happens:
 - theorem tightening materially changes what can be honestly claimed,
@@ -140,11 +161,13 @@ Revisit the current decisions only if one of the following happens:
 ## Present operating rule
 During the post-PIVOT refinement phase, the repo should behave as follows:
 1. preserve the PIVOT evidence from the locked decision slice,
-2. preserve the DOG×PRISM STOP_OR_REFINE mock evidence,
-3. preserve the reciprocal-only robustness sweep result,
-4. preserve the adversarial search result,
-5. do not broaden or continue the current REST line as-is,
-6. require reciprocal-only as the hard baseline for every new slice,
-7. test at most one minimal variant against both the DOG decision harness and the PRISM mock harness,
-8. tighten theorem and method notes only after variant evidence exists,
-9. keep the control docs current and honest.
+2. preserve the DOG×PRISM STOP_OR_REFINE mock evidence as archived claim-control material,
+3. honor the PRISM↔DOG stand-down unless explicitly reauthorized,
+4. preserve the reciprocal-only robustness sweep result,
+5. preserve the adversarial search result,
+6. do not broaden or continue the current REST line as-is,
+7. require reciprocal-only as the hard baseline for every new slice,
+8. use the reciprocal-only characterization / scope-demotion note as the default positioning,
+9. test at most one minimal variant against DOG-local decision / robustness / adversarial harnesses,
+10. tighten theorem and method notes only after variant evidence exists,
+11. keep the control docs current and honest.

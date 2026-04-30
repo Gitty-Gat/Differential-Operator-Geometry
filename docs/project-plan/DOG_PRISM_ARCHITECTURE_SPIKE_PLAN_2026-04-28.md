@@ -2,8 +2,8 @@
 
 **2026-04-30 stand-down:** PRISM↔DOG collaboration is no longer active unless explicitly reauthorized. This artifact is preserved as historical paper/mock evidence only; do not use it as an active integration plan.
 
-## Approval frame
-Chairman-approved bounded follow-on work. PRISM is a theorem-to-contract stress case for DOG's post-PIVOT research.
+## Archived approval frame
+This was chairman-approved bounded follow-on work on 2026-04-28. As of 2026-04-30 it is archived historical evidence, not an active plan. PRISM is no longer a DOG integration target unless explicitly reauthorized.
 
 This DOG companion artifact mirrors the PRISM-side plan name and scope. It is **paper/mock-only**. It does **not** validate DOG for PRISM live use, does **not** widen PRISM live/write authority, does **not** introduce credentials, and does **not** add or authorize any alternate write path.
 
@@ -20,7 +20,7 @@ PRISM-side governing artifacts:
 PRISM gate status as of inspection:
 - theorem-to-contract gate is `DEFINED / PAPER-MOCK SPIKE PLANNED / NOT YET SATISFIED`;
 - stale historical packets have been demoted below the active truth layer;
-- DOG/PRISM work may proceed only in exploratory paper/mock mode unless all five PRISM contract classes are concretely mapped and verified;
+- DOG/PRISM work is now stood down unless explicitly reauthorized;
 - no live/write authority is widened.
 
 ## DOG baseline context
@@ -32,10 +32,10 @@ DOG's locked decision slice is the baseline context for this spike:
 
 DOG must not present current REST as validated. The completed DOG benchmark showed reciprocal-only matched or beat current REST across the locked scorecard regimes and was faster.
 
-## Objective
-Stress-test whether DOG-style representations preserve or improve simulated PRISM theorem-to-contract trace quality without obscuring PRISM's operational obligations.
+## Historical objective
+This spike stress-tested whether DOG-style representations preserve or improve simulated PRISM theorem-to-contract trace quality without obscuring PRISM's operational obligations.
 
-The research question is not "should PRISM use DOG live?" The research question is:
+The research question was not "should PRISM use DOG live?" The historical research question was:
 
 > Can a DOG-side representation/architecture change improve simulated PRISM contract-gate trace quality without hiding signal eligibility, execution gating, risk, monitoring, or artifact-lineage obligations?
 
@@ -122,8 +122,8 @@ Stop immediately if:
 - the work starts making production-readiness claims.
 
 ## Current DOG-side status
-`PLAN_DEFINED / PAPER_MOCK_HARNESS_ADDED / MOCK_RESULT_STOP_OR_REFINE / NOT_LIVE_VALIDATED`.
+`ARCHIVED_STANDDOWN / PAPER_MOCK_HARNESS_ADDED / MOCK_RESULT_STOP_OR_REFINE / NOT_LIVE_VALIDATED`.
 
-The companion plan and mock harness are intended to produce bounded evidence only. Current REST remains unvalidated for PRISM live use.
+The companion plan and mock harness produced bounded historical evidence only. Current REST remains unvalidated for PRISM live use, and PRISM↔DOG collaboration is stood down unless explicitly reauthorized.
 
-Post-PIVOT claim control is governed by DOG `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`: reciprocal-only is the hard baseline, and no DOG variant may claim REST helps PRISM. At most, a future variant may report a paper/mock contract-gate scorecard improvement if it beats reciprocal-only without worsening false-pass risk or auditability.
+Post-PIVOT claim control is governed by DOG `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` and `docs/project-plan/PRISM_DOG_STANDDOWN_2026-04-30.md`: reciprocal-only is the hard baseline, no DOG variant may claim REST helps PRISM, and no future PRISM scorecard work should be added by default.

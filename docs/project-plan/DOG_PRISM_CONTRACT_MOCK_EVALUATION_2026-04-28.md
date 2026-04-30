@@ -3,7 +3,7 @@
 **2026-04-30 stand-down:** PRISM↔DOG collaboration is no longer active unless explicitly reauthorized. This result is preserved as historical claim-control evidence only, not an active PRISM-serving benchmark.
 
 ## Status
-Paper/mock-only DOG-owned follow-on artifact for the approved DOG×PRISM bounded spike.
+Archived paper/mock-only DOG-owned follow-on artifact for the approved 2026-04-28 DOG×PRISM bounded spike. As of 2026-04-30, PRISM↔DOG collaboration is stood down unless explicitly reauthorized.
 
 ## Authority boundary
 No live credentials, no production reads/writes, no order placement, no new PRISM write path, and no claim that current REST is validated for PRISM live use.
@@ -48,12 +48,12 @@ Paper/mock trace evidence does not justify promoting current REST: reciprocal-on
 - transforms obscure contract fields: `false`
 - live/write access required: `false`
 
-## Post-PIVOT claim control
+## Post-PIVOT / stand-down claim control
 - Current REST status: reference implementation, not PRISM validation.
-- Hard baseline for next slices: reciprocal-only.
-- Protocol: `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md`.
+- Hard baseline for DOG-local slices: reciprocal-only.
+- Protocols: `docs/project-plan/POST_PIVOT_REFINEMENT_PROTOCOL_2026-04-28.md` and `docs/project-plan/PRISM_DOG_STANDDOWN_2026-04-30.md`.
 - No claim that REST helps PRISM.
-- A future variant may only report a paper/mock contract-gate scorecard improvement if it beats reciprocal-only without worsening false-pass risk or auditability.
+- Future PRISM paper/mock scorecard work should not be added unless PRISM↔DOG collaboration is explicitly reauthorized.
 
 ## Verification command
 ```bash

@@ -1,6 +1,9 @@
 # WORKLOG
 
-_Last updated: 2026-04-30_
+_Last updated: 2026-05-02_
+
+## 2026-05-02
+- Ran a DOG-local claim-control audit after the PRISM↔DOG stand-down and reciprocal-only scope demotion. Added `docs/project-plan/CLAIM_CONTROL_AUDIT_2026-05-02.md`; result: no active claim-control violation found. Remaining PRISM / near-isometry / universal-geometry / ordering-sensitive references are archived pointers, explicit non-claims, historical context, or risk warnings.
 
 ## 2026-04-30
 - Recorded the chairman PRISM↔DOG stand-down in `docs/project-plan/PRISM_DOG_STANDDOWN_2026-04-30.md` and updated README / DECISIONS / ROADMAP / PROJECT_STATUS / NEXT_ACTIONS / post-PIVOT protocol so PRISM artifacts are preserved as archived evidence, not active integration work.
